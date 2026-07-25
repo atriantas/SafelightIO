@@ -93,9 +93,8 @@ nav{
   border-bottom:1px solid var(--line);
 }
 nav .wrap{display:flex; align-items:center; justify-content:space-between; padding-top:18px; padding-bottom:18px;}
-.brand{display:flex; flex-direction:column; line-height:1.1;}
-.brand .b1{font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.18em; color:var(--meter);}
-.brand .b2{font-family:'Fraunces',serif; font-size:19px; font-weight:600; color:var(--paper); margin-top:2px;}
+.brand{display:flex; align-items:center;}
+.brand img{height:38px; width:auto; display:block;}
 .navlinks{display:flex; align-items:center; gap:34px;}
 .navlinks a{
   font-size:14.5px; text-decoration:none; color:var(--paper-dim);
@@ -335,8 +334,7 @@ footer{padding:48px 0 40px;}
 <nav>
   <div class="wrap">
     <div class="brand">
-      <span class="b1">CYANOWOOD</span>
-      <span class="b2">Darkroom Meter</span>
+      <a href="#"><img src="HeaderLogo.png" alt="Cyanowood Darkroom Meter"></a>
     </div>
     <div class="navlinks">
       <a href="#features">Features</a>

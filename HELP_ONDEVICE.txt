@@ -1,0 +1,1035 @@
+DARKROOM EXPOSURE METER -- ON-DEVICE HELP
+
+Tabs: Exposure / Contrast / Split Grade / Virtual Proof /
+      Filter Editor.
+Settings: paper, filter brand, sensor, calibration,
+      brightness, power.
+
+
+=== FIRST-TIME SETUP - READ THIS FIRST ===
+
+Welcome! This device is a light meter for your darkroom
+enlarger. It reads the brightness of the projected image
+on your easel and tells you exactly how many seconds to
+expose your photographic paper. It can also recommend
+which contrast filter to use, and even show you a
+preview of what the print will look like.
+
+But before it can do any of that, it needs to LEARN two
+things about YOUR darkroom:
+
+  THING 1 - PAPER CALIBRATION (required, 15 minutes)
+    The meter needs to know how sensitive your specific
+    paper is, with your enlarger. You teach it this 
+    by making ONE test print and entering the numbers. 
+    Do this once per paper type.
+    See "Calibrate a New Paper" below.
+
+  THING 2 - SENSOR SETUP (recommended, 5 minutes)
+    Run Sensor Offset Calibration (in total darkness)
+    and Sensor Light Calibration (under moderate
+    enlarger light). These ensure the readings are
+    accurate on your specific device. See "Settings"
+    tab, under Sensor Offset / Sensor Light.
+
+HOW THE METER THINKS (the philosophy in one paragraph)
+  The meter's core idea is simple: lux × constant =
+  seconds. You measure the light on the easel in lux
+  (with the sensor). The "constant" is a number unique
+  to your paper + darkroom setup — you find it once by
+  making a test print. After that, any new lux reading
+  instantly gives you the right exposure time. Contrast
+  filters, zone measurements, and everything else are
+  layers built on top of this one relationship.
+
+  Think of calibration as introducing your meter to
+  your paper: "When I give you 2.5 lux of light on
+  Ilford Cooltone paper, what exposure time do you
+  need?" The test print answers that question. From
+  then on, the meter can answer it for any lux value.
+
+WHAT YOU NEED BEFORE YOU START
+  - Your enlarger set up and focused at your working
+    height and aperture (e.g. f/8 or f/11).
+  - A negative in the carrier. Ideally a flat, evenly
+    lit mid-tone scene (a grey card, a plain wall, or
+    an evenly exposed frame of clear sky). Avoid
+    negatives with strong contrast for calibration.
+  - One sheet of the paper you want to calibrate.
+  - Your normal developing trays/tanks, chemicals, and
+    timer ready.
+  - The darkroom safelight off, enlarger ready to use.
+
+CALIBRATION VS FILTER FACTORS - WHAT'S THE DIFFERENCE?
+  Calibration sets the base sensitivity ("how fast is
+  this paper?"). Filter factors describe how much
+  EXTRA time each contrast filter adds. You MUST
+  calibrate before the meter can work at all. You
+  SHOULD measure your real filter factors for best
+  accuracy, but you can start with the built-in
+  FOMA and Ilford manufacturer values and refine
+  later.
+
+=== SETTINGS ===
+Brightness slider
+  LCD backlight, 1 - 100. The lowest step keeps the
+  panel just lit.
+
+Battery Bar
+  Red bar in the corner, updates regularly. States:
+    Discharging:  red percentage bar (load-sag
+      compensated)
+    Charging:     orange "Charging..." label (USB
+      plugged in)
+    Full:         green "Fully charged" label
+    No battery:   grey, empty bar
+  Auto-dormant: at 10% the device sleeps to protect
+  the LiPo from over-discharge.
+
+Paper Brand / Paper Type
+  Pick the emulsion you are printing on. Used by every
+  tab. Switching paper reloads its calibration and
+  trims.
+
+Filter Brand dropdown
+  Which contrast-filter system is in your enlarger
+  head. Options: Ilford Multigrade (00-5), FOMA
+  Variant (Y/M), AGFA, KODAK, DURST, MEOPTA.
+  CROSS-BRAND COMPATIBLE: you can use Ilford filters
+  on FOMA paper, FOMA filters on Ilford paper, or dial
+  in a colour head with any paper. Filter data from
+  manufacturer datasheets. You can use the guide
+  at Start tab to edit the ISO R and Lengthening Factor
+  of each filter on every paper.
+
+Calibration Lux / Calibration Time
+  The lux you measured during a test print, and the
+  seconds that produced the correct print at that lux.
+  Together they set this paper's calibration. Stored
+  1.5 s after the last edit. See "Calibrate a new
+  paper" below.
+
+Calibration Constant
+  Derived from the two boxes above. Larger = darker
+  paper or smaller aperture. Per-paper number stored.
+
+Sensor Gain
+  LOW (1x) / MED (25x) / HIGH (428x) / MAX (9876x).
+  Default MED. Drop one step if a reading saturates;
+  only raise for very dim scenes (small apertures, deep
+  shadows). High gain adds noise to readings.
+
+Integration Time
+  100 - 600 ms per reading. Default 200 ms. Longer =
+  less noise but slower. Lower (100 ms) speeds up
+  Virtual Proof scans.
+
+Sample count
+  1 - 16 readings averaged per Measure press. Default
+  5. Raise for very low light or to even out lamp
+  flicker.
+
+Sensor Offset Calibration / Clear Offset
+  Dark-current baseline noise calibration. Sensor must be
+  in real darkroom printing conditions, TOTAL DARKNESS 
+  when you press it (sensor open on easel, head off,
+  lights and safelight off). Takes a few seconds.
+  Persisted automatically.
+  Do once, redo only if drift suspected.
+
+Sensor Light Calibration / Clear Light Cal
+  Sensor must be under a STEADY, MODERATE light
+  (bright enough for MED, not so bright MED saturates).
+  Walks all four sensor gain stages so readings agree
+  across sensor gains. Takes several seconds.
+
+
+=== EXPOSURE TAB ===
+What it does: tells you how many seconds to expose this
+paper, given the lux reading at the easel. You  can use 
+this tool with fixed and variant grade papers.
+Always take readings without contrast filter.
+
+Measure
+  Take an averaged lux reading right now.
+
+Lux Number
+  The most recent lux reading.
+
+Zone dropdown (0 - X, default Zone V)
+  Tells the meter which Zone System zone you are
+  actually measuring. The reading is automatically
+  scaled to its Zone V equivalent:
+    zone_v_lux = measured_lux x 2^(5 - zone)
+  Use this to meter shadows (Zone III), highlights
+  (Zone VII), or any other tone - the calibration
+  (done at Zone V) stays valid. With this feature 
+  you can measure a cloud, select Zone VII and you 
+  will get the exposure time to achieve Zone VII 
+  at the cloud. See the user manual
+  for a zone-to-subject lookup table.
+
+Exposure Time
+  The final number, in seconds. While anything is
+  missing the label tells you what to do:
+   "calibrate"   - this paper has no calibration yet
+   "measure lux" - calibrated, but no reading yet
+
+Filter Grade Transform dropdown
+  Transform the exposure time with the lengthening
+  factor of the selected contrast filter. "No filter"
+  leaves the time unchanged.
+
+F-Stop Transform slider (-9 .. +9, 1/3 stop per step)
+  Push or pull the time in 1/3-stop increments. Right
+  = more exposure (darker print). Left = less. Full
+  range is +/- 3 stops.
+
+
+=== CONTRAST TAB ===
+What it does: spotmeter highlight + spotmeter shadow ->
+recommends a single contrast grade and one exposure
+time that hits both ends. You  can use this tool
+with fixed and variant grade papers.
+Always measure without contrast filter.
+
+Measure Highlight / Measure Shadow
+  Average-read the easel for that zone. Until both
+  readings exist, the result labels show -- and the
+  suggested-time label tells you which is missing.
+
+Highlight Lux / Shadow Lux
+  The two lux readings.
+
+Delta EV Display
+  The negative's contrast range, in stops. 3 stops =
+  moderate. 5 stops = extreme.
+
+Recommended Grade
+  The contrast grade the meter recommends for this
+  negative on the selected paper.
+
+Match Quality
+  How well that grade fits: Exact / Close / Acceptable
+  / Approximate. "Acceptable" or "Approximate" means
+  the negative isn't a great fit for any single grade
+  -- consider Split Grade.
+
+Analysis Reasoning
+  One-line explanation. Warnings here flag a negative
+  that exceeds the paper's range (too contrasty or too
+  flat).
+
+Suggested Exposure Time
+  Single midpoint exposure time, in seconds, including
+  the recommended grade's filter factor. Long exposures
+  get automatic reciprocity-failure correction.
+  The Exposure Note tells you when it was applied.
+
+Midpoint Lux
+  The "true midtone" brightness implied by your two
+  readings.
+
+Meter Calibration Value
+  Effective calibration after the Overall-Offset slider.
+
+Exposure Note
+  Whether long-exposure reciprocity correction was
+  applied and how much it added.
+
+Overall Offset slider (+/- 1.5 stops)
+  Push/pull the whole time without changing grade.
+
+Contrast Bias slider (+/- 1.5 stops)
+  Bias grade selection. Positive = harder grade.
+
+Highlight Trim / Shadow Trim sliders (+/- 1.5 stops
+each)
+  Treat that zone as if it received more (+) or less
+  (-) exposure on the negative. Affects both contrast
+  grade and time in order to have the perfect exposure
+  on shadows and highlights.
+
+Reset button
+  Zero all four sliders for the current paper.
+
+The four sliders persist PER PAPER.
+Each slider step is 1/6 stop.
+
+
+=== SPLIT GRADE TAB ===
+What it does: two readings (highlight/shadow) -> two
+filter changes during the exposure -> a print that holds
+both ends. Use this when the Contrast tab says "exceeds
+paper range". You can only use this tool with variant
+grade papers. Always measure without contrast filter.
+Long total times get automatic reciprocity correction
+
+Measure Highlight / Measure Shadow
+  Average-read the easel for that zone. Until both
+  readings exist, the result labels show -- and the
+  suggested-time label tells you which is missing.
+
+Delta EV
+  Negative's contrast range, in stops.
+
+Equivalent Grade
+  The single contrast grade that would have produced
+  the same midtone if the negative fit on one grade.
+  Reference only.
+
+Analysis Reasoning
+  The split, expressed as a percentage (e.g. "65% 00 /
+  35% 5"), plus any trim, reciprocity, or out-of-range
+  note.
+
+Soft Filter Name / Soft Time
+  Which soft filter to drop in, and for how many
+  seconds.
+
+Hard Filter Name / Hard Time
+  Which hard filter to drop in, and for how many
+  seconds.
+
+Total Time
+  Soft + Hard. The total bulb-on time the print sees.
+
+Meter Calibration Value
+  Effective calibration after Overall Offset.
+
+Overall Offset slider (+/- 1.5 stops)
+  Push/pull total time, soft/hard ratio unchanged.
+
+Contrast Bias slider (+/- 1.5 stops)
+  Shifts the soft/hard split. Positive = more hard
+  filter time.
+
+Soft Trim slider (+/- 1.5 stops)
+  Push/pull the soft leg only. More + = more shadow
+  detail.
+
+Hard Trim slider (+/- 1.5 stops)
+  Push/pull the hard leg only. More + = harder
+  highlights.
+
+Reset button
+  Zero all four split sliders for the current paper.
+
+These four sliders persist PER PAPER, separate from the
+Contrast-tab trims.
+
+Tip: if one leg dwarfs the other, the negative is
+outside the paper's contrast range. Pre-flash, dodge,
+or change paper.
+
+
+=== VIRTUAL PROOF TAB ===
+What it does: sweep the easel and the device paints a
+grayscale preview of how the print will look on this
+paper at this grade -- before you commit a sheet.
+Always measure without contrast filter. Lower the
+Integration Time and Sample count in Settings for
+faster scans.
+
+Grid Width / Grid Height
+  Cells across x down. 2..40 x 2..30. More cells =
+  finer preview, longer to scan. Changing size WIPES
+  the grid.
+
+Proof Grid (the canvas)
+  One block per cell, painted with the predicted gray.
+  Cell frame colours:
+    amber      - next cell to read (cursor)
+    red        - your tap (selection)
+    cyan       - Zone V reference
+    light gray - highlight clipping
+    dark gray  - shadow clipping
+    no frame   - ordinary measured cell
+
+Measure Next Cell button
+  Read one cell, advance the cursor. When Stability
+  Enabled is ON, this button becomes Start/Stop Scan
+  and the device walks the grid for you. Auto readings
+  follow a snake (slalom) pattern.
+
+Set Zone V Reference button
+  Use the selected (red-framed) cell as the middle-gray
+  anchor. Every other cell is re-derived against it.
+
+Clear Grid button
+  Erase all samples, the selection, and the reference.
+
+Stability Enabled switch
+  Turn on auto-settle detection so the scan records
+  each cell only when its reading has stopped changing.
+
+Stability Tolerance (%)
+  Two consecutive reads must agree within this
+  percentage to count as stable.
+
+Stability Min Delta (lux)
+  Floor on Tolerance for very dim cells.
+
+Stability Min Stable
+  Consecutive stable reads required before recording.
+
+Stability Max Wait (ms)
+  After this long without settling, record anyway.
+  Keeps the scan from stalling.
+
+Filter Grade dropdown
+  The grade the preview is rendered for. Changing it
+  re-renders every cell.
+
+Histogram (proofHistogram)
+  10 Zone distribution of the predicted print tones.
+
+Selected-sample readouts (Lux / Zone / ISO R / EV Range /
+Density / Exposure / Clipping)
+  Detail for the red-framed cell. With NO cell selected
+  the Clipping slot turns into a global verdict:
+    "Negative too contrasty"
+    "Negative too flat"
+    "Clipping: --"
+  Use this to decide if the negative fits the paper.
+
+Cells are walked in a snake order (left->right, then
+right->left on the next row) so the sensor doesn't have
+to jump back. When a full scan completes, Zone V is set
+automatically to the average-brightness cell.
+
+
+=== FILTER EDITOR TAB ===
+What it does: override the built-in filter factors, ISO
+R values, and paper base speed (ISO P) for any paper +
+grade combination. All edits persist to flash and
+survive power cycles. Every other tab uses the effective
+(overridden) values in its calculations. You  can use 
+this tool with fixed and variant grade papers.
+
+Filter Grade dropdown
+  Pick the grade to edit. Populated from the current
+  paper + filter brand combination.
+
+Current factor / Current ISO R labels
+  The EFFECTIVE values used by all tabs. Shows your
+  override if one exists, else the built-in default.
+
+Default Factor / Default ISO R labels
+  The BUILT-IN factory values for reference.
+
+Factor spinbox
+  Edit the filter's exposure multiplier (e.g. 2.08).
+  Two decimal places. Set to 1.00 to skip the filter
+  factor entirely.
+
+ISO R spinbox
+  Edit the contrast range this grade produces. Higher
+  ISO R = softer contrast. Affects grade matching in
+  the Contrast and Split Grade tabs.
+
+ISO P spinbox
+  The paper's base unfiltered speed (default 500 for
+  Ilford MG). Per-paper setting (not per-grade). Higher
+  ISO P = shorter times; lower = longer.
+
+Reset to defaults button
+  Clear ALL overrides for the current paper and restore
+  the built-in database values.
+
+Base ISO P label
+  Shows current effective ISO P for the paper.
+
+--- Advanced calibration tools (bottom of tab) ---
+
+Set as Ref button
+  Snapshots the current paper's calibration (lux +
+  time + ISO P) as a reference template for
+  cross-paper estimation.
+
+Est. Cal from ISO P button
+  Estimates a calibration for the current paper from
+  the reference snapshot, scaled by ISO P speed ratio.
+
+Auto Estimate All button
+  Bulk-estimates calibration for EVERY paper that
+  isn't already calibrated, using the reference
+  snapshot. Already-calibrated papers are skipped.
+
+Clear All Calibrations button
+  WARNING: Irreversibly wipes all paper calibrations.
+  No confirmation dialog. Use with care.
+
+When to use the Filter Editor:
+  - Old/faded filters whose real factor differs from
+    the datasheet specification
+  - Tuning paper speed for your developer / temperature
+  - Dialling in a new paper not in the built-in
+    database (start from a similar paper's values)
+  - Cross-brand filter fine-tuning
+
+--- Fixed-grade papers ---
+
+FOMA FOMASPEED Normal is a fixed-grade paper [FG].
+For [FG] papers:
+  - Factor and ISO R spinboxes are disabled (greyed)
+  - Contrast tab shows "Fixed grade", trims ignored
+  - Split Grade tab is not applicable
+  - Only ISO P can be adjusted
+
+
+=== BACKLIGHT & SENSOR ===
+
+Backlight dimming during readings
+  The LCD backlight dims to 10% automatically during
+  every Measure press (all tabs) to prevent LCD light
+  from contaminating the sensor. It restores afterward.
+  No setting to disable -- always active. Screen may
+  flicker briefly, especially during long sample
+  sequences.
+
+=== DEVICE POWER AND CHARGING ===
+- Press the Power Button at the top right corner
+  to power on the device by battery.
+- Plug a USB-C cable at the left side of the device
+  to power on the device with external power.
+- Plug a USB-C cable at the left side of the device
+  while the device is powered on to charge the battery.
+
+=== CALIBRATE A NEW PAPER ===
+
+WHY CALIBRATE?
+  Every combination of paper, enlarger bulb 
+  and chemicals has a different brightness.
+  The meter cannot guess yours - you must measure it
+  once. Calibration tells the meter: "On THIS paper,
+  in THIS enlarger, X lux of light needs Y seconds 
+  of exposure to produce a correct mid-tone.
+  " Without calibration the meter has no reference 
+  point - it's like a clock that doesn't know what 
+  time it is.
+
+WHEN TO CALIBRATE
+  - Once for every new paper type you use.
+  - Again if you change your enlarger bulb.
+  - Again if you switch to a different developer or
+    change your development time/temperature.
+  - If your prints are consistently too dark or too
+    light and you've ruled out other causes.
+
+WHAT YOU ARE MAKING: a test print that answers one
+specific question - "how many seconds does THIS paper
+need, to turn a known amount of light into a perfect 
+mid-tone?"
+
+DETAILED STEP-BY-STEP
+
+Step 0 - Prepare the device
+  In the Settings panel (visible alongside every tab),
+  select your Paper Brand and Paper Type. Also select
+  the Filter Brand you use in your enlarger head.
+  Set Sensor Gain to MED (good for most setups).
+  Set Integration Time to 200 ms, Sample Count to 5.
+
+Step 1 - Set up the enlarger EXACTLY as you will print
+  Insert the negative you will use for calibration
+  (see "Choosing a calibration negative" below).
+  Set your working lens aperture (e.g. f/8).
+  Focus sharply on the easel.
+  Set the head height for your typical print size.
+
+Step 2 - Remove ALL contrast filters
+  Take every filter out of the light path. No grade 00,
+  no grade 5, no colour-head filtration. The enlarger
+  must project plain white light. Every reading the
+  meter takes must be made WITHOUT a contrast filter.
+  The meter applies filter factors mathematically
+  later - if you calibrate WITH a filter in, all your
+  times will be wrong.
+
+Step 3 - Measure the light on the easel
+  Place the light sensor flat on the easel, exactly
+  where the middle-gray part of the image falls.
+  Press the Measure button on the Exposure tab.
+  The Lux Number updates. Wait for it to stabilize.
+  Note this number. Example: you read 2.50 lux.
+  Don't move the enlarger or change any settings
+  after this step.
+
+Step 4 - Make a test strip
+  Take a fresh sheet of your chosen paper. Place it on
+  the easel. Make a test strip: expose the whole sheet
+  for, say, 4 seconds, then cover 1/5 of it with
+  opaque card, expose another 4 seconds, cover another
+  1/5, and so on. You now have five strips at 4, 8,
+  12, 16, and 20 seconds.
+
+Step 5 - Develop the test strip normally
+  Develop, stop, fix, and wash exactly as you always
+  do. Don't change your development time or
+  temperature for this test - use your standard
+  process. The whole point is to calibrate for how
+  you REALLY work.
+
+Step 6 - Pick the correct strip
+  After fixing, examine the strip under good light
+  (turn the room lights on). Find the segment where
+  the mid-tone looks RIGHT - not too dark, not too
+  light, a proper middle gray that matches what you
+  saw on the negative or what you want in a print.
+  Note the exposure time for that segment.
+  Example: the 12-second segment looks perfect.
+
+Step 7 - Enter the numbers
+  In Settings, type your measured lux into Calibration
+  Lux (e.g. 2.50). Type the correct exposure time into
+  Calibration Time (e.g. 12.0). The Calibration
+  Constant updates automatically. It is saved to
+  permanent memory 1.5 seconds after you finish typing.
+
+Step 8 - Verify (recommended)
+  Go to the Exposure tab. With the SAME negative still
+  in the carrier and everything unchanged, press
+  Measure. The Exposure Time should match your correct
+  test strip time. If it does, calibration is good.
+
+CHOOSING A CALIBRATION NEGATIVE
+  The ideal calibration negative is:
+  - FLAT (low contrast). An evenly lit grey card,
+    a plain painted wall, or a frame of clear blue sky
+    are all good choices.
+  - MID-TONED. Not a snow scene, not a coal mine.
+    Something that should print as middle gray.
+  - Evenly illuminated across the area where you will
+    place the sensor.
+
+  AVOID for calibration:
+  - High-contrast scenes (bright window + dark room).
+  - Negatives with large shadow or highlight areas
+    where you'd place the sensor.
+  - Very thin (underexposed) or very dense
+    (overexposed) negatives.
+
+WHY NO FILTER DURING CALIBRATION?
+  Filter factors are multipliers. If you calibrate
+  with a 2× filter in place, the meter learns "X lux
+  needs Y seconds WITH a 2× filter." Later, when you
+  tell it to use a grade 3 filter, it multiplies by
+  the grade 3 factor AGAIN — and your times will be
+  off by that 2×. Always calibrate without any filter.
+
+WHAT THE CALIBRATION CONSTANT MEANS
+  The constant = Calibration Lux × Calibration Time.
+  It is the lux-seconds needed for a correct mid-tone
+  print. A larger constant means the paper is slower
+  (needs more light) or your aperture is smaller.
+
+RECALIBRATING
+  To re-calibrate (new developer, new lens, lost
+  confidence), simply overwrite the two spinboxes
+  with new values. There is no need to "clear" the
+  old calibration first.
+
+CROSS-PAPER ESTIMATION (time-saving trick)
+  Once you have calibrated ONE paper properly, you can
+  estimate calibrations for other papers without
+  making more test strips. In the Filter Editor tab:
+  1. Press "Set as Ref" on your calibrated paper.
+  2. Switch to a different paper in Settings.
+  3. Press "Est. Cal from ISO P" - the meter scales
+     the calibration by the ISO P speed ratio.
+  This is APPROXIMATE. For critical work, do a real
+  test-strip calibration on each paper.
+
+=== FILTER EXTENSION FACTOR ===
+
+WHAT IS A FILTER EXTENSION FACTOR?
+  A contrast filter works by blocking some of the
+  light. A grade 2 Ilford filter, for example, lets
+  through only about half the light compared to no
+  filter at all. The "factor" is the number you
+  multiply your unfiltered exposure time by to
+  compensate. If your unfiltered time is 10 s and the
+  filter factor is 2.0, your filtered time is 20 s.
+
+  The meter uses these factors automatically. When you
+  select a filter grade on any tab, the suggested
+  time already includes the extra exposure needed.
+
+WHY MEASURE YOUR OWN FACTORS?
+  The built-in factor values come from manufacturer
+  datasheets. They are averages measured in laboratory
+  conditions. Your darkroom is different:
+  - Your enlarger bulb has a specific colour spectrum
+    (tungsten, halogen, LED, cold-light). Filters
+    block different wavelengths differently.
+  - Bulbs age and shift colour. An old bulb may be
+    warmer (more red/yellow), changing how filters
+    behave.
+  - Lens coatings absorb some wavelengths more than
+    others.
+  - Reflector and condenser condition affect the light.
+
+  Real-world factors can differ by 10-30% from the
+  datasheet. If your filtered prints are consistently
+  slightly too light or too dark, your real filter
+  factors are likely different from the built-in ones.
+
+WHEN TO MEASURE YOUR FACTORS
+  - When you first set up the meter (for best accuracy).
+  - After changing your enlarger bulb.
+  - After cleaning the reflector or condenser.
+  - When a new lens is installed.
+  - Annually (bulb output spectrum drifts with age).
+  - Whenever filtered exposures are consistently off
+    but unfiltered exposures are correct.
+
+DO I HAVE TO DO THIS?
+  No - you can start printing immediately using the
+  built-in manufacturer factors (only FOMA and Ilford).
+  Many printers get perfectly good results with the 
+  defaults. But if you notice that prints with a filter 
+  are consistently darker or lighter than the meter
+  predicts (while unfiltered prints are fine), your
+  real filter factors differ from the defaults and
+  measuring them will fix the problem.
+
+PREREQUISITES
+  - The paper you are using MUST be calibrated first
+    (see "Calibrate a New Paper" above). Filter factor
+    measurement depends on having accurate unfiltered
+    times.
+  - You need a consistent development process. If your
+    development time or temperature varies, you cannot
+    separate filter-factor errors from development
+    errors.
+  - Do ALL measurements for a given paper in one
+    session. Don't measure grade 2 today and grade 3
+    next week - your bulb may have aged slightly.
+
+
+METHOD A — Step Wedge (MOST ACCURATE - RECOMMENDED)
+
+What you need:
+  A step wedge (also called a step tablet) is a strip
+  of film with discrete density steps, usually 21
+  steps at 0.15 density increments. It is one of the 
+  most useful darkroom tools you will ever own.
+
+How it works:
+  You make two contact prints of the step wedge — one
+  without a filter, one with. Because the wedge has
+  known density steps, you can find which step on the
+  filtered print matches the same tone as a step on
+  the unfiltered print. The ratio of exposure times
+  tells you the real filter factor.
+
+Detailed procedure:
+  1. Calibrate your paper without any filter (see
+     "Calibrate a New Paper"). You now have a reliable
+     unfiltered exposure time from the meter.
+
+  2. Place the step wedge emulsion-to-emulsion on a
+     sheet of paper. Expose at the meter's suggested
+     unfiltered time. This is your REFERENCE print.
+
+  3. Insert the filter you want to measure (e.g. grade
+     2 Ilford). Place the step wedge on a fresh sheet
+     of the SAME paper. Expose at: unfiltered_time ×
+     datasheet_factor. This is your FILTERED print.
+
+     Example: unfiltered time = 8.0 s, datasheet says
+     grade 2 factor = 2.08. So expose for 8.0 × 2.08
+     ≈ 16.6 s. Round to the nearest half second.
+
+  4. Develop BOTH prints together in the same tray,
+     for the same time, at the same temperature.
+     They must receive IDENTICAL development.
+
+  5. After fixing, examine both prints side by side
+     under good light. Find a density step on the
+     filtered print that visually matches a step on
+     the unfiltered print. If the filter factor you
+     used is correct, matching steps should have the
+     same tone. If the filtered print is overall
+     lighter, the real factor is HIGHER than the
+     datasheet value (the filter blocks more light
+     than expected). If darker, the factor is LOWER.
+
+  6. To find the exact factor, you may need to make a
+     second filtered print with an adjusted time.
+     Factor = (filtered time that produces matching
+     tones) / (unfiltered reference time).
+
+     Example: unfiltered reference = 8.0 s. You try
+     filtered at 16.6 s but it's too light. You try
+     again at 19.2 s and the tones match. Real factor
+     = 19.2 / 8.0 = 2.40. The datasheet said 2.08 —
+     your real factor is 15% higher.
+
+  7. Enter the real factor in the Filter Editor tab:
+     select the paper, select the grade from the
+     dropdown, type the factor into the Factor
+     spinbox.
+
+  8. Repeat for each grade: 00, 0, 1, 2, 3, 4, 5.
+     (Or the equivalent Y/M notations for FOMA.)
+
+
+METHOD B — Grey Card Visual Match (GOOD - NO SPECIAL
+         EQUIPMENT NEEDED)
+
+What you need:
+  A photographic grey card (18% reflectance). These
+  cost a few dollars from any photo supplier. If you
+  don't have one, a plain grey painted wall or grey
+  fabric can work, but a real grey card is better
+  because it is spectrally neutral.
+
+How it works:
+  You make unfiltered and filtered test strips of the
+  same grey card negative, then find the exposure
+  times that produce the same printed grey tone.
+
+Detailed procedure:
+  1. Calibrate your paper without any filter using the
+     grey card as your calibration negative. (Follow
+     "Calibrate a New Paper" above, using the grey
+     card negative.) The meter now knows the correct
+     unfiltered time for a middle grey on this paper.
+
+  2. Make a test strip WITHOUT any filter at the
+     meter's suggested unfiltered time (the time from
+     step 1). Develop fully. Mark which segment
+     matches the grey card tone. This is your
+     REFERENCE grey tone.
+
+  3. Insert the filter you want to measure. Make
+     another test strip, bracketing around:
+     meter_suggested_unfiltered_time ×
+     datasheet_filter_factor.
+
+     Example: unfiltered time = 8.0 s. Datasheet
+     grade 3 factor = 2.50. Bracket at: 16, 18, 20,
+     22, 24 seconds (centered around 20 s).
+
+  4. Develop the filtered test strip identically to
+     the unfiltered one.
+
+  5. Compare the two strips side by side. Find the
+     segment on the filtered strip whose grey tone
+     visually matches the reference grey from step 2.
+
+  6. Real factor = matched_filtered_time /
+     unfiltered_reference_time.
+
+     Example: unfiltered reference segment = 8.0 s.
+     The 22 s segment on the filtered strip matches.
+     Real factor = 22.0 / 8.0 = 2.75. Datasheet said
+     2.50 - real factor is 10% higher.
+
+  7. Enter the real factor in the Filter Editor tab.
+
+  8. Repeat for each grade.
+
+
+METHOD C - Densitometer (ACCURATE — REQUIRES A
+         DENSITOMETER)
+
+What you need:
+  A photographic densitometer (transmission or
+  reflection). If you don't own one, some community
+  darkrooms and schools have them. You can also use a
+  flatbed scanner with calibration software as a
+  poor-man's densitometer.
+
+How it works:
+  The density difference between two prints tells you
+  the exact exposure ratio needed to match them.
+  Factor = 10 ^ (density_difference).
+
+Detailed procedure:
+  1. Print the SAME negative twice on the SAME paper:
+     once with no filter, once with the filter you
+     want to measure. Use the same exposure time for
+     BOTH (e.g. the unfiltered time suggested by the
+     meter). Develop identically.
+
+  2. Measure the reflection density of a mid-tone
+     patch on BOTH prints with the densitometer.
+     Note D_unfiltered and D_filtered.
+
+  3. Calculate delta_D = D_unfiltered - D_filtered.
+
+     Example: D_unfiltered = 0.72, D_filtered = 0.45.
+     delta_D = 0.72 - 0.45 = 0.27.
+
+  4. Factor = 10 ^ delta_D = 10 ^ 0.27 = 1.86.
+
+  5. Enter this factor in the Filter Editor tab.
+
+  6. Repeat for each grade.
+
+  Note: This method assumes both prints received the
+  same exposure time. The density difference IS the
+  filter's light-blocking effect expressed in log
+  units.
+
+
+AFTER MEASURING - ENTER THE VALUES
+  Go to the Filter Editor tab. For each grade you
+  measured:
+  1. Select the grade from the Filter Grade dropdown.
+  2. Type your measured factor into the Factor
+     spinbox.
+  3. The "Current factor" label updates to show your
+     override. The "Default Factor" label still shows
+     the built-in value for reference.
+  4. Values save to permanent memory 1.5 seconds after
+     the last edit.
+
+  You do NOT need to edit the ISO R spinbox unless
+  you have also measured the real contrast range of
+  your filters (advanced - rarely necessary).
+
+HOW FILTER FACTORS AFFECT EACH TAB
+  Exposure tab:
+    The time is multiplied by the factor of whichever
+    filter you pick in the Filter Grade Transform
+    dropdown.
+
+  Contrast tab:
+    The suggested time includes the recommended
+    filter's factor automatically.
+
+  Split Grade tab:
+    Both soft and hard times include their respective
+    filter factors.
+
+  Virtual Proof tab:
+    The preview is rendered through the paper's
+    characteristic curve as modified by the selected
+    filter grade - filter factors affect the predicted
+    densities.
+
+RECIPROCITY FAILURE AND FILTER FACTORS
+  For long exposures (above ~10 seconds), photographic
+  paper becomes less sensitive - it needs MORE light
+  than the linear formula predicts. This is called
+  reciprocity failure. The meter automatically
+  corrects for this.
+
+  Important: the reciprocity correction is applied
+  AFTER the filter factor multiplication. The
+  calculation order is:
+    1. Base time = calibration_constant / measured_lux
+    2. Filtered time = base_time × filter_factor
+    3. If filtered_time > 10 s: apply reciprocity
+       correction (lengthen the time further)
+
+  If your filter factor is wrong, TWO things go wrong:
+  the base filtered time is wrong, AND if that wrong
+  time crosses the 10-second reciprocity threshold,
+  the reciprocity correction is applied at the wrong
+  point. This is why accurate filter factors matter
+  most for long exposures.
+
+WHEN TO RE-MEASURE
+  - New enlarger bulb installed.
+  - After cleaning the reflector or condenser.
+  - New lens purchased.
+  - When filtered exposures consistently drift in one
+    direction (all too dark or all too light) but
+    unfiltered exposures are still correct.
+  - Annually - bulb colour spectrum shifts as the bulb
+    ages, and filters may fade slightly with use.
+
+=== TROUBLESHOOTING ===
+"calibrate" on Exposure Time
+  This paper has no stored calibration. See above.
+
+"measure lux" on Exposure Time
+  Calibrated, but no live reading. Press Measure.
+
+"no sensor" on any lux label
+  Sensor not responding. Check cable, reboot.
+
+"error" on a lux label
+  Sensor read failed (usually saturation). Drop the
+  gain one step (HIGH -> MED, MAX -> HIGH).
+
+Suggested time consistently 2x or 1/2x off
+  Gain factors not calibrated for this device, or
+  different aperture / head height vs calibration.
+  Run Sensor Light Calibration or recalibrate paper.
+
+Readings disagree when switching gain
+  Gain-stage factors need device-specific trimming.
+  Run Sensor Light Calibration.
+
+Contrast / Split tab full of --
+  One of the two readings is missing, or the paper
+  isn't calibrated. The label tells you which.
+
+Every highlight cell in Virtual Proof has gray frame
+  Negative range exceeds paper + filter. Pick a softer
+  grade and Recompute Preview, or use Split Grade.
+
+Backlight looks dead
+  Brightness at 1 is very dim by design. Drag right.
+
+Calibration didn't stick after power-cycle
+  Edits flush 1.5 s after the last tap. If you cut
+  power inside that window they are lost. Pause one
+  second before powering down.
+
+Filter Editor spinboxes show stale values
+  Re-select the grade from the dropdown to refresh.
+
+Filter Editor reset didn't take effect
+  The reset only affects the CURRENT paper. Switch to
+  the paper you want, then press Reset to defaults.
+
+Device won't wake from sleep
+  Button not held long enough, or battery is flat. Hold
+  >= 1 second. If unresponsive, plug in USB to charge,
+  then retry.
+
+Battery bar shows empty but device still runs
+  Voltage under load may read 0% while the cell still
+  has capacity. Auto-dormant triggers at 10% to prevent
+  over-discharge. Charge the battery.
+
+"Charging..." never goes away
+  Some chargers never reach the voltage plateau that
+  signals full. Normal. Battery is protected; unplug
+  when done printing.
+
+Screen flickers briefly during Measure
+  Normal. Backlight dims to 10% during sensor reads to
+  prevent LCD from contaminating lux readings.
+
+Filter Editor Factor / ISO R spinboxes greyed out
+  You have a fixed-grade paper selected (FOMA
+  FOMASPEED Normal). These cannot be changed.
+
+"No reference" when pressing Est. Cal from ISO P
+  Press "Set as Ref" on a calibrated paper first.
+
+"Clear All Calibrations" wiped everything
+  No confirmation dialog. Re-calibrate your main paper,
+  set as reference, then use Auto Estimate All to
+  restore approximate calibrations for others.
+
+Split Grade tab not applicable for [FG] paper
+  Fixed-grade papers have single built-in contrast.
+  Use the Contrast tab instead.
+
+Auto-dormant triggered, device is dark
+  Battery reached 10%. Plug in USB to charge, then
+  press button to wake.
+
+Sleep button (GPIO 47, on sensor header)
+  Hold for >= 1 second to sleep. Press again to wake.
+  UI restores exactly where you left it. Screen shows
+  "Sleeping" for half a second before going dark.
