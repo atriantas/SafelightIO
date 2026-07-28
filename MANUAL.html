@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Darkroom Exposure Meter &mdash; User Manual</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <span id="markdown-mermaid" aria-hidden="true" data-config="{&quot;darkModeTheme&quot;:&quot;vscode&quot;,&quot;lightModeTheme&quot;:&quot;vscode&quot;,&quot;maxTextSize&quot;:50000,&quot;clickDrag&quot;:&quot;alt&quot;,&quot;showControls&quot;:&quot;onHoverOrFocus&quot;,&quot;resizable&quot;:true,&quot;maxHeight&quot;:&quot;&quot;}"></span>
+				<small>
+<h1 id="darkroom-exposure-meter--user-manual">Darkroom Exposure Meter — User Manual</h1>
+<p>A tablet-sized companion for black-and-white enlarger printing. Point the sensor at the easel, choose the paper you’re about to print on, and the meter tells you how long to expose, which contrast grade to use, and how a tricky negative will distribute across the paper before you commit to it.</p>
+<hr>
+<h2 id="1-quick-start">1. Quick start</h2>
+<ol>
+<li>Power the device on. A splash screen appears with an inspirational photography quote and a practical darkroom tip, then the Main Screen opens with five tabs: Exposure, Contrast, Split Grade, Virtual Proof, Filter Editor, plus a Settings panel (paper, sensor, calibration, brightness).</li>
+<li>In Settings, choose <strong>Paper Brand</strong>, <strong>Paper Type</strong>, and <strong>Filter Brand</strong> (the filter system you use in your enlarger head).</li>
+<li>The first time you use a paper, do §7 Calibrating a new paper.</li>
+<li>On the Exposure tab, place the sensor where you want the midtone on the easel, press Measure, read the suggested time.</li>
+</ol>
+<hr>
+<h2 id="2-the-light-sensor">2. The light sensor</h2>
+<p>A light sensor reads the light at the easel and reports it in lux (the SI unit of illuminance — how bright a surface is). Three controls govern how each reading is taken.</p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>What it does</th>
+<th>When to change it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gain</strong> (LOW 1× / MED 25× / HIGH 428× / MAX 9876×)</td>
+<td>Amplifies the sensor signal.</td>
+<td>Default <strong>MED</strong> suits a typical enlarger at f/8–f/11. Drop to <strong>LOW</strong> if a reading pegs (saturates). Raise to <strong>HIGH/MAX</strong> for very dim scenes (small apertures, deep shadows).</td>
+</tr>
+<tr>
+<td><strong>Integration Time</strong> (100–600 ms)</td>
+<td>How long each individual reading lasts. Longer is quieter but slower.</td>
+<td>Default <strong>200 ms</strong>. Raise for noisy low-light scenes; lower (100 ms) when you want a Virtual-Proof auto-scan to fly through cells.</td>
+</tr>
+<tr>
+<td><strong>Sample count</strong> (1–16)</td>
+<td>How many readings to average each time you press <em>Measure</em>.</td>
+<td>Default <strong>5</strong>. Increase for very low light or to even out lamp flicker.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Treat the sensor like a real spotmeter — shield it from stray room light (even red safelight) and only press Measure with the enlarger lamp on.</p>
+</blockquote>
+<h3 id="21-backlight-dimming-during-readings">2.1 Backlight dimming during readings</h3>
+<p>The LCD backlight can contaminate light-sensor readings in a darkroom. Every time you press <strong>Measure</strong> (on any tab), the screen automatically dims to 10% brightness before the sensor is read, then restores to your chosen brightness afterward. This happens transparently — you may notice the screen flicker briefly, especially during long sample sequences. There is no setting to disable this; it is always active to ensure accurate lux readings.</p>
+<h3 id="22-sensor-calibration-one-time-per-device">2.2 Sensor calibration (one-time per device)</h3>
+<p>Two pairs of buttons in the Sensor panel:</p>
+<ul>
+<li><strong>Sensor Offset Calibration</strong> / <strong>Clear Offset</strong> — the dark-current baseline. The sensor captures the electrical noise floor for the current gain and integration time (24 per-gain, per-integration slots are stored). Sensor must be in <strong>real darkroom printing conditions, total darkness</strong> when you press it (sensor open on easel, head off, lights and safelight off). Takes a few seconds. Persisted automatically. Do once, redo only if drift suspected.</li>
+<li><strong>Sensor Light Calibration</strong> / <strong>Clear Light Cal</strong> — per-device gain-stage trimming. The sensor walks all four sensor gain stages under a <strong>steady, moderate light</strong> — bright enough that MED registers but not so bright MED saturates — and measures the real gain ratios so lux readings agree across sensor gains. Takes several seconds. Run once per device; re-run if readings disagree when you switch gain.</li>
+</ul>
+<p>Status messages (e.g. &quot;dark calib…&quot;, &quot;gain cal set&quot;, &quot;dark calib failed&quot;) appear on every tab's lux label simultaneously, so you don't have to be on a particular tab to see the result.</p>
+<blockquote>
+<p><strong>Tip:</strong> If you ever see readings that don't agree when you switch gain (e.g. MED says 2.00 lux but HIGH says 1.50 lux on the same scene), run Sensor Light Calibration. If readings drift upward in very low light, re-run Sensor Offset Calibration in complete darkness.</p>
+</blockquote>
+<hr>
+<h2 id="3-exposure-tab--printing-time-suggester">3. Exposure tab — printing-time suggester</h2>
+<p>The everyday tool. Once a paper is calibrated, point the sensor at the easel and the device gives you the time. You can use this tool with fixed and variant grade papers. Always take readings without contrast filter.</p>
+<h3 id="31-what-every-element-does">3.1 What every element does</h3>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Paper Brand / Paper Type</strong> dropdowns</td>
+<td>Pick the emulsion you're about to print on. The two are dependent: choosing a brand repopulates the type list.</td>
+</tr>
+<tr>
+<td><strong>Filter Brand</strong> dropdown</td>
+<td>Choose which contrast-filter system is in your enlarger head. <strong>Ilford Multigrade</strong> (grades 00–5), <strong>FOMA Variant</strong> (Y/M notation), or colour-head filters (<strong>AGFA</strong>, <strong>KODAK</strong>, <strong>DURST</strong>, <strong>MEOPTA</strong>). The meter works cross-brand — you can use Ilford filters with FOMA paper, and vice versa. The filter tables come from manufacturer datasheets.</td>
+</tr>
+<tr>
+<td><strong>Calibration Lux</strong> spinbox</td>
+<td>Lux you measured during your reference test print.</td>
+</tr>
+<tr>
+<td><strong>Calibration Time</strong> spinbox</td>
+<td>Seconds that produced the “correct” test print at that lux.</td>
+</tr>
+<tr>
+<td><strong>Calibration Constant</strong></td>
+<td>Derived from the two boxes above. This is the per-paper number the device actually stores and uses. Larger = darker paper.</td>
+</tr>
+<tr>
+<td><strong>Measure</strong> button</td>
+<td>Take an averaged lux reading right now.</td>
+</tr>
+<tr>
+<td><strong>Lux Number</strong></td>
+<td>The most recent live reading.</td>
+</tr>
+<tr>
+<td><strong>Zone dropdown</strong> (0–X)</td>
+<td>Which Zone System zone you are measuring. Default is <strong>Zone V</strong> (middle gray). Change this when you meter a shadow (Zone III) or highlight (Zone VII) instead of a midtone — the meter scales the reading to its Zone V equivalent automatically (§3.2). With this feature you can measure a cloud, select Zone VII and you will get the exposure time to achieve Zone VII at the cloud.</td>
+</tr>
+<tr>
+<td><strong>Filter Grade Transform</strong> dropdown</td>
+<td>Transform the exposure time with the lengthening factor of the selected contrast filter.</td>
+</tr>
+<tr>
+<td><strong>F-Stop Transform</strong> slider (−9 … +9)</td>
+<td>Push or pull the time in ⅓-stop increments. Right = more exposure (darker print), left = less. ±9 covers ±3 stops.</td>
+</tr>
+<tr>
+<td><strong>Exposure Time</strong></td>
+<td>The final number, in seconds. While anything is missing, this label tells you what to do (<code>calibrate</code> → no calibration yet; <code>measure lux</code> → press Measure).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-overall-logic">3.2 Overall logic</h3>
+<p>The calibration spinboxes describe one print you already know works. Internally the device boils them down to a single per-paper constant. Once that constant exists, any new lux reading from the easel translates directly into a print time. Changing the filter dropdown multiplies the time by that filter’s exposure factor; the F-Stop slider applies an additional ⅓-stop push/pull on top.
+Calibration is stored per paper — switch paper and the meter instantly reloads the calibration for that emulsion. Edits to the spinboxes are written to flash about 1.5 s after you stop tapping, so rapid +/- presses coalesce into one save.</p>
+<h4 id="zone-correction--measuring-any-tone">Zone correction — measuring any tone</h4>
+<p>The <strong>Zone dropdown</strong> lets you meter any tonal area — not just midtones. The classic exposure formula assumes you are measuring a Zone V (middle gray) tone. When you meter something else (a shadow, a highlight, a black shirt), pick its zone from the dropdown and the meter does the rest.</p>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>Example subject tone</th>
+<th>Multiplier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Maximum black (paper Dmax)</td>
+<td>×32</td>
+</tr>
+<tr>
+<td>I</td>
+<td>First discernible shadow detail</td>
+<td>×16</td>
+</tr>
+<tr>
+<td>II</td>
+<td>Deep shadow with texture</td>
+<td>×8</td>
+</tr>
+<tr>
+<td>III</td>
+<td>Dark shadow — black hair, dark foliage</td>
+<td>×4</td>
+</tr>
+<tr>
+<td>IV</td>
+<td>Shadow side of a portrait</td>
+<td>×2</td>
+</tr>
+<tr>
+<td><strong>V</strong></td>
+<td><strong>Middle gray (18% card) — default</strong></td>
+<td>×1</td>
+</tr>
+<tr>
+<td>VI</td>
+<td>Caucasian skin tone</td>
+<td>÷2</td>
+</tr>
+<tr>
+<td>VII</td>
+<td>Light concrete, snow with detail</td>
+<td>÷4</td>
+</tr>
+<tr>
+<td>VIII</td>
+<td>White with texture — wedding dress</td>
+<td>÷8</td>
+</tr>
+<tr>
+<td>IX</td>
+<td>Glossy white — paper base white</td>
+<td>÷16</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Specular highlight / light source</td>
+<td>÷32</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example:</strong> You meter a dark shadow (Zone III) and read 0.25 lux. With the zone set to III, the meter internally scales to 0.25 × 4 = 1.00 lux (Zone V equivalent), then calculates the time from that. If you had left the zone at V, the meter would assume the shadow IS a midtone and recommend a print that is far too dark.</p>
+<p>You calibrated the paper at Zone V. As long as the Zone dropdown correctly describes whatever you are pointing at, the calibration stays valid no matter what you measure.</p>
+<h4 id="cross-brand-filter-compatibility">Cross-brand filter compatibility</h4>
+<p>The meter ships with six filter brands: <strong>Ilford Multigrade</strong> (0–5), <strong>FOMA Variant</strong> (Y/M notation), plus four colour-head systems (<strong>AGFA</strong>, <strong>KODAK</strong>, <strong>DURST</strong>, <strong>MEOPTA</strong>). Choose your filter brand in the Settings panel. The meter automatically loads the correct filter factors, ISO R values, and gamma data for whichever paper + filter-brand combination you're using. You can use Ilford under-the-lens filters with FOMA paper, FOMA filters with Ilford paper, or dial in a colour head with any paper — the database has cross-compatibility data for all 22 papers × 6 filter brands.</p>
+<h3 id="33-workflow-example">3.3 Workflow example</h3>
+<blockquote>
+<p><em>Portrait shot on FP4, printing on Ilford MG Classic Cooltone.</em></p>
+<ol>
+<li>In Settings, choose <strong>Ilford / MG Classic Cooltone</strong>.</li>
+<li>If this paper has never been calibrated, do §7 Calibrating a new paper first.</li>
+<li>Tab to <strong>Exposure</strong>. Stop the lens to f/11. Place the sensor on the easel where the model's cheek will fall (Zone VI — caucasian skin). Set <strong>Zone dropdown</strong> to <strong>VI</strong>.</li>
+<li>Press <strong>Measure</strong>. Lux Number reads 2.84 lux. The meter scales to its Zone V equivalent (2.84 ÷ 2 = 1.42 lux) internally. Exposure Time label updates to 8.80 s.</li>
+<li>Grade <strong>3</strong> looks right from the contact sheet — pick <strong>3</strong> in the filter dropdown. Time updates to <strong>~10.2 s</strong>.</li>
+<li>Print. It’s ⅓ stop too light. Pull <strong>F-Stop Transform</strong> to +3 (one stop more); Exposure Time becomes ~12.85 s. Print again.</li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="4-contrast-tab--contrast-analyzer">4. Contrast tab — Contrast Analyzer</h2>
+<p>Spotmeter the brightest area, spotmeter the darkest area, the device tells you the grade to use and a single exposure time that puts both ends where you want them. You can use this tool with fixed and variant grade papers. Always measure without contrast filter.</p>
+<h3 id="41-what-every-element-does">4.1 What every element does</h3>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Measure Highlight</strong></td>
+<td>Average-read the easel, tag the result as the highlight zone.</td>
+</tr>
+<tr>
+<td><strong>Measure Shadow</strong></td>
+<td>Same, tagged as the shadow zone.</td>
+</tr>
+<tr>
+<td><strong>Highlight Lux / Shadow Lux</strong></td>
+<td>The two lux readings. Until both are present, every result label shows -- and the suggested-time label tells you which one is missing.</td>
+</tr>
+<tr>
+<td><strong>ΔEV Display</strong></td>
+<td>The subject contrast range, in stops. (3 stops ≈ a fairly contrasty negative; 5 stops ≈ extreme.)</td>
+</tr>
+<tr>
+<td><strong>Recommended Grade</strong></td>
+<td>The VC filter grade the meter recommends for this negative on this paper.</td>
+</tr>
+<tr>
+<td><strong>Match Quality</strong></td>
+<td>How well that grade fits — Exact, Close, Acceptable, or Approximate. Acceptable/Approximate means the negative isn’t a great match for any single grade — consider Split Grade or local control.</td>
+</tr>
+<tr>
+<td><strong>Analysis Reasoning</strong></td>
+<td>One-line explanation. If the negative exceeds the paper’s range, this is where you’ll see “negative exceeds paper range — consider split-grade printing, pre-flashing, or dodging/burning” or “negative is flatter than paper range — softest grade still prints with reduced contrast”.</td>
+</tr>
+<tr>
+<td><strong>Suggested Exposure Time</strong></td>
+<td>Single midpoint exposure time, in seconds. Includes the chosen filter’s factor.</td>
+</tr>
+<tr>
+<td><strong>Midpoint Lux</strong></td>
+<td>The “true midtone” brightness implied by your two readings.</td>
+</tr>
+<tr>
+<td><strong>Meter Calibration Value</strong></td>
+<td>The paper’s calibration constant after the Overall-Offset slider. Lets you check the slider is doing what you expect.</td>
+</tr>
+<tr>
+<td><strong>Exposure Note</strong></td>
+<td>Tells you whether long-exposure reciprocity-failure correction was applied and how much it added.</td>
+</tr>
+<tr>
+<td><strong>Overall Offset</strong> slider (±1.5 stops)</td>
+<td>Push or pull the whole suggested time without changing the grade.</td>
+</tr>
+<tr>
+<td><strong>Contrast Bias</strong> slider (±1.5 stops)</td>
+<td>Bias the grade selection. Positive → recommends a harder grade; negative → softer. Use it when you consistently disagree with the recommendation in one direction or you want different aesthetics.</td>
+</tr>
+<tr>
+<td><strong>Highlight Trim</strong> slider (±1.5 stops)</td>
+<td>Treat the highlight as if it had received more (+) or less (−) exposure on the negative. Affects both contrast grade and time in order to have the perfect exposure on shadows and highlights.</td>
+</tr>
+<tr>
+<td><strong>Shadow Trim</strong> slider (±1.5 stops)</td>
+<td>Same for the shadow.</td>
+</tr>
+<tr>
+<td><strong>Reset</strong> button</td>
+<td>Zero all four sliders for the current paper.</td>
+</tr>
+</tbody>
+</table>
+<p>The four sliders persist <strong>per paper</strong>, alongside calibration. Dial in your preferences for FOMA Variant III, then switch to Ilford MG and dial in different ones — they’ll each come back when you reselect that paper. Each slider step is 1/6 of a stop, so the labels read in increments like +0.17 / +0.33 / +0.50 stops.</p>
+<h3 id="42-overall-logic">4.2 Overall logic</h3>
+<p>The Contrast Analyzer asks two questions:</p>
+<ol>
+<li><strong>Which grade?</strong> The contrast range between highlight and shadow, after any Contrast Bias, is matched against the paper’s filter table — the grade whose contrast (ISO R) is closest to the negative’s range wins.</li>
+<li><strong>For how long?</strong> The meter takes two readings (the &quot;true&quot; midpoint), feeds it into the paper's calibration constant, and multiplies by that filter's exposure factor. Long exposures get an automatic reciprocity-failure correction — papers under-respond when exposed for a long time at low intensity, so the meter lengthens those exposures using a Schwarzschild model. Resin-coated (RC) papers use an exponent of ~0.07; fibre-base (FB) papers use ~0.10 which produces a stronger correction. The reference time is 10 seconds. When reciprocity correction is applied, the Exposure Note field tells you how much time was added.</li>
+</ol>
+<p>If the negative is too contrasty for the paper, the recommendation pegs at the softest grade and the Reasoning warns you. Too flat — pegs at the hardest grade with a similar warning. In both cases you’ll get a better print with the <strong>Split Grade</strong> tab.</p>
+<h4 id="fixed-grade-papers">Fixed-grade papers</h4>
+<p>Fixed-grade papers (e.g. FOMA FOMASPEED Normal) have a single built-in contrast — there is no filter to change. For these papers:</p>
+<ul>
+<li>The Contrast tab shows the grade as &quot;Fixed grade&quot; and still calculates a midpoint exposure time from your two readings.</li>
+<li>Highlight/Shadow trim sliders are ignored (there is no contrast to adjust).</li>
+<li>The Split Grade tab is not applicable — use the Contrast tab instead.</li>
+<li>In the Filter Editor, the Factor and ISO R spinboxes are disabled (greyed out) and the default labels read &quot;Fixed-grade paper&quot; / &quot;ISO R &amp; Factor fixed at manufacture&quot;. Only ISO P can be adjusted.</li>
+</ul>
+<p>The built-in database includes one fixed-grade paper: <strong>FOMA FOMASPEED Normal</strong>. You can add more via the custom paper registration system (§10.3).</p>
+<h3 id="43-workflow-example">4.3 Workflow example</h3>
+<blockquote>
+<p><em>Backlit landscape — bright sky, deep foreground shadow.</em></p>
+<ol>
+<li>Compose and focus on the easel. Place the sensor on the <strong>brightest
+cloud</strong> area, press <strong>Measure Highlight</strong> → <code>4.10 lux</code>.</li>
+<li>Move the sensor to the <strong>deep shadow</strong> of the foreground, press
+<strong>Measure Shadow</strong> → <code>0.32 lux</code>.</li>
+<li>ΔEV reads <code>3.68 stops</code>. Recommended Grade <code>1</code> (Close). Suggested
+Exposure Time <code>14.20 s</code>. Reasoning warns the negative sits at the soft
+end of the paper’s range.</li>
+<li>You want more punch in the trees. Pull <strong>Contrast Bias</strong> to +0.5 stops or until the contrast grade filter changes, then the grade jumps to <code>2</code>, time updates.</li>
+<li>The sky is going gray. Pull <strong>Highlight Trim</strong> to -0.3 stops (telling the meter “the highlight received plenty of exposure on the negative”); suggested time drops slightly to keep highlights in Zone I.</li>
+<li>Run the print at the suggested time. Burn the corners by eye.</li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="5-split-grade-tab--split-grade-calculator">5. Split Grade tab — Split-grade calculator</h2>
+<p>Two readings, two filter changes during the exposure, a print that holds both ends. Use this when the Contrast tab says &quot;negative exceeds paper range&quot; — or any time you'd normally split-grade by feel. You can only use this tool with variant grade papers. Always measure without contrast filter. Long total times get automatic reciprocity correction.</p>
+<h3 id="51-what-every-element-does">5.1 What every element does</h3>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Measure Highlight / Measure Shadow</strong></td>
+<td>Same as the Contrast tab, but stored separately for the split calculation.</td>
+</tr>
+<tr>
+<td><strong>Split Highlight Lux / Shadow Lux</strong></td>
+<td>The two lux readings.</td>
+</tr>
+<tr>
+<td><strong>ΔEV</strong></td>
+<td>Subject contrast range in stops, identical definition to the Contrast tab.</td>
+</tr>
+<tr>
+<td><strong>Equivalent Grade</strong></td>
+<td>The single VC grade that would have produced the same overall midtone if the negative had fit on one grade — useful as a sanity reference.</td>
+</tr>
+<tr>
+<td><strong>Analysis Reasoning</strong></td>
+<td>The split, expressed as a percentage of each filter (e.g. “65% 00 / 35% 5”), plus any trim, reciprocity, or out-of-range note.</td>
+</tr>
+<tr>
+<td><strong>Soft Filter Name / Soft Time</strong></td>
+<td>Which soft filter to use (e.g. 00 or 2× Y) and how many seconds to expose with it.</td>
+</tr>
+<tr>
+<td><strong>Hard Filter Name / Hard Time</strong></td>
+<td>Same for the hard filter (e.g. 5 or 2× M2).</td>
+</tr>
+<tr>
+<td><strong>Total Time</strong></td>
+<td>Soft + Hard, the total bulb-on time the print sees.</td>
+</tr>
+<tr>
+<td><strong>Meter Calibration Value 2</strong></td>
+<td>Effective calibration constant after Overall Offset (matches the Contrast tab’s same-named field).</td>
+</tr>
+<tr>
+<td><strong>Overall Offset</strong> slider (±1.5 stops)</td>
+<td>Push/pull the total time without changing the soft/hard ratio.</td>
+</tr>
+<tr>
+<td><strong>Contrast Bias</strong> slider (±1.5 stops)</td>
+<td>Bias the equivalent-grade calculation, which in turn shifts the soft/hard ratio. Positive → more hard filter.</td>
+</tr>
+<tr>
+<td><strong>Soft Trim</strong> slider (±1.5 stops)</td>
+<td>Push/pull the soft leg only — gives you more (or less) shadow detail.</td>
+</tr>
+<tr>
+<td><strong>Hard Trim</strong> slider (±1.5 stops)</td>
+<td>Push/pull the hard leg only — gives you more (or less) highlight contrast.</td>
+</tr>
+<tr>
+<td><strong>Reset</strong> button</td>
+<td>Zero all four split sliders for the current paper.</td>
+</tr>
+</tbody>
+</table>
+<p>Like the Contrast trims, these four sliders persist <strong>per paper</strong>. They are a separate set from the Contrast-tab trims — you can have different bias and trims for the two analyzers on the same emulsion.</p>
+<h3 id="52-overall-logic">5.2 Overall logic</h3>
+<p>Each paper publishes a soft filter and a hard filter. The meter computes how much of the total exposure should happen under each, given the negative’s brightness range and the paper’s contrast endpoints. The midtone time is anchored at the geometric mean of the two readings (so the print midtones land where you’d expect from the calibration), and that total time is then split into the two legs in the proportion the math demands.
+Long total times are corrected for reciprocity failure automatically (see §4.2 for details on the Schwarzschild model), and the two legs scale together so the soft/hard ratio stays the same.
+When the negative is so contrasty that the equivalent grade exceeds the paper’s softest filter, the Reasoning warns “highlights may burn” and the soft leg gets most of the time. When it’s too flat, you’ll see “limited contrast” and the hard leg dominates.</p>
+<h3 id="53-workflow-example">5.3 Workflow example</h3>
+<blockquote>
+<p><em>High-contrast portrait — bright window backlight, dark hair against shadow.</em></p>
+<ol>
+<li>Tab to <strong>Split Grade</strong>. Measure Highlight on the window glare:
+<code>5.80 lux</code>.</li>
+<li>Measure Shadow on the hair detail: <code>0.18 lux</code>.</li>
+<li>ΔEV = <code>5.01 stops</code>. Equivalent Grade <em>0</em> (Close), Reasoning warns
+<em>“highlights may burn”</em>.</li>
+<li>Split times: Soft <strong>00</strong> → <code>34.2 s</code>, Hard <strong>5</strong> → <code>1.1 s</code>,
+Total <code>35.3 s</code>.</li>
+<li>Print: drop in the 00 filter, expose 34.2 s; swap to the 5 filter,
+expose 1.1 s. Develop, fix, evaluate.</li>
+<li>Shadows look gray. Pull <strong>Hard Trim</strong> to -0.5 stops; the Hard time rises to ~0.78 s. Reprint.</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>Tip.</strong> If one leg is wildly bigger than the other, the negative is genuinely outside the paper’s contrast range. Consider pre-flashing, dodging the highlight, or picking a different paper.</p>
+</blockquote>
+<hr>
+<h2 id="6-virtual-proof-tab--characteristic-curve-preview">6. Virtual Proof tab — characteristic-curve preview</h2>
+<p>Sweep the easel and the device paints a grayscale preview of the print — cell by cell, on the chosen paper, at the chosen grade — before you commit a sheet to it.</p>
+<h3 id="61-what-every-element-does">6.1 What every element does</h3>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Grid Width / Grid Height</strong> spinboxes</td>
+<td>Number of cells across × down (2..40 × 2..30). More cells = finer preview, longer to scan. Changing the size <strong>wipes</strong> the grid.</td>
+</tr>
+<tr>
+<td><strong>Proof Grid (the canvas)</strong></td>
+<td>One block per cell, painted with the predicted gray. Cells with a coloured frame are special: <strong>amber</strong> = next cell to read, <strong>red</strong> = your selection, <strong>cyan</strong> = Zone V reference, <strong>light gray</strong> = highlight clipping, <strong>dark gray</strong> = shadow clipping, no frame = ordinary measured (or empty) cell.</td>
+</tr>
+<tr>
+<td><strong>Measure Next Cell</strong> button</td>
+<td>Read one cell at the cursor and advance. When <strong>Stability Enabled</strong> is ON, this button becomes <strong>Start Scan / Stop Scan</strong> and the device walks the grid for you.</td>
+</tr>
+<tr>
+<td><strong>Set Zone V Reference</strong> button</td>
+<td>Use the currently selected cell as the “middle gray” anchor; every other measured cell is re-derived in relation to it.</td>
+</tr>
+<tr>
+<td><strong>Recompute Preview</strong> button</td>
+<td>Re-run the preview for every measured cell. Use after switching paper, switching the preview filter grade, or recalibrating.</td>
+</tr>
+<tr>
+<td><strong>Clear Grid</strong> button</td>
+<td>Erase all samples, the selection, and the reference.</td>
+</tr>
+<tr>
+<td><strong>Stability Enabled</strong> switch</td>
+<td>Turn on automatic settle detection so a scan records each cell only when its reading has stopped changing.</td>
+</tr>
+<tr>
+<td><strong>Stability Tolerance</strong> (%)</td>
+<td>Two consecutive reads must agree within this percentage to count as “stable”.</td>
+</tr>
+<tr>
+<td><strong>Stability Min Delta</strong> (lux)</td>
+<td>A floor on Tolerance. In very dim cells, a strict percentage gets unreasonably tight; this gives it some absolute breathing room.</td>
+</tr>
+<tr>
+<td><strong>Stability Min Stable</strong></td>
+<td>How many consecutive stable reads before the cell is recorded.</td>
+</tr>
+<tr>
+<td><strong>Stability Max Wait</strong> (ms)</td>
+<td>After this long without settling, the cell is recorded anyway so the scan doesn’t stall.</td>
+</tr>
+<tr>
+<td><strong>Filter Grade</strong> dropdown</td>
+<td>The grade the preview is rendered for. Changing it re-renders every cell.</td>
+</tr>
+<tr>
+<td><strong>Histogram</strong> (proofHistogram)</td>
+<td>10 Zone distribution of the predicted print tones — a fast read on &quot;does the print sit mostly in shadows / midtones / highlights?&quot;.</td>
+</tr>
+<tr>
+<td><strong>Selected-sample readouts</strong> (Lux / Zone / ISO R / EV Range / Density / Exposure / Clipping)</td>
+<td>Detail on whichever cell is red-framed. With nothing selected, the <em>Clipping</em> slot turns into a global verdict: <em>&quot;Negative too contrasty&quot;</em> / <em>&quot;too flat&quot;</em> / <em>&quot;-- &quot;</em>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-overall-logic">6.2 Overall logic</h3>
+<p>Each measured cell is run through the paper’s published characteristic curve (toe → straight line → shoulder) and rendered as a grayscale block. The filter you choose changes the curve’s steepness, the same way a real filter does in the enlarger head — so a softer grade flattens the preview, a harder grade steepens it. Cells whose brightness fell outside the paper’s range get a coloured frame to flag them as clipped (highlight or shadow).
+The Zone V reference is what anchors the tonal scale. With no reference set, each cell is rendered as if it were itself Zone V (i.e. middle gray) — which isn’t very useful for comparing cells. Set one cell as Zone V (or let the auto-scan pick the average for you) and the whole preview falls into place.
+Cells are walked in a snake order — left to right on row 1, right to left on row 2, and so on — so you don’t have to keep jumping the sensor back to the left edge.</p>
+<h3 id="63-auto-scan-settling">6.3 Auto-scan settling</h3>
+<p>When <strong>Stability Enabled</strong> is on, the device repeatedly samples the current cell and waits for the reading to stop moving. When the reading has been stable for Min Stable consecutive samples (or Max Wait has elapsed), it records and advances. The four Stability spinboxes let you tune this for your enlarger and lamp — slower lamps and dim cells want larger Min Delta and longer Max Wait. When the whole grid finishes, the meter automatically picks the average-brightness cell as Zone V so the preview is meaningful right away.</p>
+<h3 id="64-workflow-example">6.4 Workflow example</h3>
+<blockquote>
+<p><em>Evaluating whether a tricky negative will fit on FOMA Variant III before
+wasting paper.</em></p>
+<ol>
+<li>Tab to <strong>Virtual Proof</strong>. Set grid to <strong>16 × 12</strong> (192 cells).</li>
+<li>Choose <strong>2</strong> in the Filter Grade dropdown — your usual starting grade.</li>
+<li>Turn <strong>Stability Enabled</strong> ON. Press <strong>Start Scan</strong>.</li>
+<li>Sweep the sensor methodically across the easel, top-to-bottom. Pause
+briefly at each cell — the meter records and advances on its own. The
+button label updates to <em>“Stop scan (47/192)”</em>, <em>“(48/192)”</em>, ….</li>
+<li>When the scan completes, Zone V is set automatically; the preview is
+fully painted; the histogram fills in.</li>
+<li>Tap a midtone cell on the canvas — last-sample readout shows
+<code>Zone: 5.1</code>, <code>Density: 0.62</code>, <code>Exposure: 8.40 s</code>, <code>Clipping: none</code>.</li>
+<li>Tap a highlight cell with the light-gray frame — readout says
+<code>Clipping: highlight</code>. You pick <strong>2</strong> in the Filter Grade dropdown
+and press <strong>Recompute Preview</strong>: the highlight un-clips, the shadows
+deepen slightly, the histogram shifts left.</li>
+<li>Tap empty space to clear the selection — the Clipping slot now shows
+<em>“Negative too contrasty”</em>. Time to consider Split Grade or
+pre-flashing.</li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="7-calibrating-a-new-paper">7. Calibrating a new paper</h2>
+<p>Do this <strong>once per emulsion</strong>. The whole device hinges on one stored
+number per paper — without it, the Exposure tab shows <code>calibrate</code>, and the
+Contrast / Split / Virtual Proof tabs report <code>--</code> everywhere.</p>
+<h3 id="procedure">Procedure</h3>
+<ol>
+<li>Pick the paper in the Brand / Type dropdowns.</li>
+<li>Set up the enlarger as you would for a real print: lens stop, head
+height, focus. <strong>These must stay the same when you use the meter
+later</strong> — change any of them and you’re reading a different scene.</li>
+<li>Place a <strong>mid-toned, flat negative</strong> in the carrier (you can use a
+negative with a gray card photographed or color checker to compare it
+with the printed tone).</li>
+<li>Remove any contrast filter from the enlarger. Every reading must be
+made with no filter grade.</li>
+<li>Place the sensor on the <strong>middle gray point</strong> on the easel where the
+print will be. Press <strong>Measure</strong> on the Exposure tab. Note the lux.
+Don't move the sensor until you've also done the next step.</li>
+<li>Make a <strong>test strip</strong> and develop fully. Pick the strip section whose
+midtone is exactly right. Note its exposure time in seconds.</li>
+<li>Type that <strong>lux</strong> into <strong>Calibration Lux</strong> and that <strong>time</strong> into
+<strong>Calibration Time</strong>. The Calibration Constant label updates immediately.
+The value is written to flash about 1.5 s after your last edit.</li>
+</ol>
+<p>From now on, every tab on this paper will produce real numbers. To re-calibrate (different developer, new lens, lost confidence in the old calibration), simply overwrite the two spinboxes.</p>
+<blockquote>
+<p><strong>Why two boxes and not one constant?</strong> So you can re-enter the things you
+actually measured (a lux number and a time) instead of computing a constant
+yourself. The device handles the multiplication.</p>
+</blockquote>
+<hr>
+<h2 id="8-settings-panel-visible-alongside-the-tabs">8. Settings panel (visible alongside the tabs)</h2>
+<ul>
+<li><strong>Paper Brand / Paper Type</strong> — global; every tab uses the current selection.</li>
+<li><strong>Filter Brand</strong> — which filter system is in your enlarger head. Choices: Ilford Multigrade (0–5), FOMA Variant (Y/M), AGFA, KODAK, DURST, MEOPTA. Cross-brand compatible — see §3.2.</li>
+<li><strong>Calibration Lux / Calibration Time</strong> — see §7.</li>
+<li><strong>Sensor Gain / Integration Time</strong> — see §2.</li>
+<li><strong>Sample count</strong> — averaging for every Measure press on every tab.</li>
+<li><strong>Sensor Offset Calibration / Clear Offset</strong> — dark-current baseline, §2.2.</li>
+<li><strong>Sensor Light Calibration / Clear Light Cal</strong> — gain-stage trim, §2.2.</li>
+<li><strong>Brightness</strong> slider (1–100) — LCD backlight. The bottom step keeps the panel just lit (no risk of accidentally blanking the screen); the top step is bench-light brightness.</li>
+<li><strong>Battery Bar</strong> — red bar in the corner, updates once a minute. See §8.1 for charging behaviour.</li>
+</ul>
+<h3 id="81-battery-charging--power">8.1 Battery, charging &amp; power</h3>
+<p>The device runs from a LiPo battery. The battery bar shows the discharge percentage (16-point curve, load-sag compensated). Three states are shown:</p>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>What you see</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Discharging</strong></td>
+<td>Red percentage bar</td>
+</tr>
+<tr>
+<td><strong>Charging</strong> (USB plugged in)</td>
+<td>Orange &quot;Charging…&quot; label — the bar is hidden because voltage readings are unreliable during charge</td>
+</tr>
+<tr>
+<td><strong>Fully charged</strong></td>
+<td>Green &quot;Fully charged&quot; label</td>
+</tr>
+<tr>
+<td><strong>Battery absent</strong></td>
+<td>Grey, empty bar</td>
+</tr>
+</tbody>
+</table>
+<h4 id="auto-dormant-battery-protection">Auto-dormant battery protection</h4>
+<p>When the battery falls to <strong>10%</strong>, the device automatically enters dormant sleep to protect the LiPo from over-discharge (which can permanently damage the cell). The screen goes dark and the MCU enters its lowest-power state. Auto-dormant is rate-limited to once every 60 seconds so it won't repeatedly trigger if the battery voltage bounces near the threshold.</p>
+<h4 id="device-power-and-charging">Device power and charging</h4>
+<ul>
+<li>Press the <strong>Power Button</strong> at the top right corner of the device to power on by battery.</li>
+<li>Plug a USB-C cable at the left side of the device to power on with external power.</li>
+<li>Plug a USB-C cable at the left side of the device while it is powered on to charge the battery.</li>
+</ul>
+<hr>
+<h2 id="9-filter-editor-tab--customising-filter-data">9. Filter Editor tab — customising filter data</h2>
+<p>The Filter Editor lets you override the built-in filter factors, ISO R values, and paper base speed (ISO P) for any paper + grade combination. All edits persist to flash and survive power cycles. Every other tab uses the effective (overridden) values in its calculations. You can use this tool with fixed and variant grade papers.</p>
+<h3 id="91-what-every-element-does">9.1 What every element does</h3>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Filter Grade</strong> dropdown</td>
+<td>Pick the grade you want to edit (e.g. &quot;00&quot;, &quot;2&quot;, &quot;5&quot;, &quot;2× Y&quot;). The list is populated from the current paper + filter brand.</td>
+</tr>
+<tr>
+<td><strong>Current factor / Current ISO R</strong> labels</td>
+<td>Show the <strong>effective</strong> values — your override if one exists, otherwise the built-in default. These are what every other tab uses in its calculations.</td>
+</tr>
+<tr>
+<td><strong>Default Factor / Default ISO R</strong> labels</td>
+<td>Show the <strong>built-in</strong> factory values from the paper database. Use these as a reference to see how far you've deviated.</td>
+</tr>
+<tr>
+<td><strong>Factor spinbox</strong></td>
+<td>Edit the filter's exposure multiplier (e.g. 2.08 for a grade 2 Ilford filter). Two decimal places. Set to 1.00 to effectively remove the filter factor.</td>
+</tr>
+<tr>
+<td><strong>ISO R spinbox</strong></td>
+<td>Edit the contrast range this filter grade produces on this paper (e.g. 110 for grade 2). Higher ISO R = softer contrast. Changing ISO R directly affects grade matching in the Contrast and Split Grade tabs.</td>
+</tr>
+<tr>
+<td><strong>ISO P spinbox</strong></td>
+<td>The paper's base unfiltered speed. Default is 500 for Ilford MG papers. Raising ISO P makes the meter suggest shorter times; lowering it suggests longer times. This is a <strong>per-paper</strong> setting (not per-grade).</td>
+</tr>
+<tr>
+<td><strong>Reset to defaults</strong> button</td>
+<td>Clear <strong>all</strong> overrides for the current paper (factors, ISO R values, and ISO P) and restore the built-in database values.</td>
+</tr>
+<tr>
+<td><strong>Base ISO P</strong> label</td>
+<td>Shows the current effective ISO P for the paper.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="92-when-to-use-the-filter-editor">9.2 When to use the Filter Editor</h3>
+<ul>
+<li><strong>Your filter set doesn't match the datasheet.</strong> Old filters fade and shift — measure their actual factor with a step wedge and enter the real number here.</li>
+<li><strong>You want a different paper speed.</strong> Maybe your developer runs warm, or you prefer slightly lighter prints — bump ISO P up or down.</li>
+<li><strong>You're dialling in a new paper</strong> that isn't in the built-in database. Use a similar paper as a starting point and tweak the ISO R and factor values per grade.</li>
+<li><strong>Cross-brand filter fine-tuning.</strong> Using Ilford filters on FOMA paper? The built-in cross-brand data is based on published tech specs, but your specific setup may benefit from small adjustments.</li>
+</ul>
+<h3 id="94-advanced-calibration-tools--cross-paper-estimation">9.4 Advanced calibration tools — cross-paper estimation</h3>
+<p>The Filter Editor also contains four buttons that help you calibrate multiple papers quickly by leveraging the ISO P speed rating. These appear below the spinboxes.</p>
+<table>
+<thead>
+<tr>
+<th>Button</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Set as Ref</strong></td>
+<td>Snapshot the currently selected paper's calibration (lux + time + ISO P) as a reference template. The reference label updates to show which paper is the source.</td>
+</tr>
+<tr>
+<td><strong>Est. Cal from ISO P</strong></td>
+<td>Estimate a calibration for the currently selected paper, using the stored reference, scaled by ISO P speed ratio. Requires a reference to be set first.</td>
+</tr>
+<tr>
+<td><strong>Auto Estimate All</strong></td>
+<td>Apply the reference calibration to <strong>every</strong> paper that isn't already calibrated, scaling each by its ISO P speed ratio. Already-calibrated papers are skipped.</td>
+</tr>
+<tr>
+<td><strong>Clear All Calibrations</strong></td>
+<td>⚠️ <strong>DANGEROUS</strong> — Irreversibly wipes every paper's calibration (lux + time) back to uncalibrated. Also clears the reference snapshot. <strong>No confirmation dialog.</strong> Only use this when you want to start completely fresh.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="how-cross-paper-estimation-works">How cross-paper estimation works</h4>
+<p>Every paper has a manufacturer-rated ISO P speed (visible as &quot;Base ISO P&quot; in the Filter Editor). Faster papers (higher ISO P) need less exposure for the same density. The estimation tools exploit this:</p>
+<ol>
+<li>Calibrate <strong>one</strong> paper properly (§7) — this becomes your anchor.</li>
+<li>Press <strong>Set as Ref</strong> on the Filter Editor tab to snapshot it.</li>
+<li>Select a different (uncalibrated) paper, press <strong>Est. Cal from ISO P</strong>. The meter computes what the calibration <em>would</em> be if that paper had been used in the same enlarger setup, scaled by the speed ratio.</li>
+<li>For bulk setup, press <strong>Auto Estimate All</strong> to populate every paper at once.</li>
+</ol>
+<blockquote>
+<p><strong>Important:</strong> ISO-P-based estimation is approximate. For critical work, do a real test-strip calibration (§7) on each paper you use regularly. The estimation tools are best for getting a reasonable starting point on papers you use occasionally.</p>
+</blockquote>
+<h4 id="workflow-example">Workflow example</h4>
+<blockquote>
+<p><em>You've calibrated Ilford MG FB Classic with a test strip. You want a rough calibration for FOMA FOMABROM without burning another sheet.</em></p>
+<ol>
+<li>With <strong>Ilford / MG FB Classic</strong> selected, go to Filter Editor → press <strong>Set as Ref</strong>. The label shows: <em>&quot;Ref: Ilford MG FB Classic (ISO P 500, 1.42 lux × 8.8 s)&quot;</em>.</li>
+<li>Switch to <strong>FOMA / FOMABROM VARIANT</strong> in Settings.</li>
+<li>Go to Filter Editor → press <strong>Est. Cal from ISO P</strong>. The label updates: <em>&quot;Ilford MG FB Classic -&gt; FOMABROM VARIANT (ISO P 500→130, ×3.85, est. 33.9 s)&quot;</em>.</li>
+<li>The calibration spinboxes in Settings are now pre-filled with the estimated values. You can refine them later with a real test strip.</li>
+</ol>
+</blockquote>
+<h3 id="95-workflow-example-override">9.5 Workflow example (override)</h3>
+<blockquote>
+<p><em>Your old Ilford grade 2 filter has faded and prints need more time than the meter suggests.</em></p>
+<ol>
+<li>Tab to <strong>Filter Editor</strong>. Choose <strong>Ilford / MG FB Classic</strong>. The grade dropdown shows all grades.</li>
+<li>Select <strong>2</strong> from the grade dropdown. Current factor shows <code>2.08</code> (default).</li>
+<li>You've measured that your actual grade 2 filter needs 20% more exposure. Increase the factor spinbox to <code>2.50</code>.</li>
+<li>Switch to the <strong>Exposure</strong> tab. The time now uses factor 2.50 instead of 2.08.</li>
+<li>The override is written to flash ~1.5 s after your last edit. Power-cycle the device — the 2.50 factor survives.</li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="10-built-in-paper--filter-database">10. Built-in paper &amp; filter database</h2>
+<h3 id="101-papers-22-built-in">10.1 Papers (22 built-in)</h3>
+<table>
+<thead>
+<tr>
+<th>Manufacturer</th>
+<th>Paper</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ilford</td>
+<td>Multigrade RC Deluxe (New)</td>
+<td>RC</td>
+<td></td>
+</tr>
+<tr>
+<td>Ilford</td>
+<td>Multigrade RC Portfolio (New)</td>
+<td>RC</td>
+<td></td>
+</tr>
+<tr>
+<td>Ilford</td>
+<td>Multigrade IV RC Deluxe (Discontinued)</td>
+<td>RC</td>
+<td>legacy emulsion</td>
+</tr>
+<tr>
+<td>Ilford</td>
+<td>Multigrade IV RC Portfolio (Discontinued)</td>
+<td>RC</td>
+<td>legacy emulsion</td>
+</tr>
+<tr>
+<td>Ilford</td>
+<td>Multigrade Warmtone RC</td>
+<td>RC</td>
+<td></td>
+</tr>
+<tr>
+<td>Ilford</td>
+<td>Multigrade Cooltone RC</td>
+<td>RC</td>
+<td></td>
+</tr>
+<tr>
+<td>Ilford</td>
+<td>Multigrade FB Classic</td>
+<td>FB</td>
+<td></td>
+</tr>
+<tr>
+<td>Ilford</td>
+<td>Multigrade FB Warmtone</td>
+<td>FB</td>
+<td></td>
+</tr>
+<tr>
+<td>Ilford</td>
+<td>Multigrade FB Cooltone</td>
+<td>FB</td>
+<td></td>
+</tr>
+<tr>
+<td>Ilford</td>
+<td>Multigrade ART 300</td>
+<td>FB</td>
+<td>art matte surface, textured base</td>
+</tr>
+<tr>
+<td>FOMA</td>
+<td>FOMASPEED VARIANT</td>
+<td>RC</td>
+<td></td>
+</tr>
+<tr>
+<td>FOMA</td>
+<td>FOMABROM VARIANT</td>
+<td>FB</td>
+<td></td>
+</tr>
+<tr>
+<td>FOMA</td>
+<td>FOMAPASTEL MG</td>
+<td>FB</td>
+<td></td>
+</tr>
+<tr>
+<td>FOMA</td>
+<td>FOMATONE MG Classic</td>
+<td>FB</td>
+<td></td>
+</tr>
+<tr>
+<td>FOMA</td>
+<td>FOMASPEED Normal</td>
+<td>RC</td>
+<td><strong>[FG]</strong> fixed-grade</td>
+</tr>
+<tr>
+<td>FOMA</td>
+<td>FOMASPEED Hard</td>
+<td>RC</td>
+<td><strong>[FG]</strong> fixed-grade</td>
+</tr>
+<tr>
+<td>FOMA</td>
+<td>FOMABROM Normal</td>
+<td>FB</td>
+<td><strong>[FG]</strong> fixed-grade</td>
+</tr>
+<tr>
+<td>FOMA</td>
+<td>FOMABROM Hard</td>
+<td>FB</td>
+<td><strong>[FG]</strong> fixed-grade</td>
+</tr>
+<tr>
+<td>FOMA</td>
+<td>FOMABROM N chamois glossy</td>
+<td>FB</td>
+<td><strong>[FG]</strong> fixed-grade, warm-tone</td>
+</tr>
+<tr>
+<td>FOMA</td>
+<td>FOMABROM N chamois matt</td>
+<td>FB</td>
+<td><strong>[FG]</strong> fixed-grade, warm-tone</td>
+</tr>
+<tr>
+<td>FOMA</td>
+<td>RETROBROM Sp glossy</td>
+<td>FB</td>
+<td><strong>[FG]</strong> fixed-grade, special-grade</td>
+</tr>
+<tr>
+<td>FOMA</td>
+<td>RETROBROM Sp semi-matt</td>
+<td>FB</td>
+<td><strong>[FG]</strong> fixed-grade, special-grade</td>
+</tr>
+</tbody>
+</table>
+<p><strong>[FG]</strong> = Fixed-grade paper — contrast is fixed at manufacture. Filter grade selection is disabled; Contrast tab shows &quot;Fixed grade&quot;; Split Grade tab is not applicable.</p>
+<p>FB = fibre-base (stronger reciprocity correction, exponent ~0.10). RC = resin-coated (milder reciprocity correction, exponent ~0.07).</p>
+<h3 id="102-filter-brands-6-built-in">10.2 Filter brands (6 built-in)</h3>
+<table>
+<thead>
+<tr>
+<th>Brand</th>
+<th>Type</th>
+<th>Notation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ilford Multigrade</td>
+<td>Under-lens / head</td>
+<td>00, 0, 1, 2, 3, 4, 5</td>
+</tr>
+<tr>
+<td>FOMA Variant</td>
+<td>Under-lens</td>
+<td>2× Y, Y, M1, M2, M3</td>
+</tr>
+<tr>
+<td>AGFA</td>
+<td>Colour printing</td>
+<td>Yellow / Magenta cc values</td>
+</tr>
+<tr>
+<td>KODAK</td>
+<td>Colour printing</td>
+<td>Yellow / Magenta cc values</td>
+</tr>
+<tr>
+<td>DURST</td>
+<td>Colour mixing head</td>
+<td>Yellow / Magenta density</td>
+</tr>
+<tr>
+<td>MEOPTA</td>
+<td>Colour mixing head</td>
+<td>Yellow / Magenta density</td>
+</tr>
+</tbody>
+</table>
+<p>All papers work with all filter brands. Data sources: manufacturer datasheets and published technical specifications.</p>
+<h3 id="103-user-paper-extensions">10.3 User paper extensions</h3>
+<p>The firmware has a hook (<code>user_papers.c</code>) for adding custom paper definitions. If you have a paper not in the built-in database, you can define its characteristic curve, filter table, and reciprocity parameters in C and rebuild the firmware. See the <code>user_papers.c</code> source file for the registration API.</p>
+<hr>
+<h2 id="11-splash-screen--tips">11. Splash screen &amp; tips</h2>
+<p>At power-on, the device displays a splash screen with:</p>
+<ul>
+<li>A randomly selected <strong>inspirational photography quote</strong> (from Ansel Adams, Dorothea Lange, Irving Penn, and others).</li>
+<li>A randomly selected <strong>practical darkroom tip</strong> (test strips, pre-flashing, developer temperature, dry-down compensation, fixing times, and more).</li>
+</ul>
+<p>The splash screen is brief — after a moment the Main Screen appears and the device is ready to use. The tips cover real darkroom practice and are worth reading as they cycle.</p>
+<hr>
+<h2 id="12-filter-extension-factor--how-to-measure-your-own">12. Filter extension factor — how to measure your own</h2>
+<p>Every darkroom is unique. Your enlarger lamp (tungsten, halogen, LED), its age, the reflector condition, the power supply stability, and even the lens coatings all affect how much light actually reaches the paper through a given contrast filter. The built-in filter factors come from manufacturer datasheets and represent an <em>average</em> enlarger — your real factors may differ by 10–30%.</p>
+<p>This section explains how to empirically determine the <strong>real</strong> filter extension factors for your specific setup and enter them into the Filter Editor so every tab uses your actual numbers.</p>
+<h3 id="121-what-is-a-filter-extension-factor">12.1 What is a filter extension factor?</h3>
+<p>When you insert a contrast filter into the light path, it absorbs some of the light. The <strong>extension factor</strong> (or filter factor) is the number you multiply the unfiltered exposure time by to get the same print density with the filter in place.</p>
+<p>For example, if a print needs 10.0 s without any filter and 20.8 s with a grade 2 filter to produce the same midtone density, the factor is 2.08. Manufacturer datasheets publish these numbers, but your real-world factor may be different.</p>
+<h3 id="122-method-a--step-wedge--test-strip-method-most-accurate">12.2 Method A — Step-wedge / test-strip method (most accurate)</h3>
+<p>This is the gold standard. You need a step wedge (Stouffer T2115 or similar), or you can use a carefully made test strip.</p>
+<p><strong>Procedure:</strong></p>
+<ol>
+<li>
+<p><strong>Calibrate without a filter first.</strong> Do a normal paper calibration (§7) with <strong>no filter</strong> in the light path. Record the lux and the correct exposure time. This gives you your baseline calibration constant.</p>
+</li>
+<li>
+<p><strong>Print a step wedge with no filter.</strong> Place a step wedge (or a negative with a smooth gradient) in the carrier. Expose at the time calculated from step 1. Develop fully. This is your <strong>reference strip</strong>.</p>
+</li>
+<li>
+<p><strong>Print the same step wedge with the filter you want to measure.</strong> Insert the contrast filter (e.g. grade 2). Keep the lens aperture and head height identical to step 2. Make a test strip, develop identically.</p>
+</li>
+<li>
+<p><strong>Find the matching density.</strong> On the unfiltered reference strip, pick a step that has a clear, easy-to-judge midtone. On the filtered test strip, find the step that has the <strong>same visual density</strong>. Note the exposure time that produced that matching step.</p>
+</li>
+<li>
+<p><strong>Calculate the factor.</strong></p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Factor</mtext><mo>=</mo><mfrac><mtext>filtered exposure time that matches</mtext><mtext>unfiltered exposure time of reference step</mtext></mfrac></mrow><annotation encoding="application/x-tex">\text{Factor} = \frac{\text{filtered exposure time that matches}}{\text{unfiltered exposure time of reference step}}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord">Factor</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.2519em;vertical-align:-0.8804em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">unfiltered exposure time of reference step</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">filtered exposure time that matches</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>For example: reference step was at 12.0 s, matching filtered step was at 26.4 s → factor = 26.4 / 12.0 = <strong>2.20</strong>.</p>
+</li>
+<li>
+<p><strong>Enter it.</strong> Go to Filter Editor → select the grade → type your measured factor into the Factor spinbox. The new factor is written to flash and used by every tab.</p>
+</li>
+<li>
+<p><strong>Repeat for each grade</strong> (grades 00, 0, 1, 2, 3, 4, 5).</p>
+</li>
+</ol>
+<h3 id="123-method-b--grey-card-visual-match-no-special-equipment">12.3 Method B — Grey card visual match (no special equipment)</h3>
+<p>The most accessible method — you only need a grey card (18% reflectance) and patience.</p>
+<p><strong>Procedure:</strong></p>
+<ol>
+<li>Calibrate without a filter as normal (§7), using a grey card as your &quot;negative&quot; if you don't have a suitable midtone negative.</li>
+<li>Make a test strip <strong>without a filter</strong> at your calibrated time. Pick the strip that matches the grey card's tone when dry. Note the time: <strong>t_no_filter</strong>.</li>
+<li>Insert the filter you want to measure. Make a second test strip, varying the time around t_no_filter × the manufacturer's stated factor (e.g. if the datasheet says 2.08× for grade 2, centre your strip around 2.08 × t_no_filter).</li>
+<li>Pick the strip that best matches the grey card from step 2 under identical lighting. Note its time: <strong>t_filtered</strong>.</li>
+<li>Factor = t_filtered / t_no_filter.</li>
+<li>Enter the Lengthening Factor in the Filter Editor tab.</li>
+<li>Repeat for grades 00, 0, 1, 2, 3, 4, 5.</li>
+</ol>
+<h3 id="124-method-c--densitometer-method-if-you-have-access-to-one">12.4 Method C — Densitometer method (if you have access to one)</h3>
+<p>If you have access to a reflection densitometer:</p>
+<ol>
+<li>
+<p>Make two identical prints of a smooth midtone negative — one with no filter, one with the filter under test. Develop identically.</p>
+</li>
+<li>
+<p>Measure the reflection density of the same area on both prints.</p>
+</li>
+<li>
+<p>The difference in density (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>D</mi></mrow><annotation encoding="application/x-tex">\Delta D</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Δ</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span></span></span></span>) tells you the exposure ratio needed:</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>Factor</mtext><mo>=</mo><msup><mn>10</mn><mrow><mi mathvariant="normal">Δ</mi><mi>D</mi></mrow></msup></mrow><annotation encoding="application/x-tex">\text{Factor} = 10^{\Delta D}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord">Factor</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8913em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">Δ</span><span class="mord mathnormal mtight" style="margin-right:0.02778em;">D</span></span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>For example: unfiltered print reads D=0.72, filtered print reads D=0.45 → <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>D</mi><mo>=</mo><mn>0.27</mn></mrow><annotation encoding="application/x-tex">\Delta D = 0.27</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Δ</span><span class="mord mathnormal" style="margin-right:0.02778em;">D</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.27</span></span></span></span> → factor = <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>10</mn><mn>0.27</mn></msup></mrow><annotation encoding="application/x-tex">10^{0.27}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0.27</span></span></span></span></span></span></span></span></span></span></span></span> = <strong>1.86</strong>.</p>
+</li>
+<li>
+<p>Enter the Lengthening Factor in the Filter Editor tab.</p>
+</li>
+<li>
+<p>Repeat for grades 00, 0, 1, 2, 3, 4, 5.</p>
+</li>
+</ol>
+<h3 id="125-when-to-re-measure">12.5 When to re-measure</h3>
+<ul>
+<li>When you change the enlarger lamp (new bulb, different type).</li>
+<li>When you replace or clean the reflector.</li>
+<li>When you switch to a different lens.</li>
+<li>When you notice consistent exposure errors in one direction after filter changes.</li>
+<li>Annually — lamp output drifts with age.</li>
+</ul>
+<h3 id="126-reciprocity-and-filter-factors">12.6 Reciprocity and filter factors</h3>
+<p>Filter extension factors multiply the <em>base</em> exposure time. The meter then applies the Schwarzschild reciprocity correction to the result if the total time exceeds 10 seconds. This means:</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>t</mi><mtext>final</mtext></msub><mo>=</mo><msub><mi>t</mi><mtext>base</mtext></msub><mo>×</mo><mtext>factor</mtext><mo>×</mo><msup><mrow><mo fence="true">(</mo><mfrac><mrow><msub><mi>t</mi><mtext>base</mtext></msub><mo>×</mo><mtext>factor</mtext></mrow><msub><mi>t</mi><mtext>ref</mtext></msub></mfrac><mo fence="true">)</mo></mrow><mi>p</mi></msup></mrow><annotation encoding="application/x-tex">t_{\text{final}} = t_{\text{base}} \times \text{factor} \times \left(\frac{t_{\text{base}} \times \text{factor}}{t_{\text{ref}}}\right)^p
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7651em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">final</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7651em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">base</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord text"><span class="mord">factor</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.4543em;vertical-align:-0.95em;"></span><span class="minner"><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">ref</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">base</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord text"><span class="mord">factor</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.836em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:1.5043em;"><span style="top:-3.9029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">p</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>Where <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span> ≈ 0.07 for RC papers and ≈ 0.10 for FB papers, and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>t</mi><mtext>ref</mtext></msub></mrow><annotation encoding="application/x-tex">t_{\text{ref}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7651em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">ref</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> = 10 s. The reciprocity correction is applied <em>after</em> the filter factor — so an incorrect factor compounds the reciprocity error for long exposures. This is another reason to measure your real factors carefully.</p>
+<hr>
+<h2 id="13-troubleshooting">13. Troubleshooting</h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely cause</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Exposure Time</strong> shows <code>calibrate</code></td>
+<td>This paper has no stored calibration yet.</td>
+<td>§7.</td>
+</tr>
+<tr>
+<td><strong>Exposure Time</strong> shows <code>measure lux</code></td>
+<td>Calibrated, but no live reading.</td>
+<td>Press <strong>Measure</strong> on the Exposure tab.</td>
+</tr>
+<tr>
+<td>Lux label shows <code>no sensor</code></td>
+<td>Light sensor not responding.</td>
+<td>Check the sensor cable; reboot.</td>
+</tr>
+<tr>
+<td>Lux label shows <code>error</code></td>
+<td>The sensor read failed (typically saturation).</td>
+<td>Drop the gain one step (HIGH → MED, MAX → HIGH).</td>
+</tr>
+<tr>
+<td>Suggested time consistently off by 2× or ½×</td>
+<td>Gain-stage factors uncalibrated for this device, or a different aperture / head height than when you calibrated.</td>
+<td>Run <strong>Sensor Light Calibration</strong>, or recalibrate the paper.</td>
+</tr>
+<tr>
+<td>Readings disagree when you switch gain</td>
+<td>Gain-stage factors need trimming for your specific sensor.</td>
+<td>Run <strong>Sensor Light Calibration</strong> (§2.2).</td>
+</tr>
+<tr>
+<td>Contrast / Split tab shows <code>--</code> everywhere</td>
+<td>One of the two readings is missing, or the paper isn't calibrated. The suggested-time label tells you which.</td>
+<td>Measure that zone, or calibrate the paper.</td>
+</tr>
+<tr>
+<td>Virtual Proof has clipping frames on every highlight cell</td>
+<td>Negative range exceeds what the paper + filter can hold.</td>
+<td>Pick a softer grade and press <strong>Recompute Preview</strong>, or switch to Split Grade.</td>
+</tr>
+<tr>
+<td>Backlight looks dead</td>
+<td>Brightness slider at 1 is intentionally very dim.</td>
+<td>Drag right; the screen will reappear within the first few steps.</td>
+</tr>
+<tr>
+<td>Calibration edits didn't stick after power cycle</td>
+<td>They're flushed 1.5 s after the last tap. If you cut power inside that window they're lost.</td>
+<td>Edit, pause one second, then power down.</td>
+</tr>
+<tr>
+<td>Filter Editor spinboxes show stale values</td>
+<td>Spinbox display is synchronised to the grade dropdown.</td>
+<td>Re-select the grade from the dropdown to refresh.</td>
+</tr>
+<tr>
+<td>Filter Editor &quot;Reset to defaults&quot; had no effect</td>
+<td>The reset only affects the current paper. Other papers keep their overrides.</td>
+<td>Switch to the paper you want to reset, then press the button.</td>
+</tr>
+<tr>
+<td>Device won't wake from sleep</td>
+<td>Button not held long enough, or battery is completely flat.</td>
+<td>Hold the button for ≥1 second. If unresponsive, plug in USB to charge, then try again.</td>
+</tr>
+<tr>
+<td>Battery bar shows empty but device still runs</td>
+<td>The bar reads voltage under load; a sagging battery may show 0% while still having enough capacity to keep the MCU alive briefly.</td>
+<td>Charge the battery. Auto-dormant triggers at 10% to prevent over-discharge damage.</td>
+</tr>
+<tr>
+<td>&quot;Charging…&quot; never goes away</td>
+<td>The charge-detection algorithm waits for a voltage plateau that signals a full cell. Some chargers never reach it.</td>
+<td>Normal for some chargers. The battery is protected; unplug when done printing.</td>
+</tr>
+<tr>
+<td>Screen flickers briefly during Measure</td>
+<td>Normal — the backlight dims to 10% during sensor reads to prevent LCD light from contaminating lux readings (§2.1).</td>
+<td>No action needed.</td>
+</tr>
+<tr>
+<td>Filter Editor Factor / ISO R spinboxes greyed out</td>
+<td>You have a fixed-grade paper selected (e.g. FOMA FOMASPEED Normal). These papers have a single built-in contrast — ISO R and factor cannot be changed.</td>
+<td>Switch to a variable-contrast paper, or adjust only ISO P.</td>
+</tr>
+<tr>
+<td>&quot;No reference&quot; when pressing Est. Cal from ISO P</td>
+<td>You haven't set a reference paper yet.</td>
+<td>Calibrate one paper, then press <strong>Set as Ref</strong> on the Filter Editor tab first.</td>
+</tr>
+<tr>
+<td>&quot;Clear All Calibrations&quot; wiped everything</td>
+<td>There is no confirmation dialog for this button. All calibrations are gone permanently.</td>
+<td>Re-calibrate your most-used paper (§7), set it as reference, then use <strong>Auto Estimate All</strong> to restore approximate calibrations for the others.</td>
+</tr>
+<tr>
+<td>Screen briefly goes dark then recovers during sensor read</td>
+<td>The backlight dimming feature (§2.1) is active. On very long sample counts (16 reads × 600 ms integration) this can last ~10 seconds.</td>
+<td>Reduce sample count or integration time in Settings if the flicker is distracting.</td>
+</tr>
+</tbody>
+</table>
+</small>
+
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>
