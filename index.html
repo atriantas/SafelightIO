@@ -476,6 +476,11 @@ nav .wrap{display:flex; align-items:center; justify-content:space-between; paddi
 .hero h1{font-size:clamp(38px,5vw,60px); line-height:1.04; letter-spacing:-.01em;}
 .hero-sub{font-size:17px; color:var(--paper-dim); max-width:46ch; margin:22px 0 34px;}
 .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
+.hero-price{
+  margin:16px 0 0; font-family:'IBM Plex Mono',monospace;
+  font-size:20px; color:var(--paper);
+}
+.hero-price span{font-size:12px; color:var(--paper-faint); font-weight:400;}
 .hero-img-wrap{position:relative;}
 .hero-img-glow{
   position:absolute; inset:-10%;
@@ -700,6 +705,11 @@ section{padding:86px 0;}
 }
 .cta h2{font-size:clamp(30px,4vw,46px); max-width:16ch; margin:0 auto;}
 .cta p{color:var(--paper-dim); max-width:52ch; margin:20px auto 34px; font-size:16px;}
+.cta .cta-price{
+  font-family:'IBM Plex Mono',monospace; font-size:22px; color:var(--paper);
+  margin:0 auto 24px; max-width:none;
+}
+.cta .cta-price span{font-size:13px; color:var(--paper-faint); font-weight:400;}
 .cta .fine{margin-top:20px; font-size:13px; color:var(--paper-faint);}
 
 /* FOOTER */
@@ -941,6 +951,7 @@ footer{padding:48px 0 40px;}
         <a href="#features" class="btn btn-solid">See the features</a>
         <a href="https://cyanowood.com/cart/56596508344660:1?channel=buy_button" class="btn btn-line" target="_blank" rel="noopener">Get one</a>
       </div>
+      <p class="hero-price">€160,00 <span>excl. VAT</span></p>
     </div>
     <div class="hero-img-wrap reveal">
       <div class="hero-img-glow"></div>
@@ -1369,6 +1380,7 @@ footer{padding:48px 0 40px;}
     <div class="eyebrow" style="justify-content:center;">Get one</div>
     <h2>Built by a printer,<br>for printers.</h2>
     <p>Every <strong>darkroom exposure meter</strong> is assembled, soldered, and calibrated by hand — this isn't a production line. If you'd like a precision <strong>enlarger light meter</strong> for your own darkroom, or you've got a feature to suggest for the <strong>darkroom print analyzer</strong>, get in touch.</p>
+    <p class="cta-price">€160,00 <span>excl. VAT</span></p>
     <a href="mailto:support@cyanowood.com" class="btn btn-solid">Email support@cyanowood.com</a>
     <div class="fine">Feedback and feature requests are always welcome — the meter is still evolving. &nbsp;·&nbsp; <a href="Darkroom%20Exposure%20Meter%20%E2%80%94%20User%20Manual.pdf">Read the full manual →</a></div>
   </div>
