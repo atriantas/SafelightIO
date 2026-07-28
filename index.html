@@ -359,6 +359,76 @@ footer{padding:48px 0 40px;}
 .foot-contact a:hover{color:var(--meter); border-color:var(--meter);}
 .foot-bottom{margin-top:36px; padding-top:22px; border-top:1px solid var(--line); font-size:12px; color:var(--paper-faint); font-family:'IBM Plex Mono',monospace; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
 
+/* DIFFERENTIATORS */
+.diff-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.diff-card{
+  background:var(--dark-raised);
+  border:1px solid var(--line-bright);
+  border-radius:10px;
+  padding:28px 24px 24px;
+  transition:border-color .3s ease, transform .3s ease, box-shadow .3s ease;
+}
+.diff-card:hover{
+  border-color:var(--safelight);
+  transform:translateY(-3px);
+  box-shadow:0 14px 40px -14px rgba(226,118,15,.18);
+}
+.diff-icon{
+  width:44px; height:44px;
+  color:var(--meter);
+  margin-bottom:18px;
+}
+.diff-card h4{
+  font-family:'Fraunces',serif;
+  font-size:19px; font-weight:500;
+  margin:0 0 10px;
+  color:var(--paper);
+}
+.diff-card p{
+  font-size:14px; color:var(--paper-dim);
+  margin:0; line-height:1.55;
+}
+@media (max-width:900px){ .diff-grid{grid-template-columns:repeat(2,1fr);} }
+@media (max-width:560px){ .diff-grid{grid-template-columns:1fr;} }
+
+/* FAQ */
+.faq-list{margin:0; padding:0; list-style:none;}
+.faq-item{
+  border-top:1px solid var(--line);
+}
+.faq-item:first-child{border-top:none;}
+.faq-item summary{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:22px 0; cursor:pointer;
+  font-family:'Fraunces',serif; font-size:18px; font-weight:500;
+  color:var(--paper);
+  list-style:none;
+  transition:color .2s ease;
+  gap:16px;
+}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::marker{display:none; content:"";}
+.faq-item summary:hover{color:var(--safelight-bright);}
+.faq-arrow{
+  flex-shrink:0; width:24px; height:24px;
+  color:var(--paper-faint);
+  transition:transform .3s ease, color .2s ease;
+}
+.faq-item[open] .faq-arrow{transform:rotate(45deg); color:var(--safelight);}
+.faq-item summary:hover .faq-arrow{color:var(--safelight-bright);}
+.faq-body{
+  padding:0 0 22px;
+  font-size:15px; color:var(--paper-dim);
+  line-height:1.6;
+  max-width:62ch;
+}
+.faq-body p{margin:0;}
+.faq-body p + p{margin-top:12px;}
+
 /* reveal */
 .js-active .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
 .js-active .reveal.in{opacity:1; transform:translateY(0);}
@@ -432,6 +502,43 @@ footer{padding:48px 0 40px;}
   <rect x="74" y="43" width="7" height="12" rx="1.5" fill="currentColor"/>
   <rect x="24" y="41" width="30" height="16" fill="currentColor" opacity="0.85"/>
 </symbol>
+<symbol id="ic-reciprocity" viewBox="0 0 96 96">
+  <circle cx="48" cy="48" r="34" fill="none" stroke="currentColor" stroke-width="4"/>
+  <polyline points="48,22 48,48 62,56" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M18 66 Q34 52 48 56" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+</symbol>
+<symbol id="ic-crosspaper" viewBox="0 0 96 96">
+  <rect x="14" y="20" width="52" height="56" rx="3" fill="none" stroke="currentColor" stroke-width="4"/>
+  <rect x="30" y="20" width="52" height="56" rx="3" fill="none" stroke="currentColor" stroke-width="4" opacity="0.5"/>
+  <line x1="58" y1="48" x2="78" y2="48" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+  <polyline points="72,42 78,48 72,54" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</symbol>
+<symbol id="ic-crossbrand" viewBox="0 0 96 96">
+  <circle cx="36" cy="44" r="24" fill="none" stroke="currentColor" stroke-width="4"/>
+  <circle cx="58" cy="52" r="24" fill="none" stroke="currentColor" stroke-width="4" opacity="0.55"/>
+  <circle cx="47" cy="48" r="5" fill="currentColor"/>
+</symbol>
+<symbol id="ic-autodim" viewBox="0 0 96 96">
+  <rect x="18" y="22" width="60" height="44" rx="4" fill="none" stroke="currentColor" stroke-width="4"/>
+  <line x1="34" y1="74" x2="48" y2="68" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+  <line x1="62" y1="74" x2="48" y2="68" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="38" cy="40" r="9" fill="none" stroke="currentColor" stroke-width="3"/>
+  <path d="M32.5 34 Q38 38.5 43.5 34" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+</symbol>
+<symbol id="ic-stability" viewBox="0 0 96 96">
+  <polyline points="14,72 30,60 42,64 58,44 70,46 82,40" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="82" y1="28" x2="82" y2="72" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.4"/>
+  <line x1="14" y1="72" x2="82" y2="72" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.4"/>
+  <circle cx="82" cy="40" r="5" fill="currentColor"/>
+</symbol>
+<symbol id="ic-zone" viewBox="0 0 96 96">
+  <rect x="20" y="24" width="56" height="10" rx="1.5" fill="currentColor" opacity="0.12"/>
+  <rect x="20" y="36" width="56" height="10" rx="1.5" fill="currentColor" opacity="0.28"/>
+  <rect x="20" y="48" width="56" height="10" rx="1.5" fill="currentColor" opacity="0.50"/>
+  <rect x="20" y="60" width="56" height="10" rx="1.5" fill="currentColor" opacity="0.78"/>
+  <circle cx="48" cy="53" r="14" fill="none" stroke="currentColor" stroke-width="3"/>
+  <line x1="48" y1="14" x2="48" y2="82" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+</symbol>
 </svg>
 
 <nav>
@@ -443,6 +550,8 @@ footer{padding:48px 0 40px;}
       <a href="#features">Features</a>
       <a href="#setup">Setup</a>
       <a href="#specs">Specs</a>
+      <a href="#faq">FAQ</a>
+      <a href="MANUAL.md">Manual</a>
       <a href="#contact" class="btn btn-solid">Get one</a>
     </div>
   </div>
@@ -625,6 +734,48 @@ footer{padding:48px 0 40px;}
   </div>
 </section>
 
+<section id="differentiators">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Beyond the basics</div>
+      <h2>What sets it apart</h2>
+      <p>Six capabilities you won't find in a test strip — each one saves paper and time from the first session.</p>
+    </div>
+    <div class="diff-grid reveal">
+      <div class="diff-card">
+        <div class="diff-icon"><svg class="icon"><use href="#ic-reciprocity"/></svg></div>
+        <h4>Reciprocity Correction</h4>
+        <p>Long exposures under-respond on photo paper. The meter applies a Schwarzschild-model correction automatically — milder for resin-coated papers, stronger for fibre-base — so your 45‑second exposure doesn't come out thin.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-icon"><svg class="icon"><use href="#ic-crosspaper"/></svg></div>
+        <h4>Cross-Paper Estimation</h4>
+        <p>Calibrate <em>one</em> paper properly with a test strip. The meter then estimates calibrations for all 21 other papers using their ISO&nbsp;P speed ratings — turning a per-paper chore into a five‑minute bulk setup.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-icon"><svg class="icon"><use href="#ic-crossbrand"/></svg></div>
+        <h4>Cross-Brand Filter Data</h4>
+        <p>All 22 papers work with all 6 filter brands — Ilford, FOMA, AGFA, Kodak, Durst, Meopta. Use Ilford under‑lens filters with FOMA paper, or a Durst colour head with Ilford paper. The cross‑compatibility data is built in.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-icon"><svg class="icon"><use href="#ic-autodim"/></svg></div>
+        <h4>Backlight Auto‑Dimming</h4>
+        <p>LCD backlight contaminates lux readings in a darkroom. Every time you press Measure, the screen dims to 10% before the sensor is read, then restores — transparently, on every tab, every time.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-icon"><svg class="icon"><use href="#ic-stability"/></svg></div>
+        <h4>Stability Detection</h4>
+        <p>In Virtual Proof auto‑scan mode, the meter waits for each cell's reading to stabilize before advancing. Configurable tolerance, minimum stable samples, and a max‑wait timeout — so the scan never stalls on a dim cell.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-icon"><svg class="icon"><use href="#ic-zone"/></svg></div>
+        <h4>Zone System Metering</h4>
+        <p>You're not locked into metering only midtones. Point the sensor at a shadow and set the zone to III — the meter scales to its Zone&nbsp;V equivalent automatically. Point at a highlight, set to VII. The calibration stays valid no matter what tone you measure, with the correct multiplier for every step from Zone&nbsp;0 through&nbsp;X.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="wedge-section"><div class="wedge">
   <div class="wedge-step" style="background:#F4EBDD"></div>
   <div class="wedge-step" style="background:#DED5C8"></div>
@@ -725,13 +876,97 @@ footer{padding:48px 0 40px;}
   </div>
 </section>
 
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Questions &amp; answers</div>
+      <h2>FAQ</h2>
+      <p>Quick answers to things every printer asks before their first session.</p>
+    </div>
+    <div class="faq-list reveal">
+      <details class="faq-item">
+        <summary>
+          <span>Why do I need to calibrate for each paper?</span>
+          <svg class="faq-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </summary>
+        <div class="faq-body">
+          <p>Every emulsion has a different speed. The meter stores one calibration constant per paper — do it once with a test strip (about 15&nbsp;minutes), and every reading after that is instant. Already calibrated one paper? Use the <strong>cross‑paper estimation tool</strong> to populate the other 21 papers automatically from their ISO&nbsp;P speed ratios. See §7 and §9.4 in the manual for the full procedure.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>
+          <span>How long does the battery last?</span>
+          <svg class="faq-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </summary>
+        <div class="faq-body">
+          <p>The device runs from a rechargeable LiPo battery and charges over USB‑C — even while you're printing, so you can keep it plugged in during long sessions. When the battery reaches 10%, the meter automatically enters dormant sleep to protect the cell from over‑discharge damage. A full charge lasts through several darkroom sessions.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>
+          <span>Does it work with fixed‑grade papers?</span>
+          <svg class="faq-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </summary>
+        <div class="faq-body">
+          <p>Yes. The built‑in database includes fixed‑grade papers such as FOMA FOMASPEED Normal. The Exposure and Contrast tabs work as usual — the Contrast tab shows "Fixed grade" and still calculates a midpoint exposure time. Split Grade is not applicable for fixed‑grade papers; use the Contrast tab instead. Filter factors and ISO&nbsp;R are locked (they're fixed at manufacture), but ISO&nbsp;P remains adjustable in the Filter Editor.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>
+          <span>Why does the screen flicker when I press Measure?</span>
+          <svg class="faq-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </summary>
+        <div class="faq-body">
+          <p>That's the <strong>backlight auto‑dimming</strong> feature. LCD backlight can contaminate light‑sensor readings in a darkroom, so the screen automatically dims to 10% brightness before each sensor read, then restores to your chosen brightness afterward. This happens on every tab, every time you press Measure — it's always active to guarantee accurate lux readings. If the flicker is distracting during long sample sequences, reduce the sample count or integration time in Settings.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>
+          <span>What if my real filter factors differ from the built‑in ones?</span>
+          <svg class="faq-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </summary>
+        <div class="faq-body">
+          <p>They almost certainly will. Manufacturer datasheet factors are lab averages — your bulb type, lamp age, lens coatings, and reflector condition can shift them 10–30%. The <strong>Filter Editor</strong> lets you enter your own measured exposure factors and ISO&nbsp;R values per grade. The manual covers three measurement methods: step wedge (most accurate), grey card visual match (no special equipment), and densitometer. See §9 and §12 in the manual.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>
+          <span>Does it work with LED or cold‑light enlarger heads?</span>
+          <svg class="faq-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </summary>
+        <div class="faq-body">
+          <p>Yes. The ambient light sensor reads broadband visible light — it doesn't care about the spectrum, only the intensity at the easel. Variable‑contrast LED heads with narrow‑band blue/green output work fine. Cold‑light (fluorescent) heads also work. You may want to measure your own filter factors since LED and cold‑light attenuation characteristics differ from tungsten — the Filter Editor is built for exactly this.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>
+          <span>How long does the first setup take?</span>
+          <svg class="faq-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </summary>
+        <div class="faq-body">
+          <p>About 15&nbsp;minutes for your first paper calibration (one test strip, developed and evaluated). After that, the <strong>cross‑paper estimation tool</strong> populates the other 21 papers in under a minute by scaling from ISO&nbsp;P speed ratios. Optional sensor calibration (offset + light) takes about 5&nbsp;minutes and only needs to be done once per device. Most users are printing within half an hour of unboxing.</p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary>
+          <span>What's in the box?</span>
+          <svg class="faq-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </summary>
+        <div class="faq-body">
+          <p>The meter unit (Waveshare RP2350 with touchscreen display) and a tethered ambient‑light sensor probe. The in‑app help center walks through setup screen by screen, and a comprehensive manual is available to <a href="MANUAL.md">download here</a>. The device charges over any standard USB‑C cable.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <section class="cta" id="contact">
   <div class="wrap reveal">
     <div class="eyebrow" style="justify-content:center;">Get one</div>
     <h2>Built by a printer,<br>for printers.</h2>
     <p>Every one of these is put together and calibrated by hand — this isn't a production line. If you'd like one for your own darkroom, or you've got a feature to suggest, get in touch.</p>
     <a href="mailto:support@cyanowood.com" class="btn btn-solid">Email support@cyanowood.com</a>
-    <div class="fine">Feedback and feature requests are always welcome — the meter is still evolving.</div>
+    <div class="fine">Feedback and feature requests are always welcome — the meter is still evolving. &nbsp;·&nbsp; <a href="MANUAL.md">Read the full manual →</a></div>
   </div>
 </section>
 
@@ -745,7 +980,8 @@ footer{padding:48px 0 40px;}
       </div>
       <div class="foot-contact">
         <a href="mailto:support@cyanowood.com">support@cyanowood.com</a><br>
-        <a href="https://www.cyanowood.com/lightmeter">cyanowood.com/lightmeter</a>
+        <a href="https://www.cyanowood.com/lightmeter">cyanowood.com/lightmeter</a><br>
+        <a href="MANUAL.md">Download the manual</a>
       </div>
     </div>
     <div class="foot-bottom">
