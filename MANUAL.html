@@ -2,7 +2,7 @@
         <html>
         <head>
             <meta charset="UTF-8">
-            <title>Darkroom Exposure Meter &mdash; User Manual</title>
+            <title>SafelightIO &mdash; User Manual</title>
             <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -30,119 +30,97 @@
             }
         </style>
         <style>
-.task-list-item {
-    list-style-type: none;
+.cover-page {
+  text-align: center;
+  padding: 3rem 1rem 2rem 1rem;
+  page-break-after: always;
 }
-
-.task-list-item-checkbox {
-    margin-left: -20px;
-    vertical-align: middle;
-    pointer-events: none;
+.cover-page img {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 1.5rem;
 }
-</style>
-<style>
-:root {
-  --color-note: #0969da;
-  --color-tip: #1a7f37;
-  --color-warning: #9a6700;
-  --color-severe: #bc4c00;
-  --color-caution: #d1242f;
-  --color-important: #8250df;
+.cover-page .product-name {
+  font-size: 2.4em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 0.3rem 0;
 }
-
-</style>
-<style>
+.cover-page .product-tagline {
+  font-size: 1.15em;
+  color: #888;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+.cover-page .cover-divider {
+  border: none;
+  border-top: 2px solid #333;
+  width: 60%;
+  margin: 1.5rem auto;
+}
+.cover-page .cover-motto {
+  font-weight: 600;
+  font-size: 1.05em;
+  margin-bottom: 2rem;
+}
+.cover-page .feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 2rem;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  text-align: left;
+}
+.cover-page .feature-grid .feature-item {
+  font-size: 0.95em;
+}
+.cover-page .feature-grid .feature-item strong {
+  display: block;
+  margin-bottom: 0.15rem;
+}
+.cover-page .cover-logo {
+  max-width: 320px;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+.cover-page .manual-heading {
+  margin-top: 2.5rem;
+  font-size: 1.3em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #555;
+}
 @media (prefers-color-scheme: dark) {
-  :root {
-    --color-note: #2f81f7;
-    --color-tip: #3fb950;
-    --color-warning: #d29922;
-    --color-severe: #db6d28;
-    --color-caution: #f85149;
-    --color-important: #a371f7;
-  }
+  .cover-page .product-tagline { color: #999; }
+  .cover-page .cover-divider { border-top-color: #666; }
+  .cover-page .manual-heading { color: #aaa; }
 }
-
-</style>
-<style>
-.markdown-alert {
-  padding: 0.5rem 1rem;
-  margin-bottom: 16px;
-  color: inherit;
-  border-left: .25em solid #888;
-}
-
-.markdown-alert>:first-child {
-  margin-top: 0
-}
-
-.markdown-alert>:last-child {
-  margin-bottom: 0
-}
-
-.markdown-alert .markdown-alert-title {
-  display: flex;
-  font-weight: 500;
-  align-items: center;
-  line-height: 1
-}
-
-.markdown-alert .markdown-alert-title .octicon {
-  margin-right: 0.5rem;
-  display: inline-block;
-  overflow: visible !important;
-  vertical-align: text-bottom;
-  fill: currentColor;
-}
-
-.markdown-alert.markdown-alert-note {
-  border-left-color: var(--color-note);
-}
-
-.markdown-alert.markdown-alert-note .markdown-alert-title {
-  color: var(--color-note);
-}
-
-.markdown-alert.markdown-alert-important {
-  border-left-color: var(--color-important);
-}
-
-.markdown-alert.markdown-alert-important .markdown-alert-title {
-  color: var(--color-important);
-}
-
-.markdown-alert.markdown-alert-warning {
-  border-left-color: var(--color-warning);
-}
-
-.markdown-alert.markdown-alert-warning .markdown-alert-title {
-  color: var(--color-warning);
-}
-
-.markdown-alert.markdown-alert-tip {
-  border-left-color: var(--color-tip);
-}
-
-.markdown-alert.markdown-alert-tip .markdown-alert-title {
-  color: var(--color-tip);
-}
-
-.markdown-alert.markdown-alert-caution {
-  border-left-color: var(--color-caution);
-}
-
-.markdown-alert.markdown-alert-caution .markdown-alert-title {
-  color: var(--color-caution);
-}
-
 </style>
         
         </head>
         <body class="vscode-body vscode-light">
             <span id="markdown-mermaid" aria-hidden="true" data-config="{&quot;darkModeTheme&quot;:&quot;vscode&quot;,&quot;lightModeTheme&quot;:&quot;vscode&quot;,&quot;maxTextSize&quot;:50000,&quot;clickDrag&quot;:&quot;alt&quot;,&quot;showControls&quot;:&quot;onHoverOrFocus&quot;,&quot;resizable&quot;:true,&quot;maxHeight&quot;:&quot;&quot;}"></span>
 				<small>
-<h1 id="darkroom-exposure-meter--user-manual">Darkroom Exposure Meter — User Manual</h1>
-<p>A tablet-sized companion for black-and-white enlarger printing. Point the sensor at the easel, choose the paper you’re about to print on, and the meter tells you how long to expose, which contrast grade to use, and how a tricky negative will distribute across the paper before you commit to it.</p>
+<div class="cover-page">
+  <p><img src="ManualImage.png" alt="SafelightIO Digital Darkroom Exposure Meter" /></p>
+  <p><img class="cover-logo" src="HeaderLogoBlack.png" alt="SafelightIO" /></p>
+  <p class="product-tagline">Digital Darkroom Exposure Meter</p>
+  <hr class="cover-divider" />
+  <p class="cover-motto">One reading at the easel. Perfect prints, every time.</p>
+  <div class="feature-grid">
+    <div class="feature-item"><strong>Measure</strong>Point the sensor, press Measure, get the time</div>
+    <div class="feature-item"><strong>Analyze</strong>Contrast grade recommendation in seconds</div>
+    <div class="feature-item"><strong>Split</strong>Automatic soft/hard grade timing for tricky negatives</div>
+    <div class="feature-item"><strong>Preview</strong>Virtual proof grid before you commit paper</div>
+  </div>
+  <hr class="cover-divider" />
+  <p class="manual-heading">User Manual</p>
+</div>
+
+<h1 id="safelightio--user-manual">SafelightIO — User Manual</h1>
+<p>A tablet-sized companion for black-and-white enlarger printing. Point the sensor at the easel, choose the paper you’re about to print on, and SafelightIO tells you how long to expose, which contrast grade to use, and how a tricky negative will distribute across the paper before you commit to it.</p>
 <hr>
 <h2 id="1-quick-start">1. Quick start</h2>
 <ol>

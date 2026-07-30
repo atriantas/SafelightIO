@@ -1,8 +1,33 @@
 <small>
 
-# Darkroom Exposure Meter — User Manual
+<p align="center">
+  <img src="ManualImage.png" alt="SafelightIO Digital Darkroom Exposure Meter" width="420"/>
+</p>
 
-A tablet-sized companion for black-and-white enlarger printing. Point the sensor at the easel, choose the paper you’re about to print on, and the meter tells you how long to expose, which contrast grade to use, and how a tricky negative will distribute across the paper before you commit to it.
+<p align="center">
+  <img src="HeaderLogoBlack.png" alt="SafelightIO" width="320"/>
+</p>
+
+<p align="center">
+  <em style="font-size: 1.1em; color: #888;">Digital Darkroom Exposure Meter</em>
+</p>
+
+---
+
+<p align="center"><strong>One reading at the easel. Perfect prints, every time.</strong></p>
+
+| | |
+|---|---|
+| **Measure** — point the sensor, press Measure, get the time | **Analyze** — contrast grade recommendation in seconds |
+| **Split** — automatic soft/hard grade timing for tricky negatives | **Preview** — virtual proof grid before you commit paper |
+
+---
+
+## User Manual
+
+# SafelightIO — User Manual
+
+A tablet-sized companion for black-and-white enlarger printing. Point the sensor at the easel, choose the paper you're about to print on, and SafelightIO tells you how long to expose, which contrast grade to use, and how a tricky negative will distribute across the paper before you commit to it.
 
 ---
 
