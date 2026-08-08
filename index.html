@@ -150,7 +150,7 @@
     {
       "@type": "PropertyValue",
       "name": "Display",
-      "value": "Waveshare RP2350 Touchscreen"
+      "value": "7 inches LCD with RP2350"
     },
     {
       "@type": "PropertyValue",
@@ -377,6 +377,7 @@
   --maxw: 1180px;
 }
 *{box-sizing:border-box;}
+*{-webkit-tap-highlight-color:transparent;}
 html{scroll-behavior:smooth;}
 body{
   margin:0;
@@ -517,6 +518,16 @@ nav .wrap{display:flex; align-items:center; justify-content:space-between; paddi
 }
 .mobile-nav-link:hover{background:var(--dark-raised); color:var(--paper);}
 .mobile-cta-btn{display:block; width:100%; padding:14px 22px; font-size:15px;}
+
+/* Mobile menu close button */
+.mobile-menu-close{
+  position:absolute; top:16px; right:16px; z-index:107;
+  width:40px; height:40px; display:flex; align-items:center; justify-content:center;
+  background:transparent; border:1px solid var(--line-bright); border-radius:8px;
+  color:var(--paper-dim); cursor:pointer; padding:0;
+  transition:border-color .2s ease, color .2s ease;
+}
+.mobile-menu-close:hover{border-color:var(--safelight); color:var(--safelight-bright);}
 
 /* BUTTONS */
 .btn{
@@ -907,6 +918,23 @@ footer{padding:48px 0 40px;}
   .diff-card p{font-size:13.5px;}
 }
 
+/* diff toggle */
+.diff-toggle{
+  display:none;
+  width:100%; padding:13px 20px; margin-top:16px;
+  background:var(--dark-raised);
+  border:1px solid var(--line-bright); border-radius:8px;
+  color:var(--paper-dim); font-family:'Archivo',sans-serif; font-size:14px; font-weight:500;
+  cursor:pointer; text-align:center;
+  transition:border-color .2s ease, color .2s ease, background .2s ease;
+}
+.diff-toggle:hover{border-color:var(--meter); color:var(--meter);}
+@media (max-width:560px){
+  .diff-toggle{display:block;}
+  .diff-card-collapsible{display:none;}
+  .diff-grid.expanded .diff-card-collapsible{display:block;}
+}
+
 /* FAQ */
 .faq-list{margin:0; padding:0; list-style:none;}
 .faq-item{
@@ -1105,6 +1133,12 @@ body.menu-open{overflow:hidden;}
 <!-- Mobile menu drawer -->
 <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 <div class="mobile-menu-drawer" id="mobileMenuDrawer">
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <line x1="18" y1="6" x2="6" y2="18"/>
+      <line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
   <div class="mobile-menu-inner">
     <a href="#features" class="mobile-nav-link">Features</a>
     <a href="#setup" class="mobile-nav-link">Setup</a>
@@ -1142,8 +1176,8 @@ body.menu-open{overflow:hidden;}
     </div>
     <div class="hero-img-wrap reveal">
       <div class="hero-img-glow"></div>
-      <div class="hero-img-card"><img src="Device.png" width="866" height="866" alt="Cyanowood Darkroom Meter — handheld digital enlarger exposure meter with Waveshare RP2350 touchscreen and tethered ambient-light sensor probe for f-stop darkroom timing"></div>
-      <div class="hero-caption">RP2350 TOUCHSCREEN + AMBIENT LIGHT PROBE</div>
+      <div class="hero-img-card"><img src="Device.png" width="866" height="866" alt="Cyanowood Darkroom Meter — handheld digital enlarger exposure meter with RP2350 touchscreen and tethered ambient-light sensor probe for f-stop darkroom timing"></div>
+      <div class="hero-caption">RP2350 7 INCH TOUCHSCREEN + AMBIENT LIGHT PROBE</div>
     </div>
   </div>
 </header>
@@ -1329,22 +1363,23 @@ body.menu-open{overflow:hidden;}
         <h4>Cross-Brand Filter Data</h4>
         <p>All 22 papers work with all 6 filter brands — Ilford, FOMA, AGFA, Kodak, Durst, Meopta. Use Ilford under‑lens filters with FOMA paper, or a Durst colour head with Ilford paper. The cross‑compatibility data is built in.</p>
       </div>
-      <div class="diff-card">
+      <div class="diff-card diff-card-collapsible">
         <div class="diff-icon"><svg class="icon"><use href="#ic-autodim"/></svg></div>
         <h4>Backlight Auto‑Dimming</h4>
         <p>LCD backlight contaminates lux readings in a darkroom. Every time you press Measure, the screen dims to 10% before the sensor is read, then restores — transparently, on every tab, every time.</p>
       </div>
-      <div class="diff-card">
+      <div class="diff-card diff-card-collapsible">
         <div class="diff-icon"><svg class="icon"><use href="#ic-stability"/></svg></div>
         <h4>Stability Detection</h4>
         <p>In Virtual Proof auto‑scan mode, the meter waits for each cell's reading to stabilize before advancing. Configurable tolerance, minimum stable samples, and a max‑wait timeout — so the scan never stalls on a dim cell.</p>
       </div>
-      <div class="diff-card">
+      <div class="diff-card diff-card-collapsible">
         <div class="diff-icon"><svg class="icon"><use href="#ic-zone"/></svg></div>
         <h4>Zone System Metering</h4>
         <p>You're not locked into metering only midtones. Point the sensor at a shadow and set the zone to III — the meter scales to its Zone&nbsp;V equivalent automatically. Point at a highlight, set to VII. The calibration stays valid no matter what tone you measure, with the correct multiplier for every step from Zone&nbsp;0 through&nbsp;X.</p>
       </div>
     </div>
+    <button class="diff-toggle" id="diffToggle" aria-expanded="false">Show all 6 features</button>
   </div>
 </section>
 
@@ -1428,7 +1463,7 @@ body.menu-open{overflow:hidden;}
       <div>
         <div class="f-tag">Hardware</div>
         <ul class="spec-list">
-          <li><span class="k">Board</span><span class="v">Waveshare RP2350, touchscreen display</span></li>
+          <li><span class="k">Board</span><span class="v">RP2350 with touchscreen display</span></li>
           <li><span class="k">Sensing</span><span class="v">Ambient light sensor · gain LOW / MED / HIGH / MAX</span></li>
           <li><span class="k">Timing</span><span class="v">100–600ms integration · 1–16 sample averaging</span></li>
           <li><span class="k">Power</span><span class="v">Rechargeable battery · charges over USB-C while running</span></li>
@@ -1552,7 +1587,7 @@ body.menu-open{overflow:hidden;}
           <svg class="faq-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </summary>
         <div class="faq-body">
-          <p>The meter unit (Waveshare RP2350 with touchscreen display) and a tethered ambient‑light sensor probe. The in‑app help center walks through setup screen by screen, and a comprehensive manual is available to <a href="Darkroom%20Exposure%20Meter%20%E2%80%94%20User%20Manual.pdf">download here</a>. The device charges over any standard USB‑C cable.</p>
+          <p>The meter unit (RP2350 with touchscreen display) and a tethered ambient‑light sensor probe. The in‑app help center walks through setup screen by screen, and a comprehensive manual is available to <a href="Darkroom%20Exposure%20Meter%20%E2%80%94%20User%20Manual.pdf">download here</a>. The device charges over any standard USB‑C cable.</p>
         </div>
       </details>
     </div>
@@ -1687,6 +1722,7 @@ document.documentElement.classList.add('js-active');
   var hamburger = document.querySelector('.hamburger');
   var overlay   = document.getElementById('mobileMenuOverlay');
   var drawer    = document.getElementById('mobileMenuDrawer');
+  var closeBtn  = document.getElementById('mobileMenuClose');
   var links     = document.querySelectorAll('.mobile-nav-link');
   var body      = document.body;
 
@@ -1717,6 +1753,10 @@ document.documentElement.classList.add('js-active');
     overlay.addEventListener('click', closeMenu);
   }
 
+  if(closeBtn){
+    closeBtn.addEventListener('click', closeMenu);
+  }
+
   // Close on link click
   links.forEach(function(link){
     link.addEventListener('click', closeMenu);
@@ -1725,6 +1765,18 @@ document.documentElement.classList.add('js-active');
   // Close on Escape key
   document.addEventListener('keydown', function(e){
     if(e.key === 'Escape' && drawer.classList.contains('active')){ closeMenu(); }
+  });
+})();
+
+// ── Diff cards show-more toggle ───────────────
+(function(){
+  var toggle = document.getElementById('diffToggle');
+  var grid   = document.querySelector('.diff-grid');
+  if(!toggle || !grid) return;
+  toggle.addEventListener('click', function(){
+    var expanded = grid.classList.toggle('expanded');
+    toggle.setAttribute('aria-expanded', expanded);
+    toggle.textContent = expanded ? 'Show less' : 'Show all 6 features';
   });
 })();
 
