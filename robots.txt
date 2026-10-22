@@ -1,0 +1,9 @@
+# robots.txt — only takes effect once this site is served from a domain root.
+# GitHub Pages project sites answer at /SafelightIO/ and read robots.txt from
+# the host root (atriantas.github.io/robots.txt), which this repo cannot set.
+# Keep this file: on the new server it becomes live as-is.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://atriantas.github.io/SafelightIO/sitemap.xml
