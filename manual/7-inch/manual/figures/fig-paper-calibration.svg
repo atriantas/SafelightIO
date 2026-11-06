@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="350" viewBox="0 0 940 350" role="img" aria-label="Calibrating a paper in four steps">
+  <title>Calibrating a paper in four steps</title>
+  <desc>Calibrating a paper in four steps</desc>
+  <rect width="940" height="350" fill="#FBF8F2"/>
+  <text x="24" y="40" font-family="Georgia, Times New Roman, serif" font-size="26" font-weight="bold" fill="#211E1B" text-anchor="start">Calibrating a paper</text>
+  <text x="24" y="66" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="normal" fill="#6D635B" text-anchor="start">One test strip turns lux into a printing time</text>
+  <rect x="24" y="92" width="210" height="200" rx="12" fill="#FFFFFF" stroke="#D9CEBF" stroke-width="1.5"/>
+  <circle cx="50" cy="120" r="17" fill="#E8730C"/>
+  <text x="50" y="125.4" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle">1</text>
+  <text x="76" y="127" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#211E1B" text-anchor="start">Set up</text>
+  <text x="42" y="162" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#6D635B" text-anchor="start">No filter, a negative</text>
+  <text x="42" y="180" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#6D635B" text-anchor="start">with a good midtone,</text>
+  <text x="42" y="198" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#6D635B" text-anchor="start">working height</text>
+  <text x="42" y="260" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#E8730C" text-anchor="start">Your setup</text>
+  <line x1="235" y1="192" x2="251" y2="192" stroke="#E8730C" stroke-width="2.5"/>
+  <polygon points="251,192 241,187 241,197" fill="#E8730C"/>
+  <rect x="252" y="92" width="210" height="200" rx="12" fill="#FFFFFF" stroke="#D9CEBF" stroke-width="1.5"/>
+  <circle cx="278" cy="120" r="17" fill="#E8730C"/>
+  <text x="278" y="125.4" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle">2</text>
+  <text x="304" y="127" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#211E1B" text-anchor="start">Measure</text>
+  <text x="270" y="162" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#6D635B" text-anchor="start">Sensor on the midtone,</text>
+  <text x="270" y="180" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#6D635B" text-anchor="start">press Measure LUX</text>
+  <text x="270" y="260" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#E8730C" text-anchor="start">2.50 lux · example</text>
+  <line x1="463" y1="192" x2="479" y2="192" stroke="#E8730C" stroke-width="2.5"/>
+  <polygon points="479,192 469,187 469,197" fill="#E8730C"/>
+  <rect x="480" y="92" width="210" height="200" rx="12" fill="#FFFFFF" stroke="#D9CEBF" stroke-width="1.5"/>
+  <circle cx="506" cy="120" r="17" fill="#E8730C"/>
+  <text x="506" y="125.4" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle">3</text>
+  <text x="532" y="127" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#211E1B" text-anchor="start">Test strip</text>
+  <text x="498" y="162" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#6D635B" text-anchor="start">Expose in steps, develop,</text>
+  <text x="498" y="180" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#6D635B" text-anchor="start">pick the correct midtone</text>
+  <rect x="498" y="222" width="33" height="28" rx="3" fill="#EFE7D8" stroke="#D9CEBF" stroke-width="1.5"/>
+  <rect x="533" y="222" width="33" height="28" rx="3" fill="#D8CDBE" stroke="#D9CEBF" stroke-width="1.5"/>
+  <rect x="568" y="222" width="33" height="28" rx="3" fill="#B9AB98" stroke="#D9CEBF" stroke-width="1.5"/>
+  <rect x="603" y="222" width="33" height="28" rx="3" fill="#8E806B" stroke="#D9CEBF" stroke-width="1.5"/>
+  <rect x="638" y="222" width="33" height="28" rx="3" fill="#5C4E3B" stroke="#D9CEBF" stroke-width="1.5"/>
+  <text x="498" y="270" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="bold" fill="#E8730C" text-anchor="start">4 · 8 · 12 · 16 · 20 s</text>
+  <line x1="691" y1="192" x2="707" y2="192" stroke="#E8730C" stroke-width="2.5"/>
+  <polygon points="707,192 697,187 697,197" fill="#E8730C"/>
+  <rect x="708" y="92" width="210" height="200" rx="12" fill="#FFFFFF" stroke="#D9CEBF" stroke-width="1.5"/>
+  <circle cx="734" cy="120" r="17" fill="#E8730C"/>
+  <text x="734" y="125.4" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle">4</text>
+  <text x="760" y="127" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="17" font-weight="bold" fill="#211E1B" text-anchor="start">Enter</text>
+  <text x="726" y="162" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#6D635B" text-anchor="start">Type the lux and the</text>
+  <text x="726" y="180" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#6D635B" text-anchor="start">time of that strip</text>
+  <text x="726" y="260" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#E8730C" text-anchor="start">Constant is saved</text>
+  <text x="24" y="330" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="normal" fill="#6D635B" text-anchor="start">The device computes and saves the paper&#x27;s constant. The time you type is the one that produced the correct midtone.</text>
+</svg>

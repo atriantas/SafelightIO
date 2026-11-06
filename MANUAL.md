@@ -241,7 +241,7 @@ full reference is chapter 8; in short:
 |---|---|---|
 | **Measure LUX** | Takes a light reading at the sensor | Exposure |
 | **Measure Highlight** / **Measure Shadow** | Takes the two readings used for contrast | Contrast, Split Grade |
-| **Measure** / **Measure next (n/total)** | Reads one proof cell and advances the grid cursor | Virtual Proof |
+| **Measure** / **Start scan (n/total)** | Reads one proof cell and advances the grid cursor; with Stability Detection on it starts a hands-free scan | Virtual Proof |
 | **Set V Zone** / **Set Reference** | Uses the selected cell as the middle-gray anchor | Virtual Proof |
 | **Clear Grid** | Erases the proof grid and its reference | Virtual Proof |
 | **Reset** | Returns the current tab's trims to neutral (current paper only) | Contrast, Split Grade, Control Panel |
@@ -288,8 +288,10 @@ The left column is the measurement: zone, lux reading, calibration constant and 
 filter grade transform, dodge/burn slider, additional time and total time.
 
 The large number at the top is the **exposure time**. Before you measure it may show
-a message instead of a number: **`calibrate`**, **`measure lux`**, **`no sensor`**
-or **`error`**. Chapter 13 explains each one.
+a message instead of a number: **`calibrate`** or **`measure lux`**. A reading of
+0.00 lux is below the sensor's usable range and shows **`below sensor range`**. The
+sensor's own messages — **`no sensor`** and **`error`** — appear on the
+**LUX READING** line. Chapter 13 explains each one.
 
 ![The Exposure tab on the device, with the sidebar on the right](manual/figures/screen-exposure.png)
 
@@ -298,8 +300,8 @@ or **`error`**. Chapter 13 explains each one.
 | Element | What it is | What to do |
 |---|---|---|
 | **EXPOSURE CALCULATOR** | The tab heading | — |
-| **Exposure time readout** | The suggested printing time in seconds | Read it; it updates after Measure and after filter/dodge changes |
-| **SELECT ZONE OF MEASUREMENT** | Opens the zone list | Choose the zone you placed the sensor on; **V** is the normal midtone |
+| **Exposure time readout** | The suggested printing time in seconds | Read it; it updates after Measure and after filter/dodge changes. A second line says `incl. +x.xx s reciprocity` when long-exposure correction was applied |
+| **SELECT ZONE OF MEASUREMENT** | Opens the zone list | Choose the zone the measured tone should print on; **V** is the normal midtone |
 | **Zone of measurement** | The list: 0, I, II, III, IV, V, VI, VII, VIII, IX, X | See the zone table below |
 | **LUX READING** | The last measured light level in lux | Shows the raw measurement |
 | **CALIBRATION CONSTANT** | The paper's lux × seconds constant | Set by paper calibration; read-only here |
@@ -327,23 +329,28 @@ or **`error`**. Chapter 13 explains each one.
 
 ## 3.4 The zone list
 
-The zone tells the meter which tone you measured. A reading at **Zone V** is the
-reference. A reading at **Zone III** is two stops darker, so the meter multiplies
-the light to find the equivalent Zone V value.
+The zone tells the meter which tone you measured, counted on the print's scale:
+**Zone V** is the reference, **Zone VIII** is three stops lighter and **Zone III** is
+two stops darker. Naming the zone lets the meter place that tone on that zone, so the
+reading can come from any part of the image.
 
-| Zone | Tone you are measuring | Meter factor |
+| Zone | Tone you are measuring | How the printed time changes |
 |---|---|---|
-| **0** | Deep black, almost no detail | ×32 |
-| **I** | Black with a hint of detail | ×16 |
-| **II** | Dark shadow with texture | ×8 |
-| **III** | Shadow with good detail | ×4 |
-| **IV** | Dark midtone | ×2 |
-| **V** | Middle gray — the reference | ×1 |
-| **VI** | Light midtone | ÷2 |
-| **VII** | Highlight with texture | ÷4 |
-| **VIII** | Bright highlight, little texture | ÷8 |
-| **IX** | Near white | ÷16 |
-| **X** | Paper white | ÷32 |
+| **0** | Deep black, almost no detail | +5 stops (×32) |
+| **I** | Black with a hint of detail | +4 stops (×16) |
+| **II** | Dark shadow with texture | +3 stops (×8) |
+| **III** | Shadow with good detail | +2 stops (×4) |
+| **IV** | Dark midtone | +1 stop (×2) |
+| **V** | Middle gray — the reference | no change (×1) |
+| **VI** | Light midtone | −1 stop (÷2) |
+| **VII** | Highlight with texture | −2 stops (÷4) |
+| **VIII** | Bright highlight, little texture | −3 stops (÷8) |
+| **IX** | Near white | −4 stops (÷16) |
+| **X** | Paper white | −5 stops (÷32) |
+
+The sensor sits at the easel, where the tones are inverted: the part that prints
+lighter is the part that receives the least light. The meter accounts for that, so
+naming a lighter zone shortens the time rather than lengthening it.
 
 > [!TIP] Which zone should I use?
 > Measure **V** when the sensor sits on the midtone. Measure **III** when you want
@@ -380,10 +387,10 @@ The sensor is on the face at **Zone VI**.
 
 1. The filter is grade **3**, factor about 2.5.
 2. The sensor reads **2.84 lux** at Zone VI.
-3. The meter converts Zone VI to the Zone V equivalent: 2.84 ÷ 2 = **1.42 lux**.
-4. The paper's constant gives a base time of **8.80 s**.
-5. The grade 3 factor makes it 8.80 × 2.5 ≈ **22 s**.
-6. The dodge/burn slider at +2 quarter-stops adds about 10 s → **~32 s** total.
+3. The meter converts Zone VI to the Zone V equivalent: 2.84 × 2 = **5.68 lux**.
+4. The paper's constant — 12.50 lux·s — gives 12.50 ÷ 5.68 ≈ **2.20 s**.
+5. The grade 3 factor makes it 2.20 × 2.5 = **5.50 s**.
+6. The dodge/burn slider at +2 quarter-stops adds about 2.3 s → **~7.8 s** total.
 
 You do not have to do this arithmetic. The point is that every step has a visible
 readout, and the **TOTAL TIME** already includes all of them.
@@ -436,13 +443,13 @@ that, so you do not have to remember.
 | **Shadow lux reading** | The light measured at the shadow | Read-only |
 | **CONTRAST RANGE** | The brightness range of the negative in stops | Read-only; roughly 3 stops is gentle, 5 stops is contrasty |
 | **CONTRAST GRADE** | The grade the meter recommends | The starting point for your filter choice |
-| **Filter Grade** | The grade actually selected for the calculation | Shows the recommended grade; used for the time |
-| **Match Quality** | How closely the negative fits that grade: **Exact**, **Close**, **Acceptable** or **Approximate** | **Exact**/**Close** need no action; **Acceptable** is a compromise; **Approximate** means the range falls between grades |
+| **Filter Grade** | The grade used for the time calculation | Shows the recommended grade; the time includes its factor |
+| **Match Quality** | How closely the negative fits that grade: **Exact**, **Close**, **Acceptable** or **Approximate** | **Exact**/**Close** need no action; **Acceptable** is a compromise; **Approximate** means no grade comes close — usually the negative is outside what the paper can reach |
 | **Analysis reasoning** | The explanation line under Match Quality | Read why the device chose the grade |
 | **EXPOSURE TIME** | The suggested time at the midpoint | Read it |
-| **Midpoint Time** | The time for the midtone | Read-only; the time before trims |
+| **Midpoint Time** | The time for the midtone | Read-only; includes all four trims, before the dodge/burn slider |
 | **Midpoint LUX** | The light level of the midtone, derived from the two readings | Read-only |
-| **Exposure Note** | A note about the result (for example, when the range is extreme) | Read it; it often explains a warning |
+| **Exposure Note** | A note about reciprocity and the time sanity check | Read it; it explains any long-exposure correction |
 | **CALIBRATION CONSTANT** | The paper's lux × seconds constant | Read-only |
 | **Measure Highlight** | Takes the highlight reading | Press once, with the sensor on the dim spot |
 | **Measure Shadow** | Takes the shadow reading | Press once, with the sensor on the bright spot |
@@ -473,9 +480,14 @@ that, so you do not have to remember.
 7. If the print is consistently off, use the **TUNABLES** and the **Reset** button.
 
 > [!TIP] If you only have one reading
-> Both readings are required. With one missing, the tab shows `--` and the reason
-> is given in the note. Measure the missing point and the result appears
-> immediately.
+> Both readings are required. With one missing, the tab shows `--` and the
+> **EXPOSURE TIME** line says which reading is missing. Measure the missing point
+> and the result appears immediately.
+
+> [!NOTE] 0.00 lux is a real reading
+> A reading of 0.00 lux is below the sensor's usable range, not a missing one. The
+> tab says `highlight below range` or `shadow below range` and keeps the other
+> reading; add light, gain or integration and measure again.
 
 ## 4.4 How the recommendation works, without the maths
 
@@ -496,10 +508,18 @@ picks the closest grade.
 Some papers have one fixed contrast grade. For those papers the tab shows **Fixed
 grade** and:
 
-- the trims are ignored;
+- the **Contrast**, **Highlights** and **Shadows** sliders are disabled — a fixed
+  grade cannot be biased and its ends cannot be re-interpreted; the **Exposure**
+  slider still shifts the exposure time;
 - **Split Grade** is not applicable;
 - in the **Control Panel**, the Factor and ISO R fields are disabled; only ISO P
   can be changed.
+
+The **Analysis reasoning** line compares the negative's ISO R target with the
+paper's fixed ISO R. When the negative is more than about half a stop outside the
+paper's range, it warns that highlights may block (negative too contrasty) or that
+the print will lose contrast (negative too flat), and suggests a softer or harder
+paper.
 
 The eight fixed-grade papers are listed in chapter 11.2. If you are printing on one,
 use **Exposure** and choose the filter grade that matches the paper's grade.
@@ -508,10 +528,10 @@ use **Exposure** and choose the filter grade that matches the paper's grade.
 
 A landscape negative on Ilford Multigrade RC Deluxe:
 
-- highlight reading **4.10 lux**;
-- shadow reading **0.32 lux**;
+- highlight reading **0.32 lux** (the dim spot);
+- shadow reading **4.10 lux** (the bright spot);
 - the range is about **3.7 stops**;
-- the meter recommends grade **1** with **Close** match;
+- the meter recommends grade **1** with **Exact** match;
 - **EXPOSURE TIME** is **14.2 s**.
 
 A grade 1 filter is soft, which suits the contrasty negative. If the print's
@@ -575,9 +595,9 @@ up to the print you want.
 | **TUNABLES** | Five trims | Use after the first test print |
 | **Exposure** | Shifts the total exposure, ±1.5 stops in 1/6-stop steps | Lighten/darken the whole print |
 | **Contrast** | Biases the overall contrast, ±1.5 stops | More/less separation |
-| **Highlights** | Trims the soft leg, ±1.5 stops | Adjust highlight density |
-| **Midtones** | Chooses the split pair, ±1.5 stops | Moves the balance between soft and hard filters |
-| **Shadows** | Trims the hard leg, ±1.5 stops | Adjust shadow density |
+| **Highlights** | Reinterprets the highlight reading, ±1.5 stops | Shifts the highlight end; changes the grade, split and total together |
+| **Midtones** | Chooses the soft/hard pair (e.g. `00 + 5`) | Steps the pair from the paper's extremes inward |
+| **Shadows** | Reinterprets the shadow reading, ±1.5 stops | Shifts the shadow end; changes the grade, split and total together |
 | **Saved per paper** | The trims belong to the selected paper | Changing paper loads its own trims |
 | **Reset** | Returns all five trims to neutral | Use after experimenting |
 | **DODGE & BURN** | Adds a final whole-print trim to both legs | See below |
@@ -600,8 +620,11 @@ up to the print you want.
 
 > [!WARNING] Watch the analysis details
 > The meter may warn that **highlights may burn** or that contrast is **limited**.
-> Those warnings mean the requested split is outside what the paper can hold. Choose
-> a less extreme **Midtones** position, or change the negative.
+> Those come from the paper-wide ISO R range: the negative is outside what the
+> selected paper and filter brand can hold, and no Midtones setting changes that.
+> Use a softer or harder paper, or a different filter brand. A separate
+> **pair too narrow** warning is the one **Midtones** can fix: move it toward the
+> extremes to widen the pair.
 
 ## 5.4 How the split is chosen, without the maths
 
@@ -611,15 +634,18 @@ moves that balance. The meter keeps the midtone anchored, so changing the balanc
 does not make the whole print lighter or darker; it changes how the shadows and
 highlights separate.
 
-The **Highlights** and **Shadows** trims adjust the two ends independently. The
-**Exposure** and **Contrast** trims adjust the whole print.
+The **Highlights** and **Shadows** trims reinterpret the two readings, as on the
+Contrast tab: they change the recommended grade, the split ratio and the total
+time together, not one leg on its own. **Exposure** scales the total time and
+leaves the ratio alone; **Contrast** biases the split toward hard (positive) or
+soft (negative).
 
 ## 5.5 A worked example
 
 A portrait negative:
 
-- highlight **8.00 lux**;
-- shadow **0.12 lux**;
+- highlight **0.12 lux**;
+- shadow **8.00 lux**;
 - the range is about **6.1 stops**;
 - the equivalent grade is **00**;
 - soft leg: grade **00**, **29.5 s**;
@@ -627,8 +653,8 @@ A portrait negative:
 - total **36.4 s**.
 
 The soft leg carries most of the light (about 89%) because the negative is very
-contrasty. If the highlights are still too dense, add a **Highlights** trim; if the
-shadows lose detail, add a **Shadows** trim.
+contrasty. To move one end of the print without re-measuring, use the **Highlights** or
+**Shadows** trim; both change the split and the total, so re-read the times.
 
 ## 5.6 Common questions
 
@@ -671,7 +697,7 @@ It is a proof, not a scanner: the preview is only as good as the cells you measu
 | **Grid Size** | Sets the grid's width and height | Choose 3–5 cells per side for a quick proof; more cells for a detailed one |
 | **Grid width** | Cells across, 2–40 | Changing the size clears the grid |
 | **Grid height** | Cells down, 2–30 | Changing the size clears the grid |
-| **Measure** | Reads the next cell | Press once per cell; the button becomes **Measure next (n/total)** during a scan |
+| **Measure** | Reads the next cell | Press once per cell; with **Stability Detection** on it becomes **Start scan (n/total)** / **Stop scan (n/total)** and walks the grid for you |
 | **Set V Zone** | Makes the selected cell the Zone V reference | Use it when you know which cell is the middle gray |
 | **Clear Grid** | Erases all cells, the selection and the reference | Start a new proof |
 | **Grid canvas** | The painted preview | Tap a cell to select it |
@@ -685,18 +711,34 @@ It is a proof, not a scanner: the preview is only as good as the cells you measu
 | **Exposure (selected sample)** | The exposure time for that cell | Read-only |
 | **Clipping (selected sample)** | Whether the cell falls off the paper's range | If it clips, choose a different grade or split |
 | **SETTINGS** | The proof's options | — |
-| **Filter grade selector (Virtual Proof)** | The grade used to render the preview | Change it to see a different grade; the grid re-renders |
+| **Filter grade selector (Virtual Proof)** | The grade used to render the preview | Change it to see a different grade; the grid re-renders. The choice survives a paper or filter-brand change while the new paper offers the same grade |
 | **Enlarger Mode switch** | Turns the proof into a light-evenness test (section 6.5) | Use it with no negative in the carrier |
 | **Uniformity Limit** | The allowed brightness variation in Enlarger mode, 5–50% (default 15%) | Set it to what your printing requires |
 | **Stability Detection switch** | Turns on automatic settling during a scan | Use it for hands-free scans |
-| **Tolerance (%)** | How close two reads must be to count as stable | Smaller is stricter |
-| **Min Stable Reads** | How many stable reads are required | More is stricter |
-| **Max Wait (ms)** | The longest the meter waits for a cell to settle | Prevents a scan from stalling |
+| **Tolerance (%)** | How far a reading may move from the start of a stable run and still count as stable | Smaller is stricter |
+| **Min Stable Reads** | How many reads in a row must stay inside Tolerance | More is stricter |
+| **Max Wait (ms)** | The longest the meter waits for a cell to settle | If a cell does not settle in this time the scan stops and keeps no reading for it |
 | **Min Delta (lux)** | A floor for very dim cells | Stops noise from looking like change |
 
 > [!NOTE] The stability fields
 > The four stability fields are used when **Stability Detection** is on. With it
 > off, each press of **Measure** records a single reading immediately.
+
+> [!IMPORTANT] Only settled readings are recorded
+> With **Stability Detection** on, a cell is stored only after its reading has
+> stopped moving: every read in the run must stay within **Tolerance** of the
+> run's first reading, and the averaged sample that follows must stay inside the
+> same window. If a cell cannot settle within **Max Wait**, the scan stops, the
+> button reads **No stable reading**, and nothing is recorded for that cell — the
+> cursor stays on it, so pressing **Start scan** again retries it. A drifting
+> light therefore ends the scan instead of quietly recording a value the light
+> never held.
+
+> [!TIP] Size Max Wait to your integration time
+> Reaching a stable run takes about **Min Stable Reads + 1** readings, each one
+> integration long. Allow at least that much time: with Integration 600 ms and 3
+> stable reads you need about 3 s, so the factory 2 s is only enough for the
+> 200 ms default. Too short a **Max Wait** ends the scan on the first cell.
 
 > [!NOTE] The first reference is chosen for you
 > When an automatic scan finishes, the meter picks a provisional Zone V
@@ -720,6 +762,12 @@ The frame colour tells you what a cell is:
 
 Colour is a shortcut, not the only cue: the selected sample readouts and the
 histogram tell you the same story in numbers.
+
+> [!NOTE] A cell that reads 0.00 lux is still a cell
+> When the sensor reads exactly zero — the negative blocks all light at that point —
+> the meter keeps it as a real measurement. The cell is painted paper white with a
+> highlight-clip frame, it counts in the histogram and in the `n/total` total, and it
+> is saved with the session. A 0.00 cell is never treated as "not measured".
 
 ## 6.4 A proof in ten steps
 
@@ -779,6 +827,9 @@ grid becomes a map of the bare enlarger light.
 - **MARGINAL** — the worst point is between half the limit and the full limit.
 - **UNEVEN** — the worst point is beyond the limit.
 
+A point reading exactly **0.00 lux** counts as measured and forces **UNEVEN**: the
+readout shows **Dev −100%** for it, because no light reaches the easel there at all.
+
 The default limit is **15%**, which is roughly 0.2 stop. That is a reasonable
 working tolerance for most enlargers and papers. A stricter limit (for example 10%)
 is useful for critical work; a looser one (25–30%) may be acceptable for rough
@@ -820,7 +871,8 @@ sections in two columns:
 
 This section changes the numbers the meter uses for a **paper + filter grade**
 combination. It is for advanced users; the built-in data is good enough for most
-printing. Edits are saved in flash and survive a power cycle.
+printing. Edits survive a power cycle: they are written to the card's settings
+slots when a card is inserted, and to internal flash when there is no card.
 
 | Element | What it is | What to do |
 |---|---|---|
@@ -840,9 +892,16 @@ printing. Edits are saved in flash and survive a power cycle.
 - A factor of **1.00** means “no exposure change”.
 - A readout shows `--` when there is no value to display yet, for example before a
   grade is selected.
-- Two decimal places are enough for the factor; ISO R and ISO P are whole numbers.
-- The device stores at most **64 overrides**. If the list is full, reset a paper you
-  no longer use.
+- If the selected paper has no filter data for the selected filter brand, the
+  **Factor** and **ISO R** fields show `--` and are locked. That is a normal state
+  (for example a variable-contrast paper under a brand with no compatibility
+  table), not a fault. **Base ISO P** still works because it is a per-paper value.
+- Two decimal places are enough for the factor; ISO R and ISO P are whole numbers
+  between 1 and 999. A `PAPERS.CSV` row outside that range is rejected rather than
+  loaded with a value the fields cannot show.
+- The device stores at most **64 filter overrides** and at most **23 ISO P
+  overrides**. If an ISO P override cannot be stored, the status line says so and
+  the value is not changed — reset a paper you no longer use.
 - On a fixed-grade paper, Factor and ISO R are disabled; only ISO P can be changed.
 - Changing a value commits that field. Selecting another grade commits a pending
   edit first.
@@ -870,6 +929,12 @@ papers you have not calibrated yet; the result is an estimate, not a measurement
 The estimate assumes that, at the same light level, a paper with twice the ISO P
 needs half the time. It is a starting point: make a test strip and adjust.
 
+The calibration time field holds **99.99 s** at most. An estimate that would need
+a longer time is refused with a message instead of being stored, because the field
+could not show it and the next touch of a calibration spinbox would overwrite the
+real value with the displayed one. **Auto-Est. All Papers** skips such papers and
+reports how many it skipped.
+
 **A sensible workflow:**
 
 1. Calibrate your most-used paper properly (chapter 10).
@@ -886,8 +951,8 @@ needs half the time. It is a starting point: make a test strip and adjust.
 |---|---|---|
 | **DATA MANAGER** | The section heading | — |
 | **Save and Load Setting** | The settings group | — |
-| **Save Settings** | Writes the internal flash snapshot and `BACKUP.TXT` | Do it before a firmware update |
-| **Load settings** | Restores the flash snapshot; reboots | Asks for confirmation first |
+| **Save Settings** | Writes the internal flash snapshot, plus `BACKUP.TXT` when a card is in | Do it before a firmware update |
+| **Load settings** | Restores the flash snapshot; reboots. Works with or without a card | Asks for confirmation first |
 | **Save and Load Session** | The session group | — |
 | **Session slot picker** | Lists slots 1-8 with what each one holds (paper, filter, exposure) or **empty** | Tap it and choose the slot the two buttons below act on |
 | **Save Session** | Writes the current readings and results to the selected slot | Use it to resume later or share a setup |
@@ -897,7 +962,9 @@ needs half the time. It is a starting point: make a test strip and adjust.
 
 A **session** contains the current paper and filter, the last Contrast and Split
 readings and results, and the Virtual Proof grid (including its mode). It does not
-contain your whole settings file; use **Save Settings** for that.
+contain your whole settings file; use **Save Settings** for that. The four
+Contrast/Split trim sliders are per-paper settings, not session data: **Load
+Session** leaves the selected paper's trims unchanged.
 
 ## 7.4 Sensor Calibration
 
@@ -983,7 +1050,11 @@ you change paper, measure again; the previous readings belonged to the previous
 paper.
 
 **Filter Brand** changes the grade names and the built-in factors. It does not
-change the paper. Choose the brand of the filters you actually own.
+change the paper. Choose the brand of the filters you actually own. If the brand
+has no data for the selected paper, the paper stays selectable; the Exposure tab
+offers only **No filter**, the Contrast tab says `No filter data for this paper`
+and the Split Grade tab says `No split-grade data for this paper`. Choose another
+brand in that case.
 
 ## 8.2 Sensor gain, integration time and samples
 
@@ -1010,22 +1081,66 @@ paper's constant. You only touch them during calibration (chapter 10).
 ## 8.4 Battery, charging and power
 
 The battery bar is red and updates every five seconds. The device has no charger
-status pin, so it infers charging from the battery voltage:
+status pin and cannot sense USB power directly, so it infers the charge state
+from the battery voltage plus whether a USB host is talking to it:
 
 | Display | Meaning |
 |---|---|
-| **Discharging** + percentage | Running on the battery |
-| **Charging...** (bar hidden) | USB-C connected; the device is charging |
-| **Fully charged** | The cell has reached the charger's top voltage |
+| **Discharging** + percentage | Confirmed on the battery — the only numeric claim the device makes |
+| **Charging...** (bar hidden) | There is evidence of USB power: a host enumerated, a load step at plug-in, or a sustained rise |
+| **Fully charged** | The cell reached the charger's top voltage |
+| **Dim bar, no text** | The charge state cannot be confirmed; the bar shows the highest the level can be |
 | **Battery absent** (grey, empty) | No battery detected; USB-C power only |
 | **Battery low** | About 10% or less; charge now |
 
 Notes:
 
-- **Battery low** replaces the bar when the charge reaches about 10%. The device has
-  no sleep mode, so the warning stays visible until you charge it.
-- **Charging...** can stay on after the battery is effectively full, because some
-  chargers stop just below the top voltage the device looks for. This is normal.
+- **The percentage is only shown when the device is sure it is discharging.**
+  While charging, the terminal voltage sits above the true cell voltage, so a
+  percentage would read high; the state is shown instead of a number you cannot
+  trust.
+- **At power-on the bar shows the level stored on the card** — the number the
+  device was showing when it was last used. Starting the device loads the card
+  and draws the screen, which pulls this cell's voltage down by up to half a
+  volt, so the first readings are not the level; the stored number holds the
+  bar until the first measurement is ready. With no stored level (a fresh
+  card) the bar stays empty until then.
+- **The level updates once every five minutes**, and what it updates to is the
+  median of the previous ten minutes of readings. Between updates the bar does
+  not move at all. At the same charge this cell's loaded voltage can differ by
+  twenty points depending on what it was doing a moment earlier, so the middle
+  of a long window is a far better answer than the latest number. The same
+  five-minute update writes the new level to the card, so a power cut loses at
+  most one update.
+- **On the battery the level can only fall.** Without a charger no charge can
+  arrive, so an update that reads higher than the bar is the cell recovering
+  while it rests, and the bar keeps its lower value. The one exception is a
+  jump of more than twenty-five points: that is not the pack, it is a stored
+  value that was wrong, and the bar takes the measurement instead.
+- **The level and any running full-charge hold are remembered across restarts**
+  (in `BATT.TXT` on the card). Restarting the device cannot change the charge,
+  even though the cell's voltage moves as it rests, so the bar resumes where
+  it was: it may fall, it does not jump up, and a hold that was still running
+  continues instead of ending at the power cut. Charging clears the memory, so
+  a pack charged while the device is running reads normally afterwards. If the
+  pack is charged while the device is switched off, the remembered value is
+  stale until the charger is connected once with the device on.
+- **A dim bar with no text** means the evidence is ambiguous — typically a
+  charger that never enumerates (a plain wall charger), or an unplug that
+  happened while the screen was dim. It clears itself within about ten minutes.
+- **Charging** needs evidence: a USB host (a computer), a load step at plug-in,
+  or a sustained rise. A high resting voltage alone is not enough, because a
+  full cell at rest reads the same as one on a charger — believing it was the
+  old "Charging..." with no cable attached.
+- **Unplugging a full battery** leaves the bar full for ten minutes: the cell's
+  surface charge collapses in that window, and the voltage gauge would
+  otherwise report a drop that was never spent. After that the bar follows the
+  real level. Both charge-state labels, **Charging...** and **Fully charged**,
+  are red like the bar itself.
+- **Battery low** replaces the bar when the charge has read about 10% or less
+  for two readings in a row, and clears above 13%, so neither a single bad
+  reading nor a plug/unplug flicker can raise it. The device has no sleep mode,
+  so the warning stays visible until you charge it.
 - The bar is voltage-based. Under a heavy load it can sag; a bar that looks empty
   while the device still runs is not necessarily a dead battery.
 - Charge with USB-C. The battery is protected; unplug when you are done printing.
@@ -1044,25 +1159,52 @@ The meter can keep its data in two places:
 
 | File | Where | What it is |
 |---|---|---|
-| `SETTINGS.TXT` | SD card | The settings file |
-| `SETTINGS.BAK` | SD card | The previous settings file |
+| `SETTINGS.A`, `SETTINGS.B` | SD card | The two settings slots — the newest valid one is used |
 | `PAPERS.CSV` | SD card | Custom paper definitions |
 | `BACKUP.TXT` | SD card | A readable backup of the settings |
 | `SESSION1.CSV` … `SESSION8.CSV` | SD card | One saved session per slot |
 
 ## 9.1 Settings and backups
 
-- **Save Settings** writes the internal flash snapshot and `BACKUP.TXT`. Do this
-  before a firmware update.
-- **Load settings** restores the snapshot and reboots. It asks for confirmation.
+- **Save Settings** writes the internal flash snapshot, and `BACKUP.TXT` as well
+  when a card is inserted. Do this before a firmware update.
+- **Load settings** restores the flash snapshot and reboots. It asks for
+  confirmation, and it works with or without a card: the snapshot lives in the
+  device, not on the card.
 - Settings changes are flushed about half a second after the last edit. If you cut
   power immediately after a change, the last change may be lost.
-- With a card inserted, the device also keeps `SETTINGS.TXT` on the card. On first
-  boot with a card it copies the current settings to the card. If the card is
-  removed, the device falls back to flash.
+- **Powering off:** the status line says `SD: saving...` while a change is still
+  waiting to be written, and returns to `SD: settings.txt` once it is safe. Wait
+  for the plain status before switching off — that is the whole "safe to unplug"
+  discipline. With no card the same rule applies to the flash write
+  (`flash: saving...`).
+- Below about 0% charge the device stops starting new writes and the status line
+  says `SD: low battery - not saving`. A write on a nearly flat pack is what turns
+  a dying battery into a power cut in the middle of a sector, and that is how a
+  card gets damaged. Charge it; the pending change is written as soon as power is
+  available again.
+- With a card inserted, the device keeps its settings on the card. On first boot
+  with a card it copies the current settings to the card. If the card is removed,
+  the device falls back to flash.
+- The settings are written to **two slots** (`SETTINGS.A` and `SETTINGS.B`),
+  alternately, each with a generation number and a checksum. A power cut during a
+  save can therefore only damage the slot being written; the other one still holds
+  the previous save, and it is the one that loads. You lose at most the last
+  change — never the whole file.
+- A card inserted **while the device is running** is not used until the next
+  reboot, because the device cannot tell whether the card or the current session
+  holds the newer settings. The status line says `SD card found - reboot to
+  load it`. A blank card is adopted immediately.
 - Removing the card is not detected instantly; the sidebar can still say
   `SD: settings.txt` until the next save fails. If a save fails, reinsert the card
   and try again.
+- At boot the device tries the card at its full speed first and then at slower
+  speeds. A card that is healthy but marginal at full speed still mounts — file
+  access is simply slower — instead of failing and falling back to flash.
+- A file that cannot be **read** is not treated as a damaged file. If a settings
+  slot cannot be read, the device leaves the card exactly as it is, uses internal
+  flash for that session, and tries again at the next boot. It only rewrites a slot
+  that was read successfully and then rejected as invalid settings.
 
 ## 9.2 Sessions
 
@@ -1073,9 +1215,28 @@ A session is a snapshot of **the current work**, not the whole meter:
 - the Virtual Proof grid, its reference and its mode (negative or enlarger);
 - optionally the paper calibration.
 
+The filter is the Virtual Proof grade. **Load Session** reselects it when the
+current filter brand still offers that grade; otherwise the preview falls back to
+**No filter**.
+
+Loading **replaces** the session state rather than merging into it. A session saved
+with an empty proof grid loads as an empty grid; a session with no Contrast or Split
+readings clears them. Anything the file does not contain is gone afterwards, which is
+what the confirmation means by *current measurements will be replaced*. The paper
+selection, the four per-paper trims and — unless its toggle is on — the paper
+calibration are not session data and are left alone.
+
+After a restore the amber cursor sits on the first cell with no reading, so the next
+**Measure** fills a gap instead of overwriting the first loaded cell.
+
+The per-paper tunables — the four Contrast and Split sliders — are not part of a
+session. **Load Session** leaves them at the selected paper's saved values.
+
 **Save Session** writes the slot chosen in the picker. **Load Session** restores it,
 re-derives the results and asks before overwriting current measurements. The
 **Calibration** switch decides whether the session's calibration is restored too.
+If the card cannot be read to the end, the load is aborted and the current state is
+left unchanged; a truncated session is never partly applied.
 
 Eight slots are available; each one is a complete, independent session:
 
@@ -1358,10 +1519,11 @@ through one grade are consistently off; or once a year if you print often.
 ## 12.4 Long exposures
 
 At very long exposures, paper loses some sensitivity (reciprocity failure). The
-meter applies a correction automatically when the time is long enough, and the
-**Exposure Note** tells you when it has done so. You do not need to calculate it.
-If you override a filter factor, use the measured value; an incorrect factor
-compounds with the long-exposure correction.
+meter applies a correction automatically when the time is long enough, and tells you
+when it has done so: the **Exposure** tab appends `incl. +x.xx s reciprocity` under
+the time, and the Contrast tab says it in the **Exposure Note**. You do not need to
+calculate it. If you override a filter factor, use the measured value; an incorrect
+factor compounds with the long-exposure correction.
 
 # 13. Messages, Help Center and troubleshooting
 
@@ -1371,13 +1533,20 @@ The device uses short messages because the screen is small. Here is the full lis
 
 | Message | Where | Meaning | What to do |
 |---|---|---|---|
-| `calibrate` | Exposure time | The selected paper has no calibration | Calibrate the paper (chapter 10) |
+| `select paper` | Exposure / Contrast / Split time | The paper selection did not resolve to a database entry | Choose the paper brand and type in the sidebar |
+| `calibrate` | Exposure / Contrast / Split time | The selected paper has no calibration | Calibrate the paper (chapter 10) |
 | `measure lux` | Exposure time | The paper is calibrated, but there is no live reading | Press **Measure LUX** |
+| `below sensor range` | Exposure time | The live reading is 0.00 lux — below the sensor's usable range | Increase the light, gain or integration; measure again |
+| `highlight below range` / `shadow below range` / `readings below range` | Contrast / Split time | A reading is 0.00 lux — below the sensor's usable range | Increase the light, gain or integration; measure again |
 | `no sensor` | Lux readout | The sensor is not responding | Check the sensor cable; reboot |
 | `error` | Lux readout | A reading failed, usually saturation at a fixed gain | Choose **Auto** gain, or a lower fixed gain |
 | `read error` | Lux readout | The sensor reading failed | Reboot; if it persists, check the cable |
+| `No stable reading` | Virtual Proof Measure button | The scan stopped because a cell did not settle within **Max Wait**; the cell keeps no reading | Keep the light steady, raise **Max Wait**, or turn off **Stability Detection**, then start the scan again |
 | `Fixed grade` | Contrast tab | The selected paper has one contrast grade | Use Exposure; Split Grade is not applicable |
-| `--` | Contrast / Split | One of the two readings is missing, or the paper is not calibrated | Read the note; measure the missing point |
+| `Fixed grade paper` / `Split-grade printing is not available...` | Split Grade | The selected paper has one contrast grade | Use Exposure; the Split controls are disabled |
+| `No split-grade data for this paper` | Split Grade | The filter brand has no grade table for this paper | Choose another Filter Brand |
+| `saved split pair unavailable for this brand; using defaults` | Split Grade analysis | The saved Midtones pair was chosen under another filter brand | Pick a pair again, or switch the Filter Brand back |
+| `--` | Contrast / Split | One of the two readings is missing | Read the note; measure the missing point |
 | `dark calib... n/24` | Sensor status | Dark calibration in progress | Wait |
 | `dark offsets set (24)` | Sensor status | Dark calibration complete | — |
 | `dark calib failed` | Sensor status | Light reached the sensor during calibration | Repeat in total darkness |
@@ -1390,10 +1559,16 @@ The device uses short messages because the screen is small. Here is the full lis
 | `No reference` | Estimate calibration | No reference paper has been set | Calibrate a paper, select it, press **Reference Paper** |
 | `Nothing to export` | Data manager | There is no session data to save | Take a reading first |
 | `Session 3 is empty` | Data manager | That slot holds no saved session | Pick another slot or save one first |
-| `SD: none (flash)` | Sidebar / data | No card; settings are in internal flash | Insert a card if you want file storage |
+| `Session load failed` | Data manager | The file is not a session export, its paper is no longer available, or the card could not be read to the end | The load was aborted and the current state is unchanged; reinsert the card, or re-save the slot |
+| `Settings not saved` | Control Panel status line | A settings write failed after three retries | Check the SD card and free space; change a setting to retry |
+| `SD: none (flash)` | Control Panel status line | No card; settings are in internal flash | Insert a card if you want file storage |
+| `SD: saving...` / `flash: saving...` | Control Panel status line | A change is still waiting to be written | Wait for the plain status before switching the power off |
+| `SD: low battery - not saving` | Control Panel status line | The write is held back because the pack is nearly flat | Charge the device; the change is written as soon as power is available |
+| `Low battery - not saved` | Control Panel status line | A deliberate save was refused for the same reason | Charge, then save again |
 | `Battery low` | Battery area | About 10% charge or less | Charge with USB-C |
-| `Charging...` | Battery area | USB-C connected, charging | — |
+| `Charging...` | Battery area | Evidence of USB power; the cell is not full yet | — |
 | `Fully charged` | Battery area | The cell reached the top voltage | Unplug when convenient |
+| Dim bar, no text | Battery area | The charge state cannot be confirmed | Wait for it to resolve, or plug into a computer |
 | `Battery absent` | Battery area | No battery detected | Use USB-C power, or fit the battery |
 
 > [!NOTE] The device uses ASCII punctuation
@@ -1429,8 +1604,10 @@ The **Start** tab also shows a QR code for the project page. The address is
 
 | Symptom | Likely cause | Fix |
 |---|---|---|
+| Exposure time shows `select paper` | Paper selection did not resolve | Choose the paper brand and type in the sidebar |
 | Exposure time shows `calibrate` | Paper not calibrated | Chapter 10 |
 | Exposure time shows `measure lux` | No reading yet | Press **Measure LUX** |
+| Exposure time shows `below sensor range` | The reading is 0.00 lux, below the sensor's usable range | Increase the light, gain or integration |
 | Lux shows `no sensor` | Sensor not responding | Check the cable; reboot |
 | Lux shows `error` | Saturation at a fixed gain | Set **Sensor Gain** to **Auto**, or lower the fixed gain |
 
@@ -1448,7 +1625,8 @@ The **Start** tab also shows a QR code for the project page. The address is
 
 | Symptom | Likely cause | Fix |
 |---|---|---|
-| `--` everywhere | A reading is missing or the paper is uncalibrated | Measure both points; calibrate the paper |
+| `--` everywhere | A reading is missing | Measure both points |
+| Grade and range shown, but the time says `calibrate` | The paper has no calibration | Calibrate the paper (chapter 10); the grade already applies |
 | Grade looks too hard/soft | Match Quality is **Approximate** or a trim is active | Check the trims; press **Reset** |
 | Fixed grade shown | Fixed-grade paper selected | Use Exposure; Split Grade is not applicable |
 | Highlights burn every time | Negative range exceeds the paper | Choose a softer grade, or use Split Grade |
@@ -1460,7 +1638,7 @@ The **Start** tab also shows a QR code for the project page. The address is
 |---|---|---|
 | Grid is empty after changing size | Changing Grid Size clears the grid | Rescan |
 | Every highlight is clipped | The negative is too contrasty for the paper/grade | Choose a softer grade, or use Split Grade |
-| A cell will not settle | Light is flickering or the sensor is moving | Keep the light steady; raise **Max Wait** or turn off **Stability Detection** |
+| A cell will not settle | Light is flickering or the sensor is moving | The scan stops and keeps no reading for that cell. Keep the light steady, raise **Max Wait**, or turn off **Stability Detection** |
 | Set V Zone seems to change everything | It changes the reference for the whole grid | Use it deliberately; Clear Grid resets it |
 | Enlarger verdict is UNEVEN | Light falls off or is misaligned | See section 6.5 |
 
@@ -1474,6 +1652,7 @@ The **Start** tab also shows a QR code for the project page. The address is
 | **Clear All Calibrations** wiped everything | You confirmed the action | Recalibrate; the confirmation screen is deliberate |
 | **Save Session** says Nothing to export | No readings yet | Take a reading first |
 | **Load Session** says Session 3 is empty | That slot has no saved session | Pick a slot whose picker entry is not `empty` |
+| **Load Session** says Session load failed | Card read error or malformed session | Current state is unchanged; reinsert the card or re-save the slot |
 | Settings changes lost after power-off | Flush takes about half a second | Wait a moment after the last edit |
 | Custom papers gone after reboot | Card removed or file not read | Insert the card and reboot |
 
@@ -1485,7 +1664,7 @@ The **Start** tab also shows a QR code for the project page. The address is
 | Screen dims during Measure | The backlight dims to 6% during reads | Normal; it restores afterwards |
 | Screen dark for several seconds | Long sample count at 600 ms | Reduce samples or integration time |
 | Battery bar empty but device runs | Voltage sag under load | Charge; **Battery low** is the real warning |
-| **Charging...** never ends | Charger stops just below the top voltage | Normal |
+| **Charging...** shown while unplugged | An unplug that coincided with a backlight change can be missed | The claim expires by itself within about ten minutes |
 | The device does not sleep | There is no sleep mode | Use **Brightness** and charge when needed |
 
 > [!TIP] Before assuming a fault
@@ -1656,7 +1835,7 @@ The firmware version is **v1.0**. You can see it:
 | **Measure Highlight** | Contrast, Split Grade |
 | **Measure LUX** | Exposure |
 | **Measure Shadow** | Contrast, Split Grade |
-| **Measure next (n/total)** | Virtual Proof during a scan |
+| **Start scan (n/total)** / **Stop scan (n/total)** | Virtual Proof with Stability Detection on |
 | **Midpoint LUX** | Contrast |
 | **Midpoint Time** | Contrast |
 | **Midtones** | Split Grade → Tunables |

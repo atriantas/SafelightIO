@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="540" viewBox="0 0 940 540" role="img" aria-label="The virtual proof grid, frames and histogram">
+  <title>The virtual proof grid, frames and histogram</title>
+  <desc>The virtual proof grid, frames and histogram</desc>
+  <rect width="940" height="540" fill="#FBF8F2"/>
+  <text x="24" y="40" font-family="Georgia, Times New Roman, serif" font-size="26" font-weight="bold" fill="#211E1B" text-anchor="start">Virtual proof</text>
+  <text x="24" y="66" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="normal" fill="#6D635B" text-anchor="start">A grid of readings becomes a preview and a histogram</text>
+  <rect x="36" y="98" width="72" height="62" rx="0" fill="#EFE7D8" stroke="#FBF8F2" stroke-width="2"/>
+  <text x="43" y="113" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="normal" fill="#6D635B" text-anchor="start">1</text>
+  <rect x="108" y="98" width="72" height="62" rx="0" fill="#DCD2C2" stroke="#FBF8F2" stroke-width="2"/>
+  <text x="115" y="113" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="normal" fill="#6D635B" text-anchor="start">2</text>
+  <rect x="180" y="98" width="72" height="62" rx="0" fill="#C8BCA9" stroke="#FBF8F2" stroke-width="2"/>
+  <text x="187" y="113" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="normal" fill="#6D635B" text-anchor="start">3</text>
+  <rect x="252" y="98" width="72" height="62" rx="0" fill="#B5A894" stroke="#FBF8F2" stroke-width="2"/>
+  <text x="259" y="113" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="normal" fill="#6D635B" text-anchor="start">4</text>
+  <rect x="324" y="98" width="72" height="62" rx="0" fill="#A2947F" stroke="#FBF8F2" stroke-width="2"/>
+  <text x="331" y="113" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="normal" fill="#6D635B" text-anchor="start">5</text>
+  <rect x="396" y="98" width="72" height="62" rx="0" fill="#8E806B" stroke="#FBF8F2" stroke-width="2"/>
+  <text x="403" y="113" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="normal" fill="#6D635B" text-anchor="start">6</text>
+  <rect x="36" y="160" width="72" height="62" rx="0" fill="#D8CDBB" stroke="#FBF8F2" stroke-width="2"/>
+  <text x="43" y="175" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="normal" fill="#6D635B" text-anchor="start">7</text>
+  <rect x="108" y="160" width="72" height="62" rx="0" fill="#C4B8A5" stroke="#FBF8F2" stroke-width="2"/>
+  <text x="115" y="175" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="normal" fill="#6D635B" text-anchor="start">8</text>
+  <rect x="180" y="160" width="72" height="62" rx="0" fill="#B0A28F" stroke="#FBF8F2" stroke-width="2"/>
+  <text x="187" y="175" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="normal" fill="#6D635B" text-anchor="start">9</text>
+  <rect x="252" y="160" width="72" height="62" rx="0" fill="#9C8E7B" stroke="#FBF8F2" stroke-width="2"/>
+  <text x="259" y="175" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="normal" fill="#6D635B" text-anchor="start">10</text>
+  <rect x="324" y="160" width="72" height="62" rx="0" fill="#887A67" stroke="#FBF8F2" stroke-width="2"/>
+  <text x="331" y="175" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="normal" fill="#6D635B" text-anchor="start">11</text>
+  <rect x="396" y="160" width="72" height="62" rx="0" fill="#746653" stroke="#FBF8F2" stroke-width="2"/>
+  <text x="403" y="175" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="normal" fill="#6D635B" text-anchor="start">12</text>
+  <rect x="36" y="222" width="72" height="62" rx="0" fill="#C0B4A1" stroke="#FBF8F2" stroke-width="2"/>
+  <text x="43" y="237" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="normal" fill="#6D635B" text-anchor="start">13</text>
+  <rect x="108" y="222" width="72" height="62" rx="0" fill="#AC9F8C" stroke="#FBF8F2" stroke-width="2"/>
+  <text x="115" y="237" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="normal" fill="#6D635B" text-anchor="start">14</text>
+  <rect x="180" y="222" width="72" height="62" rx="0" fill="#988A77" stroke="#FBF8F2" stroke-width="2"/>
+  <text x="187" y="237" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="normal" fill="#6D635B" text-anchor="start">15</text>
+  <rect x="252" y="222" width="72" height="62" rx="0" fill="#847663" stroke="#FBF8F2" stroke-width="2"/>
+  <text x="259" y="237" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="normal" fill="#6D635B" text-anchor="start">16</text>
+  <rect x="324" y="222" width="72" height="62" rx="0" fill="#70624F" stroke="#FBF8F2" stroke-width="2"/>
+  <text x="331" y="237" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="normal" fill="#6D635B" text-anchor="start">17</text>
+  <rect x="396" y="222" width="72" height="62" rx="0" fill="#5C4E3B" stroke="#FBF8F2" stroke-width="2"/>
+  <text x="403" y="237" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="normal" fill="#6D635B" text-anchor="start">18</text>
+  <rect x="36" y="284" width="72" height="62" rx="0" fill="#A89C89" stroke="#FBF8F2" stroke-width="2"/>
+  <text x="43" y="299" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="normal" fill="#6D635B" text-anchor="start">19</text>
+  <rect x="108" y="284" width="72" height="62" rx="0" fill="#948673" stroke="#FBF8F2" stroke-width="2"/>
+  <text x="115" y="299" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="normal" fill="#6D635B" text-anchor="start">20</text>
+  <rect x="180" y="284" width="72" height="62" rx="0" fill="#80725F" stroke="#FBF8F2" stroke-width="2"/>
+  <text x="187" y="299" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="normal" fill="#6D635B" text-anchor="start">21</text>
+  <rect x="252" y="284" width="72" height="62" rx="0" fill="#6C5E4B" stroke="#FBF8F2" stroke-width="2"/>
+  <text x="259" y="299" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="normal" fill="#6D635B" text-anchor="start">22</text>
+  <rect x="324" y="284" width="72" height="62" rx="0" fill="#584A37" stroke="#FBF8F2" stroke-width="2"/>
+  <text x="331" y="299" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="normal" fill="#6D635B" text-anchor="start">23</text>
+  <rect x="396" y="284" width="72" height="62" rx="0" fill="#443623" stroke="#FBF8F2" stroke-width="2"/>
+  <text x="403" y="299" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="9" font-weight="normal" fill="#6D635B" text-anchor="start">24</text>
+  <rect x="38" y="100" width="68" height="58" rx="0" fill="none" stroke="#E8DFD2" stroke-width="3"/>
+  <rect x="254" y="162" width="68" height="58" rx="0" fill="none" stroke="#B3261E" stroke-width="4"/>
+  <rect x="110" y="224" width="68" height="58" rx="0" fill="none" stroke="#F2A33A" stroke-width="4"/>
+  <rect x="254" y="224" width="68" height="58" rx="0" fill="none" stroke="#2A7F7F" stroke-width="3"/>
+  <rect x="398" y="286" width="68" height="58" rx="0" fill="none" stroke="#5C4E3B" stroke-width="3"/>
+  <line x1="44" y1="129.0" x2="460" y2="129.0" stroke="#E8730C" stroke-width="1.2"/>
+  <polygon points="460,129.0 450,124.0 450,134.0" fill="#E8730C"/>
+  <line x1="460" y1="191.0" x2="44" y2="191.0" stroke="#E8730C" stroke-width="1.2"/>
+  <polygon points="44,191.0 54,186.0 54,196.0" fill="#E8730C"/>
+  <line x1="44" y1="253.0" x2="460" y2="253.0" stroke="#E8730C" stroke-width="1.2"/>
+  <polygon points="460,253.0 450,248.0 450,258.0" fill="#E8730C"/>
+  <line x1="460" y1="315.0" x2="44" y2="315.0" stroke="#E8730C" stroke-width="1.2"/>
+  <polygon points="44,315.0 54,310.0 54,320.0" fill="#E8730C"/>
+  <text x="510" y="114" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#211E1B" text-anchor="start">HISTOGRAM</text>
+  <text x="510" y="136" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#6D635B" text-anchor="start">tones across the measured grid</text>
+  <rect x="510" y="270" width="26" height="18" rx="2" fill="#A99B86" stroke="none" stroke-width="1.5"/>
+  <rect x="546" y="260" width="26" height="28" rx="2" fill="#A99B86" stroke="none" stroke-width="1.5"/>
+  <rect x="582" y="242" width="26" height="46" rx="2" fill="#A99B86" stroke="none" stroke-width="1.5"/>
+  <rect x="618" y="226" width="26" height="62" rx="2" fill="#A99B86" stroke="none" stroke-width="1.5"/>
+  <rect x="654" y="206" width="26" height="82" rx="2" fill="#A99B86" stroke="none" stroke-width="1.5"/>
+  <rect x="690" y="196" width="26" height="92" rx="2" fill="#A99B86" stroke="none" stroke-width="1.5"/>
+  <rect x="726" y="212" width="26" height="76" rx="2" fill="#A99B86" stroke="none" stroke-width="1.5"/>
+  <rect x="762" y="234" width="26" height="54" rx="2" fill="#A99B86" stroke="none" stroke-width="1.5"/>
+  <rect x="798" y="254" width="26" height="34" rx="2" fill="#D8CDBE" stroke="none" stroke-width="1.5"/>
+  <rect x="834" y="268" width="26" height="20" rx="2" fill="#D8CDBE" stroke="none" stroke-width="1.5"/>
+  <line x1="510" y1="292" x2="870" y2="292" stroke="#D9CEBF" stroke-width="1.5"/>
+  <text x="510" y="316" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" fill="#6D635B" text-anchor="start">shadow</text>
+  <text x="870" y="316" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11" font-weight="normal" fill="#6D635B" text-anchor="end">highlight</text>
+  <rect x="510" y="346" width="390" height="172" rx="12" fill="#FFFFFF" stroke="#D9CEBF" stroke-width="1.5"/>
+  <text x="528" y="374" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#211E1B" text-anchor="start">SELECTED SAMPLE</text>
+  <text x="528" y="402" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" fill="#6D635B" text-anchor="start">Lux</text>
+  <text x="610" y="402" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#211E1B" text-anchor="start">1.42</text>
+  <text x="714" y="402" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" fill="#6D635B" text-anchor="start">Zone</text>
+  <text x="796" y="402" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#211E1B" text-anchor="start">V</text>
+  <text x="528" y="436" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" fill="#6D635B" text-anchor="start">ISO R</text>
+  <text x="610" y="436" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#211E1B" text-anchor="start">110</text>
+  <text x="714" y="436" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" fill="#6D635B" text-anchor="start">EV Range</text>
+  <text x="796" y="436" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#211E1B" text-anchor="start">3.7</text>
+  <text x="528" y="470" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" fill="#6D635B" text-anchor="start">Density</text>
+  <text x="610" y="470" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#211E1B" text-anchor="start">0.74</text>
+  <text x="714" y="470" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" fill="#6D635B" text-anchor="start">Exposure</text>
+  <text x="796" y="470" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#211E1B" text-anchor="start">8.8 s</text>
+  <rect x="36" y="374" width="18" height="18" rx="3" fill="#F2A33A" stroke="#D9CEBF" stroke-width="1.5"/>
+  <text x="62" y="388" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#211E1B" text-anchor="start">next cell</text>
+  <rect x="186" y="374" width="18" height="18" rx="3" fill="#B3261E" stroke="#D9CEBF" stroke-width="1.5"/>
+  <text x="212" y="388" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#211E1B" text-anchor="start">selected</text>
+  <rect x="336" y="374" width="18" height="18" rx="3" fill="#2A7F7F" stroke="#D9CEBF" stroke-width="1.5"/>
+  <text x="362" y="388" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#211E1B" text-anchor="start">Zone V reference</text>
+  <rect x="36" y="404" width="18" height="18" rx="3" fill="#E8DFD2" stroke="#D9CEBF" stroke-width="1.5"/>
+  <text x="62" y="418" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#211E1B" text-anchor="start">highlight clipping</text>
+  <rect x="186" y="404" width="18" height="18" rx="3" fill="#5C4E3B" stroke="#D9CEBF" stroke-width="1.5"/>
+  <text x="212" y="418" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#211E1B" text-anchor="start">shadow clipping</text>
+  <text x="36" y="486" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="normal" fill="#6D635B" text-anchor="start">The scan follows a snake: left to right, then right to left. Amber marks the next cell to read.</text>
+  <text x="36" y="510" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="normal" fill="#6D635B" text-anchor="start">Changing Grid Size clears the grid and starts a new scan.</text>
+</svg>

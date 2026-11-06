@@ -334,6 +334,97 @@ html.safelight .brand-logo-room { display: block; }
   background: color-mix(in oklab, var(--fg) 5%, transparent);
 }
 .nav-util:active { background: color-mix(in oklab, var(--fg) 9%, transparent); }
+
+/* Manuals — one entry point, two device editions */
+.nav-manual { position: relative; }
+.nav-manual > summary {
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+}
+.nav-manual > summary::-webkit-details-marker { display: none; }
+.nav-manual > summary::marker { content: ""; }
+.nav-manual > summary::after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  margin-left: 2px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform var(--motion-fast) var(--ease-standard);
+}
+.nav-manual[open] > summary {
+  color: var(--fg);
+  background: color-mix(in oklab, var(--fg) 5%, transparent);
+}
+.nav-manual[open] > summary::after { transform: translateY(1px) rotate(225deg); }
+html.nav-over-dark .nav-manual[open] > summary {
+  color: var(--surface);
+  background: color-mix(in oklab, var(--surface) 12%, transparent);
+}
+.manual-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 60;
+  width: 326px;
+  padding: 9px;
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 48px color-mix(in oklab, var(--fg) 16%, transparent);
+}
+.manual-menu-title {
+  margin: 5px 9px 7px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--meta);
+}
+.manual-link {
+  display: grid;
+  gap: 2px;
+  padding: 10px 9px;
+  border-radius: var(--radius-sm);
+  color: var(--fg);
+}
+.manual-link + .manual-link { margin-top: 2px; }
+.manual-link:hover { background: color-mix(in oklab, var(--fg) 5%, transparent); }
+.manual-link .ml-name {
+  font-size: 14px;
+  line-height: 1.3;
+  font-weight: 500;
+}
+.manual-link .ml-desc {
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+.manual-link .ml-meta {
+  margin-top: 3px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--meta);
+}
+.manual-all {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 7px;
+  padding: 11px 9px 6px;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.manual-all:hover { color: var(--accent-hover); }
 .nav-links { display: flex; align-items: center; gap: 26px; flex: 0 0 auto; }
 .nav-links a {
   padding-block: 11px;
@@ -3268,10 +3359,28 @@ html.safelight .zb-range-text { background: var(--deep); }
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-utils">
-      <a class="nav-util" href="MANUAL.html" title="User manual" aria-label="Read the SafelightIO user manual" data-od-id="nav-manual">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.4v7.1" /><path d="M5.2 6.9 8 9.7l2.8-2.8" /><path d="M2.9 11.1v1.3c0 .9.7 1.6 1.6 1.6h7c.9 0 1.6-.7 1.6-1.6v-1.3" /></svg>
-        <span class="util-label">Manual</span>
-      </a>
+      <details class="nav-manual" data-manual-picker>
+        <summary class="nav-util" title="Manuals — 7-inch and dongle" data-od-id="nav-manual">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.4v7.1" /><path d="M5.2 6.9 8 9.7l2.8-2.8" /><path d="M2.9 11.1v1.3c0 .9.7 1.6 1.6 1.6h7c.9 0 1.6-.7 1.6-1.6v-1.3" /></svg>
+          <span class="util-label">Manual</span>
+        </summary>
+        <div class="manual-menu">
+          <p class="manual-menu-title">Choose your device</p>
+          <a class="manual-link" href="manual/7-inch/MANUAL.html" data-od-id="nav-manual-7inch">
+            <span class="ml-name">SafelightIO 7-inch</span>
+            <span class="ml-desc">Touchscreen meter — screen maps, calibration, SD card.</span>
+            <span class="ml-meta">HTML manual</span>
+          </a>
+          <a class="manual-link" href="manual/dongle/MANUAL.html" data-od-id="nav-manual-dongle">
+            <span class="ml-name">SafelightIO Dongle</span>
+            <span class="ml-desc">USB-C meter with the Android app as its screen.</span>
+            <span class="ml-meta">HTML manual</span>
+          </a>
+          <a class="manual-all" href="manual/MANUAL.html" data-od-id="nav-manual-all">
+            Both editions, PDF and Markdown <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </details>
       <a class="nav-util" href="SafelightIO_v1.0.uf2" download="SafelightIO_v1.0.uf2" type="application/octet-stream" title="Firmware v1.0 (UF2)" aria-label="Download the SafelightIO v1.0 firmware as a UF2 file" data-od-id="nav-firmware">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="4.4" y="4.4" width="7.2" height="7.2" rx="1.4" /><path d="M6.4 4.4V2.6M9.6 4.4V2.6M6.4 13.4v-1.8M9.6 13.4v-1.8M4.4 6.4H2.6M4.4 9.6H2.6M13.4 6.4h-1.8M13.4 9.6h-1.8" /></svg>
         <span class="util-label">Firmware</span>
@@ -3297,9 +3406,17 @@ html.safelight .zb-range-text { background: var(--deep); }
       </ul>
       <a class="btn btn-primary m-cta" href="https://cyanowood.com/cart/56596508344660:1">Get one — €160,00</a>
       <div class="mobile-utils">
-        <a class="mobile-util" href="MANUAL.html" data-od-id="mobile-manual">
+        <a class="mobile-util" href="manual/7-inch/MANUAL.html" data-od-id="mobile-manual-7inch">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.4v7.1" /><path d="M5.2 6.9 8 9.7l2.8-2.8" /><path d="M2.9 11.1v1.3c0 .9.7 1.6 1.6 1.6h7c.9 0 1.6-.7 1.6-1.6v-1.3" /></svg>
-          User manual <em>HTML</em>
+          7-inch manual <em>HTML</em>
+        </a>
+        <a class="mobile-util" href="manual/dongle/MANUAL.html" data-od-id="mobile-manual-dongle">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.4v7.1" /><path d="M5.2 6.9 8 9.7l2.8-2.8" /><path d="M2.9 11.1v1.3c0 .9.7 1.6 1.6 1.6h7c.9 0 1.6-.7 1.6-1.6v-1.3" /></svg>
+          Dongle manual <em>HTML</em>
+        </a>
+        <a class="mobile-util" href="manual/MANUAL.html" data-od-id="mobile-manual-all">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.4v7.1" /><path d="M5.2 6.9 8 9.7l2.8-2.8" /><path d="M2.9 11.1v1.3c0 .9.7 1.6 1.6 1.6h7c.9 0 1.6-.7 1.6-1.6v-1.3" /></svg>
+          All manuals <em>HTML · PDF</em>
         </a>
         <a class="mobile-util" href="SafelightIO_v1.0.uf2" download="SafelightIO_v1.0.uf2" type="application/octet-stream" data-od-id="mobile-firmware">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="4.4" y="4.4" width="7.2" height="7.2" rx="1.4" /><path d="M6.4 4.4V2.6M9.6 4.4V2.6M6.4 13.4v-1.8M9.6 13.4v-1.8M4.4 6.4H2.6M4.4 9.6H2.6M13.4 6.4h-1.8M13.4 9.6h-1.8" /></svg>
@@ -4453,7 +4570,9 @@ html.safelight .zb-range-text { background: var(--deep); }
       <div>
         <p class="foot-title">Documents</p>
         <ul class="foot-links">
-          <li><a href="MANUAL.html">User manual (HTML)</a></li>
+          <li><a href="manual/MANUAL.html">Manuals — choose your device</a></li>
+          <li><a href="manual/7-inch/MANUAL.html">7-inch manual (HTML)</a></li>
+          <li><a href="manual/dongle/MANUAL.html">Dongle manual (HTML)</a></li>
           <li><a href="SafelightIO_v1.0.uf2" download="SafelightIO_v1.0.uf2" type="application/octet-stream">Firmware v1.0 (UF2)</a></li>
           <li><a href="#specs">Specifications</a></li>
           <li><a href="#faq">FAQ</a></li>
@@ -4521,6 +4640,24 @@ html.safelight .zb-range-text { background: var(--deep); }
 
   window.addEventListener('resize', function () {
     if (window.innerWidth > 1000) setOpen(false);
+  });
+})();
+
+(function () {
+  var picker = document.querySelector('[data-manual-picker]');
+  if (!picker) return;
+  var summary = picker.querySelector('summary');
+  document.addEventListener('click', function (event) {
+    if (picker.open && !picker.contains(event.target)) picker.open = false;
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && picker.open) {
+      picker.open = false;
+      if (summary) summary.focus();
+    }
+  });
+  window.addEventListener('resize', function () {
+    if (window.innerWidth <= 1000) picker.open = false;
   });
 })();
 

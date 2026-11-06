@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="390" viewBox="0 0 940 390" role="img" aria-label="Contrast in three steps">
+  <title>Contrast in three steps</title>
+  <desc>Contrast in three steps</desc>
+  <rect width="940" height="390" fill="#FBF8F2"/>
+  <text x="24" y="40" font-family="Georgia, Times New Roman, serif" font-size="26" font-weight="bold" fill="#211E1B" text-anchor="start">Contrast, in three steps</text>
+  <text x="24" y="66" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="normal" fill="#6D635B" text-anchor="start">Two readings make one grade and one time</text>
+  <rect x="24" y="92" width="286" height="104" rx="12" fill="#FFFFFF" stroke="#D9CEBF" stroke-width="1.5"/>
+  <text x="42" y="120" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#211E1B" text-anchor="start">HIGHLIGHTS</text>
+  <text x="42" y="146" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#6D635B" text-anchor="start">Measure the dim spot at easel</text>
+  <text x="42" y="164" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#6D635B" text-anchor="start">It becomes the bright print highlight</text>
+  <rect x="24" y="218" width="286" height="104" rx="12" fill="#FFFFFF" stroke="#D9CEBF" stroke-width="1.5"/>
+  <text x="42" y="246" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" font-weight="bold" fill="#211E1B" text-anchor="start">SHADOWS</text>
+  <text x="42" y="272" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#6D635B" text-anchor="start">Measure the bright spot at easel</text>
+  <text x="42" y="290" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="normal" fill="#6D635B" text-anchor="start">It becomes the dark print shadow</text>
+  <line x1="316" y1="144" x2="352" y2="144" stroke="#E8730C" stroke-width="2.5"/>
+  <polygon points="352,144 342,139 342,149" fill="#E8730C"/>
+  <line x1="316" y1="270" x2="352" y2="270" stroke="#E8730C" stroke-width="2.5"/>
+  <polygon points="352,270 342,265 342,275" fill="#E8730C"/>
+  <rect x="356" y="112" width="256" height="190" rx="12" fill="#FFFFFF" stroke="#D9CEBF" stroke-width="1.5"/>
+  <text x="374" y="142" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#211E1B" text-anchor="start">CONTRAST RANGE</text>
+  <text x="374" y="166" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#6D635B" text-anchor="start">how far apart the two points are</text>
+  <text x="374" y="204" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#211E1B" text-anchor="start">CONTRAST GRADE</text>
+  <text x="374" y="228" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#6D635B" text-anchor="start">the paper/filter grade to use</text>
+  <text x="374" y="266" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#E8730C" text-anchor="start">Match Quality</text>
+  <text x="374" y="288" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" fill="#6D635B" text-anchor="start">Exact · Close · Acceptable · Approximate</text>
+  <line x1="616" y1="207" x2="676" y2="207" stroke="#E8730C" stroke-width="2.5"/>
+  <polygon points="676,207 666,202 666,212" fill="#E8730C"/>
+  <rect x="680" y="112" width="236" height="190" rx="12" fill="#FFFFFF" stroke="#D9CEBF" stroke-width="1.5"/>
+  <text x="698" y="142" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#211E1B" text-anchor="start">EXPOSURE TIME</text>
+  <text x="698" y="166" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#6D635B" text-anchor="start">one time for the whole print</text>
+  <text x="698" y="204" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#211E1B" text-anchor="start">TUNABLES</text>
+  <text x="698" y="228" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#6D635B" text-anchor="start">Exposure</text>
+  <text x="698" y="245" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#6D635B" text-anchor="start">Contrast</text>
+  <text x="698" y="262" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#6D635B" text-anchor="start">Highlights</text>
+  <text x="698" y="279" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#6D635B" text-anchor="start">Shadows</text>
+  <text x="24" y="366" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" fill="#6D635B" text-anchor="start">The surprise: highlights are measured in the dim part of the image, shadows in the bright part.</text>
+</svg>

@@ -1,6 +1,6 @@
 # SafelightIO — single-page site
 
-Open `safelightio.html` in a browser. Images live in `assets/` and are referenced relatively. The header and the footer both offer the typeset manual (`assets/SafelightIO-User-Manual.pdf`); `MANUAL.md` remains the source text.
+Open `index.html` in a browser. Images live in `assets/` and are referenced relatively. The **Manual** menu in the header and the footer both open the manual tree under `manual/`: `manual/MANUAL.html` picks between the 7-inch and dongle editions, and each edition carries its own HTML, PDF and Markdown. The root `MANUAL.html` is kept as the legacy 7-inch link and mirrors `manual/7-inch/`.
 
 ## Design rationale
 

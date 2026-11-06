@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="350" viewBox="0 0 940 350" role="img" aria-label="Split grade: two exposures, one print">
+  <title>Split grade: two exposures, one print</title>
+  <desc>Split grade: two exposures, one print</desc>
+  <rect width="940" height="350" fill="#FBF8F2"/>
+  <text x="24" y="40" font-family="Georgia, Times New Roman, serif" font-size="26" font-weight="bold" fill="#211E1B" text-anchor="start">Split grade</text>
+  <text x="24" y="66" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="normal" fill="#6D635B" text-anchor="start">The same print is built from a soft leg and a hard leg</text>
+  <text x="30" y="104" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#211E1B" text-anchor="start">SOFT exposure</text>
+  <text x="30" y="124" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#6D635B" text-anchor="start">highlights and midtones</text>
+  <rect x="30" y="136" width="540" height="52" rx="8" fill="#EFE8DC" stroke="#D9CEBF" stroke-width="1.5"/>
+  <rect x="30" y="136" width="370" height="52" rx="8" fill="#D8CDBE" stroke="#D9CEBF" stroke-width="1.5"/>
+  <text x="44" y="169" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#211E1B" text-anchor="start">soft time</text>
+  <line x1="400" y1="128" x2="400" y2="196" stroke="#E8730C" stroke-width="2.5"/>
+  <text x="400" y="118" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="bold" fill="#E8730C" text-anchor="middle">Midtones balance</text>
+  <text x="30" y="232" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#211E1B" text-anchor="start">HARD exposure</text>
+  <text x="30" y="252" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#6D635B" text-anchor="start">shadows and blacks</text>
+  <rect x="30" y="264" width="540" height="52" rx="8" fill="#D8CDBE" stroke="#D9CEBF" stroke-width="1.5"/>
+  <rect x="30" y="264" width="170" height="52" rx="8" fill="#4A4038" stroke="#D9CEBF" stroke-width="1.5"/>
+  <text x="44" y="297" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="start">hard time</text>
+  <line x1="578" y1="162" x2="626" y2="206" stroke="#E8730C" stroke-width="2.5"/>
+  <polygon points="626,206 616,201 616,211" fill="#E8730C"/>
+  <line x1="578" y1="290" x2="626" y2="246" stroke="#E8730C" stroke-width="2.5"/>
+  <polygon points="626,246 616,241 616,251" fill="#E8730C"/>
+  <rect x="634" y="136" width="282" height="180" rx="12" fill="#FFFFFF" stroke="#D9CEBF" stroke-width="1.5"/>
+  <text x="654" y="166" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#211E1B" text-anchor="start">TOTAL EXPOSURE</text>
+  <text x="654" y="190" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12.5" font-weight="normal" fill="#6D635B" text-anchor="start">soft time + hard time</text>
+  <text x="654" y="230" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#211E1B" text-anchor="start">SOFT EXPOSURE</text>
+  <text x="654" y="252" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" fill="#6D635B" text-anchor="start">one time through the soft filter</text>
+  <text x="654" y="282" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#211E1B" text-anchor="start">HARD EXPOSURE</text>
+  <text x="654" y="304" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="normal" fill="#6D635B" text-anchor="start">one time through the hard filter</text>
+  <text x="24" y="338" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="normal" fill="#6D635B" text-anchor="start">Move Midtones to give more of the print to one leg; the trims still apply.</text>
+</svg>
