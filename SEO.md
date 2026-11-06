@@ -59,6 +59,28 @@ If the new home is `cyanowood.com`, the cleanest version is a Shopify page or a
 subdomain that serves this file, with the product page canonicalising to itself
 and linking here.
 
+## The dongle (described, not yet sold)
+
+The page now covers two forms of the same meter: the 7-inch instrument and the
+USB-C dongle that uses an Android phone as its screen. The dongle is **not for
+sale**: there is no price, no CTA and no second `Offer` in the schema, and the
+buy block says so. The title still carries `darkroom printing`; the meta
+description now names both forms, which is the only SEO change this needed.
+
+When the dongle goes on sale:
+
+1. Add its Shopify product or variant link to the buy block (the 7-inch cart
+   link stays where it is).
+2. Either extend `Product` with a second `Offer`, or make the dongle its own
+   page if it gets a different price — one Offer with two prices is not valid.
+3. Update the buy lead: replace “the dongle is coming”.
+
+Downloads are live: the header **Firmware** menu now lists both UF2s and links
+the update guide, the footer lists both firmware files and the APK, and the FAQ
+answer about the phone links the Android app (`SafelightIO.apk`, 13 MB). The
+dongle manual still says firmware 0.11 while the file is named v1.0, so the
+download is labelled without a version until the two agree.
+
 ## Still missing
 
 - **Search Console.** Verify `https://atriantas.github.io/SafelightIO/` with the

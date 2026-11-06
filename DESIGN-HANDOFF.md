@@ -11,10 +11,10 @@ This archive is the source of truth for turning the design into production code.
 
 ## Source map
 - Primary entry: `index.html`
-- HTML screens detected: 4
+- HTML screens detected: 1
 - Stylesheets detected: 0
 - Script/component files detected: 0
-- Supporting assets detected: 43
+- Supporting assets detected: 10
 
 ## Responsive contract
 Validate the implementation across this 2025–2026 viewport matrix:
@@ -63,10 +63,7 @@ For responsive web exports, treat these as a modern breakpoint system for one ad
 8. Compare final screenshots against the export at 360×800, 390×844, 430×932, 820×1180, 1024×768, 1366×768, 1440×900, and 1920×1080 before declaring done.
 
 ## Entry points
-- `index-1.html`
-- `index-2.html`
 - `index.html`
-- `safelightio.html`
 
 ## Styles
 - None detected
@@ -75,30 +72,6 @@ For responsive web exports, treat these as a modern breakpoint system for one ad
 - None detected
 
 ## Assets and supporting files
-- `assets/ContrastScreen.png`
-- `assets/ContrastTab.png`
-- `assets/Device_01.png`
-- `assets/Device_02.png`
-- `assets/Device_03.png`
-- `assets/Device_04.png`
-- `assets/Device_05.png`
-- `assets/Device_06.png`
-- `assets/Device_test copy 2.mp4`
-- `assets/Device_test copy 3.mp4`
-- `assets/Device_test copy.mp4`
-- `assets/Device_test.mp4`
-- `assets/Device.png`
-- `assets/EditorTab.png`
-- `assets/ExposureScreen.png`
-- `assets/ExposureTab.png`
-- `assets/fonts/caveat.woff2`
-- `assets/fonts/fraunces-italic.ttf`
-- `assets/fonts/fraunces-italic.woff2`
-- `assets/fonts/fraunces-normal.woff2`
-- `assets/fonts/fraunces-regular.ttf`
-- `assets/HeaderLogo.png`
-- `assets/HeaderLogoBlack.png`
-- `assets/PaperEditorScreen.png`
 - `assets/reel-01.jpg`
 - `assets/reel-01.mp4`
 - `assets/reel-02.jpg`
@@ -107,15 +80,6 @@ For responsive web exports, treat these as a modern breakpoint system for one ad
 - `assets/reel-03.mp4`
 - `assets/reel-04.jpg`
 - `assets/reel-04.mp4`
-- `assets/SafelightIO-User-Manual.pdf`
-- `assets/SplitGradeScreen.png`
-- `assets/SplitgradeTab.png`
-- `assets/VirtualProofScreen.png`
-- `assets/VirtualproofTab.png`
-- `Fraunces_72pt-Italic-1.ttf`
-- `Fraunces_72pt-Italic.ttf`
-- `Fraunces_72pt-Regular-1.ttf`
-- `Fraunces_72pt-Regular.ttf`
 - `MANUAL.md`
 - `README.md`
 
