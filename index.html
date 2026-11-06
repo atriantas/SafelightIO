@@ -2177,14 +2177,6 @@ html.safelight .pd-btn:hover {
 }
 .ds-table td { color: var(--fg-2); }
 .ds-table td strong { font-weight: 500; color: var(--fg); }
-.spec-foot {
-  margin-top: 20px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  line-height: 1.7;
-  color: var(--muted);
-}
-
 /* ── faq ─────────────────────────────────────────────────────────── */
 .faq-grid {
   display: grid;
@@ -3051,12 +3043,8 @@ html.safelight .zb-range-text { background: var(--deep); }
   .hero .lead { font-size: 16px; }
   .hero-cta .btn { flex: 1 1 100%; }
   .hero-cta .btn-secondary { flex: 1 1 auto; }
-  .reading-head { flex-direction: column; gap: 4px; align-items: flex-start; }
-  .reading-grid { grid-template-columns: 1fr; }
-  .reading-cell { border-left: 0; }
-  .reading-cell + .reading-cell { border-top: 1px solid var(--border); }
-  .reading-cell:nth-child(3) { border-top: 1px solid var(--border); }
-  .reading-value { font-size: 26px; }
+  .reading { display: none; }
+  .tool-list { display: none; }
   .reel-grid {
     grid-auto-columns: min(76vw, 320px);
     gap: 16px;
@@ -3221,14 +3209,6 @@ html.safelight .zb-range-text { background: var(--deep); }
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "If your loop is already tight, you may not need it. It earns its place when the paper, grade, or magnification changes — one reading instead of a ladder of strips, especially when printing fibre."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "€160 is a lot for a hobby.",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "It is a one-time tool: no account, no subscription, no per-print cost. It keeps working across every paper you calibrate, and the 14-day return window is there if it does not earn its place."
           }
         },
         {
@@ -4432,16 +4412,11 @@ html.safelight .zb-range-text { background: var(--deep); }
               <tr><th scope="row">Storage</th><td><strong>7-inch</strong> microSD (FAT32) for <span class="num">SETTINGS.TXT</span>, <span class="num">PAPERS.CSV</span> and session export, with internal flash fallback · <strong>dongle</strong> internal flash; settings and sessions save to files on the phone</td></tr>
               <tr><th scope="row">Power</th><td><strong>7-inch</strong> rechargeable LiPo over USB-C, with battery bar and low-battery warning · <strong>dongle</strong> powered by the phone over USB-C</td></tr>
               <tr><th scope="row">Tools</th><td>Exposure · Contrast · Split Grade · Virtual Proof · Filter Editor</td></tr>
-              <tr><th scope="row">Metering</th><td>Zone System, Zones 0–X; Filter Grade Transform; dodge and burn in ¼-stop steps (±2.25 stops)</td></tr>
-              <tr><th scope="row">Proof grid</th><td><strong>7-inch</strong> 2–40 × 2–30 · <strong>dongle</strong> 1–40 × 1–30</td></tr>
               <tr><th scope="row">Paper data</th><td><strong>22 built-in papers</strong> · <strong>7-inch</strong> edited in <span class="num">PAPERS.CSV</span> · <strong>dongle</strong> edited in the app's Paper &amp; Filter Editor</td></tr>
               <tr><th scope="row">Filter data</th><td><strong>6 built-in systems</strong> · up to 64 factor / ISO R overrides on the 7-inch; overrides held on the dongle</td></tr>
-              <tr><th scope="row">Reciprocity</th><td>Automatic above 30 s; Schwarzschild model with RC ≈ 0.07 and FB ≈ 0.10</td></tr>
-              <tr><th scope="row">Session export</th><td><strong>7-inch</strong> <span class="num">SESSION.CSV</span> on microSD: paper, filter, calibration, Contrast and Split results, every proof cell · <strong>dongle</strong> a Session file saved from the app to the phone</td></tr>
               <tr><th scope="row">Updates</th><td><strong>7-inch</strong> UF2 over USB-C (drag-and-drop) · <strong>dongle</strong> 1200-baud touch, then UF2; calibrations preserved</td></tr>
             </tbody>
           </table>
-          <p class="spec-foot">Dimensions, weight and runtime are not published for either device, so they are not claimed.</p>
         </div>
       </div>
     </div>
@@ -4462,13 +4437,6 @@ html.safelight .zb-range-text { background: var(--deep); }
             <div class="faq-answer">
               <p>If your loop is already tight, you may not need this. The meter earns its place when you change paper, grade, or magnification — or when you are printing fibre and every bracket costs money and a development cycle.</p>
               <p>The point is not to replace your judgment. It is to remove the guesswork before the judgment starts: one reading instead of a ladder of strips, every time the paper, grade, or magnification changes.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>€160 is a lot for a hobby.</summary>
-            <div class="faq-answer">
-              <p>It is a one-time tool, not a subscription: no account, no cloud, no per-print cost. It replaces a loop that spends paper every time your setup changes, and it keeps working across every paper you calibrate.</p>
-              <p>Whether that pays for itself is your arithmetic to run, not ours. If it does not earn its place, the 14-day return window is there.</p>
             </div>
           </details>
           <details class="faq-item">
