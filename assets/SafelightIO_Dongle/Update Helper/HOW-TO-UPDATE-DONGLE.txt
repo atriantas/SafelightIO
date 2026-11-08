@@ -1,0 +1,120 @@
+SAFELIGHTIO DONGLE - FIRMWARE UPDATE
+====================================
+
+This guide updates the SafelightIO dongle from a Windows PC or a Mac.
+You do not need to install any developer software.
+
+WHAT YOU NEED
+-------------
+- The SafelightIO dongle.
+- A USB-C data cable. A charge-only cable will not work.
+- The new firmware file. It ends in .uf2.
+- The BOOTSEL helper for your computer:
+    Windows: bootsel-windows.bat
+    Mac:     bootsel-mac.command
+
+On Windows, keep bootsel-windows.ps1 in the same folder as
+bootsel-windows.bat. Do not rename the helper files.
+
+BEFORE YOU START
+----------------
+1. Close the SafelightIO app on your phone.
+2. Close any program that may be using the dongle's serial port.
+3. Keep the dongle, the cable and the computer still while updating.
+
+
+WINDOWS - STEP BY STEP
+----------------------
+1. Put bootsel-windows.bat, bootsel-windows.ps1 and the .uf2 file
+   in the same folder.
+
+2. Plug the dongle into the PC with the data cable.
+
+3. Double-click bootsel-windows.bat.
+
+4. If Windows shows "Windows protected your PC":
+   click "More info", then "Run anyway".
+   Administrator rights are not needed.
+
+5. A black window opens. Wait while it looks for the dongle and
+   asks it to enter update mode.
+
+6. If the window asks you to choose a COM port, type the number for
+   the SafelightIO dongle and press Enter.
+
+7. When the window says the dongle is in update mode, open File
+   Explorer. A new drive called RP2350 should appear.
+
+8. Copy the .uf2 file onto the RP2350 drive.
+
+9. Wait until the RP2350 drive disappears. This can take a few
+   seconds. Do NOT unplug the dongle while the drive is visible.
+
+10. Unplug the dongle and plug it back into your phone.
+    Open the SafelightIO app. The top bar should say
+    "Ready - fw ...".
+
+
+MAC - STEP BY STEP
+------------------
+1. Put bootsel-mac.command and the .uf2 file in the same folder.
+
+2. Plug the dongle into the Mac with the data cable.
+
+3. Double-click bootsel-mac.command.
+
+4. If macOS will not open it, right-click the file, choose "Open",
+   then click "Open" again.
+
+5. A Terminal window opens. Wait while it looks for the dongle and
+   asks it to enter update mode.
+
+6. When it says the dongle is in update mode, open Finder.
+   A new drive called RP2350 should appear under Locations.
+
+7. Drag the .uf2 file onto the RP2350 drive.
+
+8. Wait until the RP2350 drive disappears. Do NOT unplug the dongle
+   while the drive is visible.
+
+9. Unplug the dongle and plug it back into your phone.
+   Open the SafelightIO app. The top bar should say
+   "Ready - fw ...".
+
+
+IF IT DOES NOT WORK
+-------------------
+"No SafelightIO Dongle USB device was found"
+- Use a data cable, not a charge-only cable.
+- Close the SafelightIO app and any serial program.
+- Unplug the dongle and plug it in again.
+- Try another USB port on the computer.
+
+"Could not open the port at 1200 baud"
+- Another program is using the dongle. Close it and try again.
+
+The RP2350 drive does not appear
+- Wait 20 seconds, then run the helper again.
+- The helper only works while the normal firmware is running.
+- If the dongle is already in update mode, the RP2350 drive should
+  already be visible; just copy the .uf2 file.
+
+The update was interrupted
+- Do not repeatedly unplug the dongle.
+- If it no longer starts, the sealed unit may need service recovery.
+  Contact SafelightIO support.
+
+CHECK THAT IT WORKED
+--------------------
+Open the SafelightIO app and connect the dongle.
+The top bar should say "Ready - fw ..." with the new version.
+You can also open Setup > Meter to see the firmware version and the
+SafelightIO ID.
+
+Your paper calibrations, settings and catalogue are kept. Updating
+the firmware does not erase them.
+
+NEED HELP?
+----------
+Send the exact message shown in the black window or Terminal, and say
+whether you are on Windows or Mac.
