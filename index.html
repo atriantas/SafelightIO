@@ -7,7 +7,7 @@
      When it moves, change the four absolute URLs below (canonical, og:url,
      og:image, twitter:image) and sitemap.xml together — they must agree. -->
 <title>SafelightIO — darkroom printing without test strips</title>
-<meta name="description" content="Darkroom printing without test strips: a 7-inch meter, or a USB-C dongle on Android. One easel reading gives exposure time, grade and split timing." />
+<meta name="description" content="Darkroom printing without test strips: a 7″ touchscreen meter, or an Android wired dongle. One easel reading gives exposure time, grade and split timing." />
 <meta name="color-scheme" content="light" />
 <meta name="theme-color" content="#f5f4ed" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -18,7 +18,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Cyanowood" />
 <meta property="og:title" content="SafelightIO — darkroom printing without test strips" />
-<meta property="og:description" content="Darkroom printing without test strips: a 7-inch meter, or a USB-C dongle on Android. One easel reading gives exposure time, grade and split timing." />
+<meta property="og:description" content="Darkroom printing without test strips: a 7″ touchscreen meter, or an Android wired dongle. One easel reading gives exposure time, grade and split timing." />
 <meta property="og:url" content="https://atriantas.github.io/SafelightIO/" />
 <meta property="og:image" content="https://atriantas.github.io/SafelightIO/assets/og-safelightio.jpg" />
 <meta property="og:image:type" content="image/jpeg" />
@@ -27,7 +27,7 @@
 <meta property="og:image:alt" content="SafelightIO, a darkroom exposure meter on the easel of an enlarger, beside the line: measure the print before you make it." />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="SafelightIO — darkroom printing without test strips" />
-<meta name="twitter:description" content="A 7-inch darkroom meter, or a USB-C dongle on Android. One easel reading gives exposure, grade and split-grade timing." />
+<meta name="twitter:description" content="A 7″ darkroom meter, or an Android wired dongle. One easel reading gives exposure, grade and split-grade timing." />
 <meta name="twitter:image" content="https://atriantas.github.io/SafelightIO/assets/og-safelightio.jpg" />
 <script>
 document.documentElement.classList.add('js');
@@ -2664,6 +2664,7 @@ html.safelight .buy {
   --line: var(--border);
 }
 html.safelight .tools,
+html.safelight .strip-notes,
 html.safelight .footer { background: var(--deep); }
 html.safelight .buy {
   background:
@@ -3289,8 +3290,8 @@ html.safelight .zb-range-text { background: var(--deep); }
     },
     {
       "@type": "Product",
-      "name": "SafelightIO",
-      "description": "A handbuilt digital darkroom exposure meter for black-and-white printing. The 7-inch instrument takes an easel reading with a tethered lux probe; the USB-C dongle does the same on an Android phone. Both compute exposure time, contrast grade, split-grade timing, calibration and a virtual proof; 22 papers and 6 filter systems are built in.",
+      "name": "SafelightIO 7″ Touchscreen",
+      "description": "A handbuilt digital darkroom exposure meter for black-and-white printing. The 7″ Touchscreen takes an easel reading with a tethered lux probe and computes exposure time, contrast grade, split-grade timing, calibration and a virtual proof; 22 papers and 6 filter systems are built in.",
       "brand": { "@type": "Brand", "name": "Cyanowood" },
       "category": "Darkroom exposure meter",
       "sku": "SAFELIGHTIO-01",
@@ -3302,25 +3303,51 @@ html.safelight .zb-range-text { background: var(--deep); }
       ],
       "offers": {
         "@type": "Offer",
-        "url": "https://cyanowood.com/cart/56596508344660:1",
-        "price": "160.00",
+        "url": "https://ko-fi.com/s/84316fa3dc",
+        "price": "260.00",
         "priceCurrency": "EUR",
         "availability": "https://schema.org/InStock",
         "itemCondition": "https://schema.org/NewCondition",
-        "priceSpecification": {
-          "@type": "PriceSpecification",
-          "price": "160.00",
-          "priceCurrency": "EUR",
-          "valueAddedTaxIncluded": false
-        },
         "seller": { "@id": "https://www.cyanowood.com/#organization" }
       },
       "additionalProperty": [
-        { "@type": "PropertyValue", "name": "Form", "value": "7-inch instrument or USB-C dongle for Android" },
-        { "@type": "PropertyValue", "name": "Display", "value": "7-inch touchscreen; the dongle has no screen and uses the Android app" },
+        { "@type": "PropertyValue", "name": "Form", "value": "7″ Touchscreen (standalone)" },
+        { "@type": "PropertyValue", "name": "Display", "value": "7″ touchscreen" },
         { "@type": "PropertyValue", "name": "Sensor", "value": "TSL2591 lux sensor (TSL25911FN in the 7-inch probe)" },
         { "@type": "PropertyValue", "name": "Controller", "value": "RP2350" },
-        { "@type": "PropertyValue", "name": "Storage", "value": "7-inch microSD; dongle internal flash" },
+        { "@type": "PropertyValue", "name": "Storage", "value": "7-inch microSD with internal flash fallback" },
+        { "@type": "PropertyValue", "name": "Papers", "value": "22 built in" },
+        { "@type": "PropertyValue", "name": "Filter systems", "value": "6 built in" },
+        { "@type": "PropertyValue", "name": "Tools", "value": "Exposure, Contrast, Split Grade, Virtual Proof, Filter Editor" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "SafelightIO Android Wired Dongle",
+      "description": "The same darkroom exposure meter as the 7″ Touchscreen, in a USB-C dongle that uses an Android phone as its screen. It computes exposure time, contrast grade, split-grade timing, calibration and a virtual proof; 22 papers and 6 filter systems are built in. Needs an Android phone with USB-C host support and a data cable.",
+      "brand": { "@type": "Brand", "name": "Cyanowood" },
+      "category": "Darkroom exposure meter",
+      "url": "https://atriantas.github.io/SafelightIO/",
+      "image": [
+        "https://atriantas.github.io/SafelightIO/assets/dongle/pair-tabletop.webp",
+        "https://atriantas.github.io/SafelightIO/assets/dongle/easel-in-use.webp",
+        "https://atriantas.github.io/SafelightIO/assets/dongle/plugged-close.webp"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "url": "https://ko-fi.com/s/636cfb67aa",
+        "price": "120.00",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "seller": { "@id": "https://www.cyanowood.com/#organization" }
+      },
+      "additionalProperty": [
+        { "@type": "PropertyValue", "name": "Form", "value": "Android Wired Dongle" },
+        { "@type": "PropertyValue", "name": "Display", "value": "None — the Android app is the screen" },
+        { "@type": "PropertyValue", "name": "Sensor", "value": "TSL2591 lux sensor" },
+        { "@type": "PropertyValue", "name": "Controller", "value": "RP2350" },
+        { "@type": "PropertyValue", "name": "Storage", "value": "Internal flash; settings and sessions on the phone" },
         { "@type": "PropertyValue", "name": "Papers", "value": "22 built in" },
         { "@type": "PropertyValue", "name": "Filter systems", "value": "6 built in" },
         { "@type": "PropertyValue", "name": "Tools", "value": "Exposure, Contrast, Split Grade, Virtual Proof, Filter Editor" }
@@ -3520,7 +3547,7 @@ html.safelight .zb-range-text { background: var(--deep); }
         <span class="util-label">Instagram</span>
       </a>
     </div>
-    <a class="nav-buy" href="https://cyanowood.com/cart/56596508344660:1" data-od-id="nav-buy">Get the 7-inch</a>
+    <a class="nav-buy" href="https://ko-fi.com/safelightio/shop" data-od-id="nav-buy">Buy SafelightIO</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav" data-nav-toggle>Menu</button>
   </div>
   <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile" data-nav-panel hidden>
@@ -3534,7 +3561,7 @@ html.safelight .zb-range-text { background: var(--deep); }
         <li><a href="#specs">Specifications <span>06</span></a></li>
         <li><a href="#faq">FAQ <span>07</span></a></li>
       </ul>
-      <a class="btn btn-primary m-cta" href="https://cyanowood.com/cart/56596508344660:1">Get the 7-inch — €160,00</a>
+      <a class="btn btn-primary m-cta" href="https://ko-fi.com/safelightio/shop">Buy SafelightIO</a>
       <div class="mobile-utils">
         <a class="mobile-util" href="manual/7-inch/MANUAL.html" data-od-id="mobile-manual-7inch">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.4v7.1" /><path d="M5.2 6.9 8 9.7l2.8-2.8" /><path d="M2.9 11.1v1.3c0 .9.7 1.6 1.6 1.6h7c.9 0 1.6-.7 1.6-1.6v-1.3" /></svg>
@@ -3576,20 +3603,20 @@ html.safelight .zb-range-text { background: var(--deep); }
         <div class="hero-copy reveal">
           <p class="eyebrow">SafelightIO · digital darkroom exposure meter</p>
           <h1>Darkroom printing,<br />one reading.</h1>
-          <p class="lead">SafelightIO replaces the test-strip ladder: one easel reading becomes exposure time, contrast grade, split-grade timing and a preview of the tones — before you cut paper. It comes in two forms: a 7-inch instrument, or a USB-C dongle on your Android phone.</p>
-          <p class="hero-price"><span>7-inch instrument</span> <span aria-hidden="true">·</span> <span class="amount num">€160,00</span> <span>excl. VAT</span> <span aria-hidden="true">·</span> <span>VAT &amp; shipping at checkout</span></p>
+          <p class="lead">SafelightIO replaces the test-strip ladder: one easel reading becomes exposure time, contrast grade, split-grade timing and a preview of the tones — before you cut paper. It comes in two forms: a 7″ touchscreen, or an Android wired dongle for your phone.</p>
+          <p class="hero-price"><span>From</span> <span class="amount num">€120,00</span> <span aria-hidden="true">·</span> <span>Shipping at checkout</span></p>
           <div class="hero-cta">
-            <a class="btn btn-primary" href="https://cyanowood.com/cart/56596508344660:1" data-od-id="hero-buy">Get the 7-inch — €160,00</a>
+            <a class="btn btn-primary" href="https://ko-fi.com/safelightio/shop" data-od-id="hero-buy">Buy SafelightIO</a>
             <a class="btn btn-secondary btn-arrow" href="#how-it-works">See how it works</a>
           </div>
-          <p class="trust">Handbuilt to order · 14-day returns · Ships&nbsp;EU/US/CA/AU · <a href="mailto:support@cyanowood.com">support@cyanowood.com</a></p>
+          <p class="trust">Handbuilt to order · 14-day returns · Ships Europe · South America · Canada · Asia · <a href="mailto:support@cyanowood.com">support@cyanowood.com</a></p>
         </div>
 
         <figure class="hero-media reveal" data-od-id="hero-device">
           <div class="frame">
-            <img src="assets/Hero.webp" width="640" height="640" alt="The SafelightIO dongle plugged into an Android phone running the app, above the 7-inch instrument and its tethered probe." fetchpriority="high" />
+            <img src="assets/Hero.webp" width="640" height="640" alt="The SafelightIO Android Wired Dongle plugged into an Android phone running the app, above the SafelightIO 7″ Touchscreen and its tethered probe." fetchpriority="high" />
           </div>
-          <figcaption class="figcap">The dongle with an Android phone, and the 7-inch instrument with its probe — the same meter in two forms.</figcaption>
+          <figcaption class="figcap">The SafelightIO Android Wired Dongle with an Android phone, and the SafelightIO 7″ Touchscreen with its probe — the same meter in two forms.</figcaption>
           <p class="hand-note hero-note">Same reading. Either way.</p>
         </figure>
       </div>
@@ -3637,35 +3664,35 @@ html.safelight .zb-range-text { background: var(--deep); }
       <div class="pair-grid">
         <article class="pair-card" data-od-id="pair-7inch">
           <div class="pair-media">
-            <img src="assets/Device.webp" width="866" height="866" alt="The SafelightIO 7-inch on a Durst M305 easel, its probe on the paper and the Exposure screen lit." loading="lazy" decoding="async" />
+            <img src="assets/Device.webp" width="866" height="866" alt="The SafelightIO 7″ Touchscreen on a Durst M305 easel, its probe on the paper and the Exposure screen lit." loading="lazy" decoding="async" />
           </div>
           <div class="pair-body">
             <div class="pair-meta">
               <p class="pair-kicker">Standalone</p>
               <span class="pair-badge is-now">Available now</span>
             </div>
-            <h3>SafelightIO 7-inch</h3>
+            <h3>SafelightIO 7″ Touchscreen</h3>
             <p class="pair-copy">Screen, battery and tethered probe — one instrument to carry. Nothing else to bring, pair or charge at the easel.</p>
             <p class="pair-need"><span>Needs</span> nothing else to run it</p>
             <dl class="pair-facts">
-              <div><dt>Screen</dt><dd>7-inch touchscreen</dd></div>
+              <div><dt>Screen</dt><dd>7″ touchscreen</dd></div>
               <div><dt>Power</dt><dd>Its own battery</dd></div>
               <div><dt>Probe</dt><dd>Tethered to the meter</dd></div>
             </dl>
-            <a class="pair-link" href="https://cyanowood.com/cart/56596508344660:1" data-od-id="pair-buy-7inch">Buy the 7-inch — €160,00 <span aria-hidden="true">→</span></a>
+            <a class="pair-link" href="https://ko-fi.com/s/84316fa3dc" data-od-id="pair-buy-7inch">Buy the 7″ Touchscreen — €260,00 <span aria-hidden="true">→</span></a>
           </div>
         </article>
 
         <article class="pair-card" data-od-id="pair-dongle">
           <div class="pair-media">
-            <img src="assets/dongle/easel-in-use.webp" width="640" height="640" alt="The SafelightIO dongle on the easel beside an Android phone showing the Split Grade screen, connected by a USB-C cable under the safelight." loading="lazy" decoding="async" />
+            <img src="assets/dongle/easel-in-use.webp" width="640" height="640" alt="The SafelightIO Android Wired Dongle on the easel beside an Android phone showing the Split Grade screen, connected by a USB-C cable under the safelight." loading="lazy" decoding="async" />
           </div>
           <div class="pair-body">
             <div class="pair-meta">
               <p class="pair-kicker">Wired</p>
-              <span class="pair-badge">Coming soon</span>
+              <span class="pair-badge is-now">Available now</span>
             </div>
-            <h3>SafelightIO Dongle</h3>
+            <h3>SafelightIO Android Wired Dongle</h3>
             <p class="pair-copy">The same meter in a USB-C dongle. Your Android phone runs the app and becomes the screen — and powers the meter.</p>
             <p class="pair-need"><span>Needs</span> Android phone · USB-C host · data cable</p>
             <dl class="pair-facts">
@@ -3673,7 +3700,7 @@ html.safelight .zb-range-text { background: var(--deep); }
               <div><dt>Power</dt><dd>From the phone</dd></div>
               <div><dt>Probe</dt><dd>At the dongle's far end</dd></div>
             </dl>
-            <a class="pair-link" href="manual/dongle/MANUAL.html" data-od-id="pair-manual-dongle">Read the dongle manual <span aria-hidden="true">→</span></a>
+            <a class="pair-link" href="https://ko-fi.com/s/636cfb67aa" data-od-id="pair-buy-dongle">Buy the Android Wired Dongle — €120,00 <span aria-hidden="true">→</span></a>
           </div>
         </article>
       </div>
@@ -4251,24 +4278,24 @@ html.safelight .zb-range-text { background: var(--deep); }
     <div class="container">
       <div class="sec-head">
         <p class="label">Before the print</p>
-        <h2 id="strips-title">Test strips, and what the ladder costs.</h2>
-        <p class="lead">A test strip is how a darkroom finds an exposure without a meter. It works — it just spends paper every time the paper, grade or magnification changes.</p>
+        <h2 id="strips-title">Test strips, and what the meter replaces.</h2>
+        <p class="lead">Test strips find an exposure by spending paper — three to five sheets each time the paper, grade or magnification changes. SafelightIO takes one easel reading instead.</p>
       </div>
       <div class="strip-notes-grid">
         <div class="strip-note">
-          <h3>What a test strip is</h3>
-          <p>A strip of the paper you are about to print on, exposed in timed steps under the enlarger — a card drawn across the surface, or a strip of card laid over it — then developed like the print. The step that holds texture in both the highlight and the shadow gives your base time. Anyone printing black-and-white has made hundreds of them.</p>
+          <h3>One reading, three answers</h3>
+          <p>The SafelightIO probe reads the projected light; the meter returns exposure time, contrast grade and the split-grade pair from that paper's calibration. No ladder, no development run.</p>
         </div>
         <div class="strip-note">
-          <h3>Why one is rarely enough</h3>
-          <p>A grade change moves the contrast, a paper change moves the speed, and a new magnification moves both. So the strip becomes a ladder: three to five sheets per setup, each one a developer run and a wash. On fibre paper that is real money, and in a session it is most of the evening's momentum.</p>
+          <h3>Change the paper, not the process</h3>
+          <p>Calibrate a paper once, then change paper, grade or magnification without another strip. 22 papers and six filter systems are built in.</p>
         </div>
         <div class="strip-note">
-          <h3>One reading instead</h3>
-          <p>SafelightIO meters the easel instead. Probe on the projected image, paper selected, and the time, grade and split-grade pair come from that paper's calibration. The 2.84&nbsp;lux that would have taken a ladder becomes 23.3&nbsp;s at grade 3 — <a href="#how-it-works">one reading, before any paper is cut</a>.</p>
+          <h3>Two forms, one answer</h3>
+          <p>The 7-inch is standalone, with its own screen and battery. The dongle uses your Android phone as its screen. Both run the same five tools and the same paper data, so the reading is identical.</p>
         </div>
       </div>
-      <p class="strip-note-foot">Calibration still uses one strip per paper, once. After that, strips are for testing ideas — not for finding the exposure.</p>
+      <p class="strip-note-foot">One strip per paper, once, for calibration. After that, strips are for testing ideas — not for finding the exposure.</p>
     </div>
   </section>
 
@@ -4619,7 +4646,7 @@ html.safelight .zb-range-text { background: var(--deep); }
         </div>
         <div>
           <table class="ds-table">
-            <caption>SafelightIO — 7-inch instrument and USB-C dongle</caption>
+            <caption>SafelightIO 7″ Touchscreen and Android Wired Dongle</caption>
             <tbody>
               <tr><th scope="row">Display</th><td><strong>7-inch</strong> touchscreen LCD · <strong>dongle</strong> none — the Android app is the screen</td></tr>
               <tr><th scope="row">Controller</th><td>RP2350</td></tr>
@@ -4650,7 +4677,7 @@ html.safelight .zb-range-text { background: var(--deep); }
           <details class="faq-item">
             <summary>Which one should I get?</summary>
             <div class="faq-answer">
-              <p>Both run the same five tools, the same paper list and the same filter data. Choose the 7-inch if you want a standalone instrument with its own screen and battery. Choose the dongle if you already print with an Android phone and want the smallest kit — it needs USB-C host support and a data cable.</p>
+              <p>Both run the same five tools, the same paper list and the same filter data. Choose the 7″ Touchscreen if you want a standalone instrument with its own screen and battery. Choose the Android Wired Dongle if you already print with an Android phone and want the smallest kit — it needs USB-C host support and a data cable.</p>
             </div>
           </details>
           <details class="faq-item">
@@ -4758,13 +4785,13 @@ html.safelight .zb-range-text { background: var(--deep); }
     <div class="container">
       <img class="buy-logo" src="assets/HeaderLogo.webp" width="2481" height="468" alt="SafelightIO" loading="lazy" decoding="async" />
       <h2>One reading.<br />Then make the print.</h2>
-      <p class="lead">The 7-inch SafelightIO is handbuilt to order in Greece; the dongle is coming. VAT and shipping are calculated at checkout.</p>
-      <p class="buy-price num">€160,00 <span>excl. VAT</span></p>
+      <p class="lead">The 7″ Touchscreen and the Android Wired Dongle are handbuilt to order in Greece. Shipping to Europe, South America, Canada and Asia is calculated at checkout.</p>
+      <p class="buy-price num">From €120,00</p>
       <p class="hand-note buy-note">no account. no cloud. just light.</p>
       <div class="buy-cta">
-        <a class="btn btn-primary" href="https://cyanowood.com/cart/56596508344660:1" data-od-id="buy-cta">Get the 7-inch — €160,00</a>
+        <a class="btn btn-primary" href="https://ko-fi.com/safelightio/shop" data-od-id="buy-cta">Buy SafelightIO</a>
       </div>
-      <p class="trust">Handbuilt to order · 14-day returns · Ships&nbsp;EU/US/CA/AU · <a href="mailto:support@cyanowood.com">support@cyanowood.com</a></p>
+      <p class="trust">Handbuilt to order · 14-day returns · Ships Europe · South America · Canada · Asia · <a href="mailto:support@cyanowood.com">support@cyanowood.com</a></p>
     </div>
   </section>
 </main>
@@ -4799,15 +4826,16 @@ html.safelight .zb-range-text { background: var(--deep); }
       <div>
         <p class="foot-title">Buy</p>
         <ul class="foot-links">
-          <li><a href="https://cyanowood.com/cart/56596508344660:1">7-inch cart — €160,00</a></li>
-          <li><a href="https://www.cyanowood.com/products/safelightio-darkroom-light-meter">Product page on Cyanowood</a></li>
-          <li><span>VAT &amp; shipping at checkout</span></li>
-          <li><span>Ships EU / US / CA / AU</span></li>
+          <li><a href="https://ko-fi.com/safelightio/shop">Shop — both models</a></li>
+          <li><a href="https://ko-fi.com/s/84316fa3dc">SafelightIO 7″ Touchscreen — €260,00</a></li>
+          <li><a href="https://ko-fi.com/s/636cfb67aa">SafelightIO Android Wired Dongle — €120,00</a></li>
+          <li><span>Shipping at checkout</span></li>
+          <li><span>Ships Europe / South America / Canada / Asia</span></li>
         </ul>
       </div>
     </div>
     <div class="foot-bottom">
-      <p>© 2026 Cyanowood · SafelightIO. No analytics, cookies, or tracking pixels on this page. The cart and checkout are hosted by Shopify.</p>
+      <p>© 2026 Cyanowood · SafelightIO. No analytics, cookies, or tracking pixels on this page. The shop and checkout are hosted by Ko-fi.</p>
       <p><a href="#top">Back to top ↑</a> <span class="foot-hint"><span aria-hidden="true">·</span> The safelight in the corner works.</span></p>
     </div>
   </div>
