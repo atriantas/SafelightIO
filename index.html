@@ -14,7 +14,7 @@
 <link rel="canonical" href="https://atriantas.github.io/SafelightIO/" />
 <link rel="icon" href="assets/favicon.png" sizes="48x48" type="image/png" />
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-<link rel="preload" as="image" href="assets/Device.webp" type="image/webp" fetchpriority="high" />
+<link rel="preload" as="image" href="assets/Hero.webp" type="image/webp" fetchpriority="high" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Cyanowood" />
 <meta property="og:title" content="SafelightIO — darkroom printing without test strips" />
@@ -721,6 +721,130 @@ html.nav-over-dark .nav-manual[open] > summary {
   transform: rotate(-1.5deg);
   transform-origin: right center;
 }
+
+/* ── the two instruments ─────────────────────────────────────────── */
+.pair-band { padding-block: 0 clamp(32px, 4.5vw, 56px); scroll-margin-top: 94px; }
+.pair-head h2 { font-size: clamp(30px, 3.6vw, 44px); max-width: 26ch; }
+.pair-head .lead { max-width: 52ch; }
+.pair-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 2.4vw, 28px);
+}
+.pair-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 1px 0 0 color-mix(in oklab, var(--fg) 3%, transparent);
+}
+.pair-media {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--surface-warm);
+  border-bottom: 1px solid var(--border);
+}
+.pair-media img { width: 100%; height: 100%; object-fit: cover; }
+.pair-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 10px;
+  padding: clamp(18px, 2.2vw, 26px);
+}
+.pair-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.pair-kicker {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--accent), black 16%);
+}
+.pair-badge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-pill);
+  padding: 3px 8px;
+  white-space: nowrap;
+}
+.pair-badge.is-now { color: color-mix(in oklab, var(--accent), black 16%); border-color: color-mix(in oklab, var(--accent) 38%, transparent); }
+.pair-card h3 { font-size: clamp(24px, 2.4vw, 30px); }
+.pair-copy { color: var(--muted); font-size: 15px; line-height: 1.55; }
+.pair-need {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  line-height: 1.6;
+  color: var(--fg-2);
+}
+.pair-need span {
+  margin-right: 6px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.pair-facts { margin: 2px 0 0; border-top: 1px solid var(--border); }
+.pair-facts div {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.pair-facts dt,
+.pair-facts dd { margin: 0; }
+.pair-facts dt {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+.pair-facts dd { font-size: 13px; color: var(--fg-2); text-align: right; }
+.pair-link {
+  margin-top: auto;
+  padding-top: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.pair-link:hover { color: var(--accent); }
+.pair-shared {
+  margin-top: clamp(20px, 2.6vw, 30px);
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+.pair-shared span {
+  margin-right: 8px;
+  color: var(--fg);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 940px) {
+  .pair-grid { grid-template-columns: 1fr; }
+  .pair-media { aspect-ratio: 16 / 9; }
+  .pair-head h2 { max-width: none; }
+}
+@media (max-width: 600px) {
+  .pair-media { aspect-ratio: 4 / 3; }
+  .pair-head h2 { font-size: clamp(28px, 7vw, 36px); }
+}
+
 .zb-note {
   grid-column: 2;
   max-width: 32ch;
@@ -1848,7 +1972,7 @@ html.safelight .tools { --plate-base: var(--deep); }
   position: relative;
   width: 100%;
   aspect-ratio: 520 / 626;
-  height: calc(100cqw + 116px);
+  height: calc(100cqw + 200px);
   cursor: pointer;
   touch-action: manipulation;
   border-radius: var(--radius-sm);
@@ -2571,6 +2695,8 @@ html.safelight .foot-bottom a { color: var(--muted); }
 html.safelight .foot-links a:hover,
 html.safelight .foot-bottom a:hover { color: var(--fg); }
 html.safelight .buy .trust a:hover { color: var(--accent); }
+html.safelight .pair-kicker,
+html.safelight .pair-badge.is-now { color: var(--accent); }
 html.safelight img { filter: sepia(0.5) saturate(1.12) brightness(0.86); }
 
 .footer { padding-bottom: 104px; }
@@ -3394,7 +3520,7 @@ html.safelight .zb-range-text { background: var(--deep); }
         <span class="util-label">Instagram</span>
       </a>
     </div>
-    <a class="nav-buy" href="https://cyanowood.com/cart/56596508344660:1" data-od-id="nav-buy">Get one — €160,00</a>
+    <a class="nav-buy" href="https://cyanowood.com/cart/56596508344660:1" data-od-id="nav-buy">Get the 7-inch</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav" data-nav-toggle>Menu</button>
   </div>
   <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile" data-nav-panel hidden>
@@ -3408,7 +3534,7 @@ html.safelight .zb-range-text { background: var(--deep); }
         <li><a href="#specs">Specifications <span>06</span></a></li>
         <li><a href="#faq">FAQ <span>07</span></a></li>
       </ul>
-      <a class="btn btn-primary m-cta" href="https://cyanowood.com/cart/56596508344660:1">Get one — €160,00</a>
+      <a class="btn btn-primary m-cta" href="https://cyanowood.com/cart/56596508344660:1">Get the 7-inch — €160,00</a>
       <div class="mobile-utils">
         <a class="mobile-util" href="manual/7-inch/MANUAL.html" data-od-id="mobile-manual-7inch">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.4v7.1" /><path d="M5.2 6.9 8 9.7l2.8-2.8" /><path d="M2.9 11.1v1.3c0 .9.7 1.6 1.6 1.6h7c.9 0 1.6-.7 1.6-1.6v-1.3" /></svg>
@@ -3450,10 +3576,10 @@ html.safelight .zb-range-text { background: var(--deep); }
         <div class="hero-copy reveal">
           <p class="eyebrow">SafelightIO · digital darkroom exposure meter</p>
           <h1>Darkroom printing,<br />one reading.</h1>
-          <p class="lead">SafelightIO replaces the test-strip ladder: one easel reading becomes exposure time, contrast grade, split-grade timing and a preview of the tones — before you cut paper. It is a 7-inch instrument, or a USB-C dongle on your Android phone.</p>
+          <p class="lead">SafelightIO replaces the test-strip ladder: one easel reading becomes exposure time, contrast grade, split-grade timing and a preview of the tones — before you cut paper. It comes in two forms: a 7-inch instrument, or a USB-C dongle on your Android phone.</p>
           <p class="hero-price"><span>7-inch instrument</span> <span aria-hidden="true">·</span> <span class="amount num">€160,00</span> <span>excl. VAT</span> <span aria-hidden="true">·</span> <span>VAT &amp; shipping at checkout</span></p>
           <div class="hero-cta">
-            <a class="btn btn-primary" href="https://cyanowood.com/cart/56596508344660:1" data-od-id="hero-buy">Get one — €160,00</a>
+            <a class="btn btn-primary" href="https://cyanowood.com/cart/56596508344660:1" data-od-id="hero-buy">Get the 7-inch — €160,00</a>
             <a class="btn btn-secondary btn-arrow" href="#how-it-works">See how it works</a>
           </div>
           <p class="trust">Handbuilt to order · 14-day returns · Ships&nbsp;EU/US/CA/AU · <a href="mailto:support@cyanowood.com">support@cyanowood.com</a></p>
@@ -3461,10 +3587,10 @@ html.safelight .zb-range-text { background: var(--deep); }
 
         <figure class="hero-media reveal" data-od-id="hero-device">
           <div class="frame">
-            <img src="assets/Device.webp" width="866" height="866" alt="SafelightIO tablet meter standing on the easel of a Durst M305 enlarger, with the tethered sensor probe on the paper." fetchpriority="high" />
+            <img src="assets/Hero.webp" width="640" height="640" alt="The SafelightIO dongle plugged into an Android phone running the app, above the 7-inch instrument and its tethered probe." fetchpriority="high" />
           </div>
-          <figcaption class="figcap">At the easel under a Durst M305. The probe reads the projected light; the tablet does the arithmetic.</figcaption>
-          <p class="hand-note hero-note">M305 · 50 mm · f/8</p>
+          <figcaption class="figcap">The dongle with an Android phone, and the 7-inch instrument with its probe — the same meter in two forms.</figcaption>
+          <p class="hand-note hero-note">Same reading. Either way.</p>
         </figure>
       </div>
 
@@ -3497,6 +3623,62 @@ html.safelight .zb-range-text { background: var(--deep); }
         </div>
         <p class="reading-note">The meter keeps the paper's calibration constant, not a guess. Change the grade, the zone, or the paper and the time follows.</p>
       </div>
+    </div>
+  </section>
+
+  <section class="pair-band" id="two-instruments" aria-labelledby="pair-title" data-od-id="two-instruments">
+    <div class="container">
+      <div class="sec-head pair-head">
+        <p class="label">Two forms · one reading</p>
+        <h2 id="pair-title">Same meter. Two ways to take it to the easel.</h2>
+        <p class="lead">Both run the same five tools, the same 22 papers and the same six filter systems. The difference is what you carry and what you look at.</p>
+      </div>
+
+      <div class="pair-grid">
+        <article class="pair-card" data-od-id="pair-7inch">
+          <div class="pair-media">
+            <img src="assets/Device.webp" width="866" height="866" alt="The SafelightIO 7-inch on a Durst M305 easel, its probe on the paper and the Exposure screen lit." loading="lazy" decoding="async" />
+          </div>
+          <div class="pair-body">
+            <div class="pair-meta">
+              <p class="pair-kicker">Standalone</p>
+              <span class="pair-badge is-now">Available now</span>
+            </div>
+            <h3>SafelightIO 7-inch</h3>
+            <p class="pair-copy">Screen, battery and tethered probe — one instrument to carry. Nothing else to bring, pair or charge at the easel.</p>
+            <p class="pair-need"><span>Needs</span> nothing else to run it</p>
+            <dl class="pair-facts">
+              <div><dt>Screen</dt><dd>7-inch touchscreen</dd></div>
+              <div><dt>Power</dt><dd>Its own battery</dd></div>
+              <div><dt>Probe</dt><dd>Tethered to the meter</dd></div>
+            </dl>
+            <a class="pair-link" href="https://cyanowood.com/cart/56596508344660:1" data-od-id="pair-buy-7inch">Buy the 7-inch — €160,00 <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <article class="pair-card" data-od-id="pair-dongle">
+          <div class="pair-media">
+            <img src="assets/dongle/easel-in-use.webp" width="640" height="640" alt="The SafelightIO dongle on the easel beside an Android phone showing the Split Grade screen, connected by a USB-C cable under the safelight." loading="lazy" decoding="async" />
+          </div>
+          <div class="pair-body">
+            <div class="pair-meta">
+              <p class="pair-kicker">Wired</p>
+              <span class="pair-badge">Coming soon</span>
+            </div>
+            <h3>SafelightIO Dongle</h3>
+            <p class="pair-copy">The same meter in a USB-C dongle. Your Android phone runs the app and becomes the screen — and powers the meter.</p>
+            <p class="pair-need"><span>Needs</span> Android phone · USB-C host · data cable</p>
+            <dl class="pair-facts">
+              <div><dt>Screen</dt><dd>Your Android phone</dd></div>
+              <div><dt>Power</dt><dd>From the phone</dd></div>
+              <div><dt>Probe</dt><dd>At the dongle's far end</dd></div>
+            </dl>
+            <a class="pair-link" href="manual/dongle/MANUAL.html" data-od-id="pair-manual-dongle">Read the dongle manual <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+      </div>
+
+      <p class="pair-shared"><span>Both</span> Exposure · Contrast · Split Grade · Virtual Proof · Filter Editor · 22 papers · 6 filter systems · no account, no cloud.</p>
     </div>
   </section>
 
@@ -4206,8 +4388,8 @@ html.safelight .zb-range-text { background: var(--deep); }
         <div class="craft-copy reveal">
           <p class="label eyebrow"><span class="n">03</span> Craft &amp; trust</p>
           <h2>Built for the darkroom bench.</h2>
-          <p>SafelightIO is handbuilt in Greece by Cyanowood. One instrument, one workflow: meter the easel, choose the paper, expose, evaluate. No app account, no cloud, no phone on the enlarger bench.</p>
-          <p>The design follows the workflow: the screen is a tool, the probe is tethered, and with a card inserted, the settings are files you can read.</p>
+          <p>SafelightIO is handbuilt in Greece by Cyanowood. One workflow, two forms: meter the easel, choose the paper, expose, evaluate. No app account, no cloud. The 7-inch keeps the phone off the bench; the dongle uses the Android phone you already carry.</p>
+          <p>The design follows the workflow: the screen is a tool, the probe is tethered, and your settings and papers are readable files — on the card or on the phone.</p>
           <ul class="craft-points">
             <li><span class="k">Made</span><span>Handbuilt to order in Greece.</span></li>
             <li><span class="k">Support</span><span>Straight to Cyanowood — the same address that ships the meter.</span></li>
@@ -4218,36 +4400,64 @@ html.safelight .zb-range-text { background: var(--deep); }
         <div class="polaroid-module reveal" data-od-id="craft-stack">
           <div class="polaroid-head">
             <span class="polaroid-kicker">From the bench</span>
-            <span class="polaroid-count" aria-live="polite" aria-atomic="true"><span data-deck-count>01</span><span class="sep">/</span>07</span>
+            <span class="polaroid-count" aria-live="polite" aria-atomic="true"><span data-deck-count>01</span><span class="sep">/</span>14</span>
           </div>
-          <div class="polaroid-deck" data-deck tabindex="0" role="group" aria-roledescription="photo stack" aria-label="Seven polaroids from the SafelightIO bench. Click, scroll, or use the arrow keys to move the top print to the back.">
+          <div class="polaroid-deck" data-deck tabindex="0" role="group" aria-roledescription="photo stack" aria-label="Fourteen polaroids from the SafelightIO bench. Click, scroll, or use the arrow keys to move the top print to the back.">
             <figure class="polaroid" data-no="01" style="--d:0;--rot:0.8deg;z-index:40">
-              <img src="assets/Device.webp" width="866" height="866" alt="SafelightIO on a Durst M305 enlarger baseboard, the touchscreen showing the Exposure tab and the sensor probe on the paper." loading="lazy" decoding="async" />
+              <img src="assets/Device.webp" width="866" height="866" loading="lazy" decoding="async" alt="SafelightIO on a Durst M305 enlarger baseboard, the touchscreen showing the Exposure tab and the sensor probe on the paper." />
               <figcaption><span class="pno">No. 01</span><span class="ptitle">The first reading.</span></figcaption>
             </figure>
-            <figure class="polaroid" data-no="02" style="--d:1;--rot:-1.5deg;z-index:39">
+            <figure class="polaroid" data-no="02" style="--d:1;--rot:-1.3deg;z-index:39">
+              <img src="assets/dongle/pair-tabletop.webp" width="640" height="640" loading="lazy" decoding="async" alt="The SafelightIO dongle beside an Android phone running the SafelightIO app, joined by a USB-C cable." />
+              <figcaption><span class="pno">No. 02</span><span class="ptitle">The other form.</span></figcaption>
+            </figure>
+            <figure class="polaroid" data-no="03" style="--d:2;--rot:1.4deg;z-index:38">
               <img src="assets/Device_01.webp" width="640" height="640" loading="lazy" decoding="async" alt="Studio view of the SafelightIO touchscreen unit and its tethered sensor probe on a plain background." />
-              <figcaption><span class="pno">No. 02</span><span class="ptitle">Unit and probe.</span></figcaption>
+              <figcaption><span class="pno">No. 03</span><span class="ptitle">Unit and probe.</span></figcaption>
             </figure>
-            <figure class="polaroid" data-no="03" style="--d:2;--rot:1.2deg;z-index:38">
+            <figure class="polaroid" data-no="04" style="--d:3;--rot:-0.8deg;z-index:37">
+              <img src="assets/dongle/easel-in-use.webp" width="640" height="640" loading="lazy" decoding="async" alt="The dongle on the easel beside an Android phone showing the Split Grade screen, connected by a USB-C cable under the safelight." />
+              <figcaption><span class="pno">No. 04</span><span class="ptitle">At the easel.</span></figcaption>
+            </figure>
+            <figure class="polaroid" data-no="05" style="--d:4;--rot:1.1deg;z-index:36">
               <img src="assets/Device_02.webp" width="640" height="640" loading="lazy" decoding="async" alt="SafelightIO standing under the Durst M305 enlarger head, screen showing the Exposure and Contrast panels." />
-              <figcaption><span class="pno">No. 03</span><span class="ptitle">Under the Durst.</span></figcaption>
+              <figcaption><span class="pno">No. 05</span><span class="ptitle">Under the Durst.</span></figcaption>
             </figure>
-            <figure class="polaroid" data-no="04" style="--d:3;--rot:-0.9deg;z-index:37">
+            <figure class="polaroid" data-no="06" style="--d:5;--rot:-1.5deg;z-index:35">
+              <img src="assets/dongle/plugged-close.webp" width="640" height="640" loading="lazy" decoding="async" alt="Close view of the dongle plugged into an Android phone, with the USB-C cable running out of frame." />
+              <figcaption><span class="pno">No. 06</span><span class="ptitle">One cable.</span></figcaption>
+            </figure>
+            <figure class="polaroid" data-no="07" style="--d:6;--rot:0.6deg;z-index:34">
               <img src="assets/Device_03.webp" width="640" height="640" loading="lazy" decoding="async" alt="Angled view of the meter under the enlarger with the sensor probe resting on the baseboard." />
-              <figcaption><span class="pno">No. 04</span><span class="ptitle">On the baseboard.</span></figcaption>
+              <figcaption><span class="pno">No. 07</span><span class="ptitle">On the baseboard.</span></figcaption>
             </figure>
-            <figure class="polaroid" data-no="05" style="--d:4;--rot:1.6deg;z-index:36">
+            <figure class="polaroid" data-no="08" style="--d:7;--rot:1.7deg;z-index:33">
+              <img src="assets/dongle/probe-grid-wide.webp" width="640" height="640" loading="lazy" decoding="async" alt="The dongle on gridded paper under the red safelight, its sensor opening facing up." />
+              <figcaption><span class="pno">No. 08</span><span class="ptitle">On the grid.</span></figcaption>
+            </figure>
+            <figure class="polaroid" data-no="09" style="--d:8;--rot:-1.0deg;z-index:32">
               <img src="assets/Device_04.webp" width="640" height="640" loading="lazy" decoding="async" alt="Close view of the sensor probe on the easel, sitting in the projected light of the enlarger." />
-              <figcaption><span class="pno">No. 05</span><span class="ptitle">In the projected light.</span></figcaption>
+              <figcaption><span class="pno">No. 09</span><span class="ptitle">In the projected light.</span></figcaption>
             </figure>
-            <figure class="polaroid" data-no="06" style="--d:5;--rot:-1.2deg;z-index:35">
+            <figure class="polaroid" data-no="10" style="--d:9;--rot:0.9deg;z-index:31">
+              <img src="assets/dongle/pair-angled.webp" width="640" height="640" loading="lazy" decoding="async" alt="The dongle and an Android phone at an angle, joined by a USB-C cable." />
+              <figcaption><span class="pno">No. 10</span><span class="ptitle">Side by side.</span></figcaption>
+            </figure>
+            <figure class="polaroid" data-no="11" style="--d:10;--rot:-1.4deg;z-index:30">
               <img src="assets/Device_05.webp" width="640" height="640" loading="lazy" decoding="async" alt="SafelightIO screen and probe under the red safelight, with the paper guides visible on the baseboard." />
-              <figcaption><span class="pno">No. 06</span><span class="ptitle">At the safelight.</span></figcaption>
+              <figcaption><span class="pno">No. 11</span><span class="ptitle">At the safelight.</span></figcaption>
             </figure>
-            <figure class="polaroid" data-no="07" style="--d:6;--rot:0.7deg;z-index:34">
+            <figure class="polaroid" data-no="12" style="--d:11;--rot:1.2deg;z-index:29">
+              <img src="assets/dongle/easel-top.webp" width="640" height="640" loading="lazy" decoding="async" alt="The dongle and an Android phone on the easel, seen from above under the red safelight." />
+              <figcaption><span class="pno">No. 12</span><span class="ptitle">Top down.</span></figcaption>
+            </figure>
+            <figure class="polaroid" data-no="13" style="--d:12;--rot:0.8deg;z-index:28">
               <img src="assets/Device_06.webp" width="640" height="640" loading="lazy" decoding="async" alt="Close view of the sensor probe plugged into the tablet, the cable running out of frame." />
-              <figcaption><span class="pno">No. 07</span><span class="ptitle">The tether.</span></figcaption>
+              <figcaption><span class="pno">No. 13</span><span class="ptitle">The tether.</span></figcaption>
+            </figure>
+            <figure class="polaroid" data-no="14" style="--d:13;--rot:-1.1deg;z-index:27">
+              <img src="assets/dongle/phone-edge.webp" width="640" height="640" loading="lazy" decoding="async" alt="The dongle resting at the edge of an Android phone, its USB-C cable plugged in." />
+              <figcaption><span class="pno">No. 14</span><span class="ptitle">At the phone.</span></figcaption>
             </figure>
           </div>
           <div class="polaroid-foot">
@@ -4438,6 +4648,12 @@ html.safelight .zb-range-text { background: var(--deep); }
         </div>
         <div class="faq-list">
           <details class="faq-item">
+            <summary>Which one should I get?</summary>
+            <div class="faq-answer">
+              <p>Both run the same five tools, the same paper list and the same filter data. Choose the 7-inch if you want a standalone instrument with its own screen and battery. Choose the dongle if you already print with an Android phone and want the smallest kit — it needs USB-C host support and a data cable.</p>
+            </div>
+          </details>
+          <details class="faq-item">
             <summary>I'm fine with test strips. Why change?</summary>
             <div class="faq-answer">
               <p>If your loop is already tight, you may not need this. The meter earns its place when you change paper, grade, or magnification — or when you are printing fibre and every bracket costs money and a development cycle.</p>
@@ -4546,7 +4762,7 @@ html.safelight .zb-range-text { background: var(--deep); }
       <p class="buy-price num">€160,00 <span>excl. VAT</span></p>
       <p class="hand-note buy-note">no account. no cloud. just light.</p>
       <div class="buy-cta">
-        <a class="btn btn-primary" href="https://cyanowood.com/cart/56596508344660:1" data-od-id="buy-cta">Get one — €160,00</a>
+        <a class="btn btn-primary" href="https://cyanowood.com/cart/56596508344660:1" data-od-id="buy-cta">Get the 7-inch — €160,00</a>
       </div>
       <p class="trust">Handbuilt to order · 14-day returns · Ships&nbsp;EU/US/CA/AU · <a href="mailto:support@cyanowood.com">support@cyanowood.com</a></p>
     </div>
@@ -4583,7 +4799,7 @@ html.safelight .zb-range-text { background: var(--deep); }
       <div>
         <p class="foot-title">Buy</p>
         <ul class="foot-links">
-          <li><a href="https://cyanowood.com/cart/56596508344660:1">Cart — €160,00</a></li>
+          <li><a href="https://cyanowood.com/cart/56596508344660:1">7-inch cart — €160,00</a></li>
           <li><a href="https://www.cyanowood.com/products/safelightio-darkroom-light-meter">Product page on Cyanowood</a></li>
           <li><span>VAT &amp; shipping at checkout</span></li>
           <li><span>Ships EU / US / CA / AU</span></li>
