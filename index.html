@@ -601,7 +601,7 @@ html.nav-over-dark .nav-manual[open] > summary {
   padding: 0 22px;
   border: 1px solid transparent;
   border-radius: var(--radius-md);
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-size: 15px;
   font-weight: 500;
   line-height: 1;
@@ -4304,11 +4304,11 @@ html.safelight .zb-range-text { background: var(--deep); }
       <div class="sec-head">
         <p class="label"><span class="n">02</span> From the darkroom</p>
         <h2 id="reels-title">Watch the workflow, tool by tool.</h2>
-        <p class="lead">Short clips from a working darkroom: metering the easel, reading contrast and split grade, building a proof grid, calibrating a new paper, and making the print. A walkthrough of every tool before you pull the first sheet. Tap a frame to play; the arrows move down the row.</p>
+        <p class="lead">Eight narrated walkthroughs, in the order you meet them: connect the dongle, calibrate the sensor, calibrate a paper, then exposure, contrast, split grade, the virtual proof and the enlarger's evenness. Each one runs the whole job — first tap to the number it returns — so nothing is guessed at the bench. Tap a frame to play; the arrows move down the row.</p>
       </div>
 
       <div class="reel-bar">
-        <p class="reel-count" aria-live="polite"><b data-reel-index>01</b><span class="sep">/</span>04</p>
+        <p class="reel-count" aria-live="polite"><b data-reel-index>01</b><span class="sep">/</span><span data-reel-total>08</span></p>
         <div class="reel-arrows">
           <button class="reel-arrow" type="button" data-reel-prev aria-label="Previous clip" aria-controls="reel-track">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 2.5 4.5 8l5.5 5.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -4319,93 +4319,177 @@ html.safelight .zb-range-text { background: var(--deep); }
         </div>
       </div>
 
-      <div class="reel-grid" id="reel-track" role="group" aria-label="Darkroom clips" tabindex="0" data-reel-track>
-        <figure class="reel reveal" data-reel data-od-id="reel-easel">
+      <div class="reel-grid" id="reel-track" role="group" aria-label="Darkroom tutorial clips" tabindex="0" data-reel-track>
+        <figure class="reel reveal" data-reel data-od-id="reel-connect">
           <div class="reel-frame">
-            <video width="720" height="1280" poster="assets/reel-01.jpg" playsinline preload="none" aria-label="Darkroom clip 1: the sensor probe is placed on the projected image at the easel, with the meter on the bench.">
-              <source src="assets/reel-01.mp4" type="video/mp4" />
-              Your browser does not support the video element. <a href="assets/reel-01.mp4">Download the clip</a>.
+            <video width="720" height="1280" poster="assets/video/connect-android.jpg" playsinline preload="none" aria-label="Tutorial clip 1: the wired dongle is plugged into an Android phone and the app opens on the Ready screen.">
+              <source src="assets/video/connect-android.mp4" type="video/mp4" />
+              Your browser does not support the video element. <a href="assets/video/connect-android.mp4">Download the clip</a>.
             </video>
-            <button class="reel-play" type="button" data-reel-play aria-label="Play clip 1, the easel">
+            <button class="reel-play" type="button" data-reel-play aria-label="Play clip 1, connect the dongle">
               <span class="reel-play-icon" aria-hidden="true"></span>
               <span class="reel-play-text">Play</span>
             </button>
-            <span class="reel-badge" aria-hidden="true">00:20</span>
+            <span class="reel-badge" aria-hidden="true">00:18</span>
           </div>
           <figcaption class="reel-cap">
             <span class="reel-no">01</span>
             <span>
-              <span class="reel-title">The easel</span>
-              <span class="reel-sub">Probe on the projected image, meter on the bench beside the trays.</span>
+              <span class="reel-title">Connect</span>
+              <span class="reel-sub">The wired dongle into the phone's USB-C port; the app opens on Ready.</span>
             </span>
           </figcaption>
         </figure>
 
-        <figure class="reel reveal" data-reel data-od-id="reel-controls">
+        <figure class="reel reveal" data-reel data-od-id="reel-sensor">
           <div class="reel-frame">
-            <video width="720" height="1280" poster="assets/reel-02.jpg" playsinline preload="none" aria-label="Darkroom clip 2: a hand sets the probe down and works the controls on the tablet under the safelight.">
-              <source src="assets/reel-02.mp4" type="video/mp4" />
-              Your browser does not support the video element. <a href="assets/reel-02.mp4">Download the clip</a>.
+            <video width="720" height="1280" poster="assets/video/sensor-calibration.jpg" playsinline preload="none" aria-label="Tutorial clip 2: the probe is capped for a dark calibration, then set in steady enlarger light for the light calibration.">
+              <source src="assets/video/sensor-calibration.mp4" type="video/mp4" />
+              Your browser does not support the video element. <a href="assets/video/sensor-calibration.mp4">Download the clip</a>.
             </video>
-            <button class="reel-play" type="button" data-reel-play aria-label="Play clip 2, the controls">
+            <button class="reel-play" type="button" data-reel-play aria-label="Play clip 2, sensor calibration">
               <span class="reel-play-icon" aria-hidden="true"></span>
               <span class="reel-play-text">Play</span>
             </button>
-            <span class="reel-badge" aria-hidden="true">00:20</span>
+            <span class="reel-badge" aria-hidden="true">00:47</span>
           </div>
           <figcaption class="reel-cap">
             <span class="reel-no">02</span>
             <span>
-              <span class="reel-title">The controls</span>
-              <span class="reel-sub">Contrast, highlight and shadow trims, worked with a fingertip.</span>
+              <span class="reel-title">Sensor calibration</span>
+              <span class="reel-sub">Calibrate Dark in total darkness, then Calibrate Light in steady enlarger light.</span>
             </span>
           </figcaption>
         </figure>
 
-        <figure class="reel reveal" data-reel data-od-id="reel-grade">
+        <figure class="reel reveal" data-reel data-od-id="reel-paper-cal">
           <div class="reel-frame">
-            <video width="720" height="1280" poster="assets/reel-03.jpg" playsinline preload="none" aria-label="Darkroom clip 3: the recommended grade, match quality and exposure time are read from the tablet screen.">
-              <source src="assets/reel-03.mp4" type="video/mp4" />
-              Your browser does not support the video element. <a href="assets/reel-03.mp4">Download the clip</a>.
+            <video width="720" height="1280" poster="assets/video/calibrate-paper.jpg" playsinline preload="none" aria-label="Tutorial clip 3: a test strip is developed, and its lux and time are typed into the app.">
+              <source src="assets/video/calibrate-paper.mp4" type="video/mp4" />
+              Your browser does not support the video element. <a href="assets/video/calibrate-paper.mp4">Download the clip</a>.
             </video>
-            <button class="reel-play" type="button" data-reel-play aria-label="Play clip 3, the grade">
+            <button class="reel-play" type="button" data-reel-play aria-label="Play clip 3, paper calibration">
               <span class="reel-play-icon" aria-hidden="true"></span>
               <span class="reel-play-text">Play</span>
             </button>
-            <span class="reel-badge" aria-hidden="true">00:20</span>
+            <span class="reel-badge" aria-hidden="true">01:15</span>
           </div>
           <figcaption class="reel-cap">
             <span class="reel-no">03</span>
             <span>
-              <span class="reel-title">The grade</span>
-              <span class="reel-sub">Recommended grade, match quality and exposure time on screen.</span>
+              <span class="reel-title">Paper calibration</span>
+              <span class="reel-sub">One test strip on a metered mid-tone: the section that looks right gives the paper its constant.</span>
             </span>
           </figcaption>
         </figure>
 
-        <figure class="reel reveal" data-reel data-od-id="reel-paper">
+        <figure class="reel reveal" data-reel data-od-id="reel-exposure">
           <div class="reel-frame">
-            <video width="720" height="1280" poster="assets/reel-04.jpg" playsinline preload="none" aria-label="Darkroom clip 4: the probe comes off the easel and the meter is held over the paper on the bench.">
-              <source src="assets/reel-04.mp4" type="video/mp4" />
-              Your browser does not support the video element. <a href="assets/reel-04.mp4">Download the clip</a>.
+            <video width="720" height="1280" poster="assets/video/exposure.jpg" playsinline preload="none" aria-label="Tutorial clip 4: the probe is placed on the easel and the exposure time appears on the phone.">
+              <source src="assets/video/exposure.mp4" type="video/mp4" />
+              Your browser does not support the video element. <a href="assets/video/exposure.mp4">Download the clip</a>.
             </video>
-            <button class="reel-play" type="button" data-reel-play aria-label="Play clip 4, the paper">
+            <button class="reel-play" type="button" data-reel-play aria-label="Play clip 4, exposure">
               <span class="reel-play-icon" aria-hidden="true"></span>
               <span class="reel-play-text">Play</span>
             </button>
-            <span class="reel-badge" aria-hidden="true">00:20</span>
+            <span class="reel-badge" aria-hidden="true">00:47</span>
           </div>
           <figcaption class="reel-cap">
             <span class="reel-no">04</span>
             <span>
-              <span class="reel-title">The paper</span>
-              <span class="reel-sub">Probe off the easel, the number set, the sheet goes down.</span>
+              <span class="reel-title">Exposure</span>
+              <span class="reel-sub">One easel reading, one time in seconds, and the sheet goes down.</span>
+            </span>
+          </figcaption>
+        </figure>
+
+        <figure class="reel reveal" data-reel data-od-id="reel-contrast">
+          <div class="reel-frame">
+            <video width="720" height="1280" poster="assets/video/contrast.jpg" playsinline preload="none" aria-label="Tutorial clip 5: after an easel reading, the recommended grade and match quality appear on the phone.">
+              <source src="assets/video/contrast.mp4" type="video/mp4" />
+              Your browser does not support the video element. <a href="assets/video/contrast.mp4">Download the clip</a>.
+            </video>
+            <button class="reel-play" type="button" data-reel-play aria-label="Play clip 5, contrast">
+              <span class="reel-play-icon" aria-hidden="true"></span>
+              <span class="reel-play-text">Play</span>
+            </button>
+            <span class="reel-badge" aria-hidden="true">01:09</span>
+          </div>
+          <figcaption class="reel-cap">
+            <span class="reel-no">05</span>
+            <span>
+              <span class="reel-title">Contrast</span>
+              <span class="reel-sub">The grade the negative needs, and how close the print lands to it.</span>
+            </span>
+          </figcaption>
+        </figure>
+
+        <figure class="reel reveal" data-reel data-od-id="reel-split">
+          <div class="reel-frame">
+            <video width="720" height="1280" poster="assets/video/split-grade.jpg" playsinline preload="none" aria-label="Tutorial clip 6: the split-grade soft and hard times appear on the phone.">
+              <source src="assets/video/split-grade.mp4" type="video/mp4" />
+              Your browser does not support the video element. <a href="assets/video/split-grade.mp4">Download the clip</a>.
+            </video>
+            <button class="reel-play" type="button" data-reel-play aria-label="Play clip 6, split grade">
+              <span class="reel-play-icon" aria-hidden="true"></span>
+              <span class="reel-play-text">Play</span>
+            </button>
+            <span class="reel-badge" aria-hidden="true">01:28</span>
+          </div>
+          <figcaption class="reel-cap">
+            <span class="reel-no">06</span>
+            <span>
+              <span class="reel-title">Split Grade</span>
+              <span class="reel-sub">Soft and hard legs from the same reading, each with its own time.</span>
+            </span>
+          </figcaption>
+        </figure>
+
+        <figure class="reel reveal" data-reel data-od-id="reel-proof">
+          <div class="reel-frame">
+            <video width="720" height="1280" poster="assets/video/virtual-proof.jpg" playsinline preload="none" aria-label="Tutorial clip 7: the virtual proof grid fills with tones read across the easel.">
+              <source src="assets/video/virtual-proof.mp4" type="video/mp4" />
+              Your browser does not support the video element. <a href="assets/video/virtual-proof.mp4">Download the clip</a>.
+            </video>
+            <button class="reel-play" type="button" data-reel-play aria-label="Play clip 7, virtual proof">
+              <span class="reel-play-icon" aria-hidden="true"></span>
+              <span class="reel-play-text">Play</span>
+            </button>
+            <span class="reel-badge" aria-hidden="true">01:08</span>
+          </div>
+          <figcaption class="reel-cap">
+            <span class="reel-no">07</span>
+            <span>
+              <span class="reel-title">Virtual Proof</span>
+              <span class="reel-sub">The print across the easel before paper is spent, clipped cells marked.</span>
+            </span>
+          </figcaption>
+        </figure>
+
+        <figure class="reel reveal" data-reel data-od-id="reel-enlarger">
+          <div class="reel-frame">
+            <video width="720" height="1280" poster="assets/video/enlarger-mode.jpg" playsinline preload="none" aria-label="Tutorial clip 8: the enlarger-mode scan reports an uneven light across the board.">
+              <source src="assets/video/enlarger-mode.mp4" type="video/mp4" />
+              Your browser does not support the video element. <a href="assets/video/enlarger-mode.mp4">Download the clip</a>.
+            </video>
+            <button class="reel-play" type="button" data-reel-play aria-label="Play clip 8, enlarger mode">
+              <span class="reel-play-icon" aria-hidden="true"></span>
+              <span class="reel-play-text">Play</span>
+            </button>
+            <span class="reel-badge" aria-hidden="true">00:43</span>
+          </div>
+          <figcaption class="reel-cap">
+            <span class="reel-no">08</span>
+            <span>
+              <span class="reel-title">Enlarger mode</span>
+              <span class="reel-sub">A scan across the board that maps the head's light: even, or uneven where it matters.</span>
             </span>
           </figcaption>
         </figure>
       </div>
 
-      <p class="reel-note"><span class="k">No sound</span> Filmed under the red safelight. A darkroom is quiet.</p>
+      <p class="reel-note"><span class="k">Narrated</span> Eight clips, seven and a half minutes, filmed under the red safelight.</p>
     </div>
   </section>
 
@@ -5237,6 +5321,7 @@ html.safelight .zb-range-text { background: var(--deep); }
   var prev = document.querySelector('[data-reel-prev]');
   var next = document.querySelector('[data-reel-next]');
   var indexOut = document.querySelector('[data-reel-index]');
+  var totalOut = document.querySelector('[data-reel-total]');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   var step = 0;
   var current = -1;
@@ -5298,6 +5383,8 @@ html.safelight .zb-range-text { background: var(--deep); }
       update();
     });
   }
+
+  if (totalOut) totalOut.textContent = pad(reels.length);
 
   measure();
   update();
@@ -5367,7 +5454,7 @@ html.safelight .zb-range-text { background: var(--deep); }
       { transform: pose(0, rot), offset: 0 },
       { transform: 'translate(16px,-26px) rotate(' + (rot + 4.5) + 'deg) scale(1.035)', offset: 0.32 },
       { transform: pose(last, rot), offset: 1 }
-    ], { duration: DUR, easing: 'cubic-bezier(0.22, 0.61, 0.24, 1)' });
+    ], { duration: DUR, easing: 'cubic-bezier(0.22, 0.61, 0.24, 1)', fill: 'forwards' });
 
     window.setTimeout(function () {
       top.style.zIndex = '1';
@@ -5402,7 +5489,7 @@ html.safelight .zb-range-text { background: var(--deep); }
       { transform: pose(last, rot), offset: 0 },
       { transform: 'translate(10px,-18px) rotate(' + (rot - 4) + 'deg) scale(1.03)', offset: 0.35 },
       { transform: pose(0, rot), offset: 1 }
-    ], { duration: DUR, easing: 'cubic-bezier(0.22, 0.61, 0.24, 1)' });
+    ], { duration: DUR, easing: 'cubic-bezier(0.22, 0.61, 0.24, 1)', fill: 'forwards' });
 
     anim.onfinish = function () {
       place(bottom, 0);

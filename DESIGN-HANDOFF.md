@@ -72,14 +72,22 @@ For responsive web exports, treat these as a modern breakpoint system for one ad
 - None detected
 
 ## Assets and supporting files
-- `assets/reel-01.jpg`
-- `assets/reel-01.mp4`
-- `assets/reel-02.jpg`
-- `assets/reel-02.mp4`
-- `assets/reel-03.jpg`
-- `assets/reel-03.mp4`
-- `assets/reel-04.jpg`
-- `assets/reel-04.mp4`
+- `assets/video/connect-android.mp4`
+- `assets/video/connect-android.jpg`
+- `assets/video/sensor-calibration.mp4`
+- `assets/video/sensor-calibration.jpg`
+- `assets/video/calibrate-paper.mp4`
+- `assets/video/calibrate-paper.jpg`
+- `assets/video/exposure.mp4`
+- `assets/video/exposure.jpg`
+- `assets/video/contrast.mp4`
+- `assets/video/contrast.jpg`
+- `assets/video/split-grade.mp4`
+- `assets/video/split-grade.jpg`
+- `assets/video/virtual-proof.mp4`
+- `assets/video/virtual-proof.jpg`
+- `assets/video/enlarger-mode.mp4`
+- `assets/video/enlarger-mode.jpg`
 - `MANUAL.md`
 - `README.md`
 

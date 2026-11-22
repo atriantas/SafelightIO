@@ -20,7 +20,7 @@ Open `index.html` in a browser. Images live in `assets/` and are referenced rela
 
 **Teach the workflow, not the chrome.** The tool figures are not screenshots or invented device mockups. Each is a dark instrument plate cut into the chapter — same near-black base, hairline grid, and mono labels — with a graphic built for its own calculation rather than one repeated skeleton: a two-stop chain over a Zone V track; a shadow-to-highlight ramp with a graded scale; a split bar that encodes the soft/hard share of light; a live easel grid with clipping bands, a Zone V column, and a ten-zone histogram; and an override scale comparing built-in and measured factors. Numbered steps follow, ending in the value the plate returns. The diagrams are kept deliberately shallow — one glance each — so a single panel reads without a scroll while the detail lives in the steps. The plates were rebuilt from the manual's tool sections, so the sequence matches what a printer does at the easel — and their palette is derived from the chapter's own ink, so they hold together when the safelight goes on. They also reflow to a single column at phone width, where a 1800 px screen photograph would not.
 
-**The instrument, moving.** Four full-length portrait clips sit on the dark chapter's ink, framed at 9:16 with a poster frame and a single play control, so the section reads as evidence rather than a video wall. The clips are shown whole — no trimming — and only one plays at a time. A counter and a pair of hairline arrows in the ledger bar above the row step through them; the row is a scroll-snap track at every width (three across on desktop, two at tablet, a peeking single column on phones), so more clips can be appended without touching the layout. The footage was supplied with the project; nothing was staged or re-shot. All four slots currently use the same supplied session clip (`assets/reel-01.mp4`–`reel-04.mp4`); replacing those files is all that's needed to show distinct footage.
+**The instrument, moving.** Eight narrated tutorials sit on the dark chapter's ink, in the order a printer meets them — connect, sensor, paper, then the tools — each framed at 9:16 with a poster frame and a single play control, so the section reads as evidence rather than a video wall. Only one plays at a time, and a finished clip returns its frame to the poster. A counter and a pair of hairline arrows in the ledger bar above the row step through them; the row is a scroll-snap track at every width (three across on desktop, two at tablet, a peeking single column on phones), so more clips can be appended without touching the layout. The footage was shot in a working darkroom and supplied with the project; nothing was staged or re-shot. Each clip runs the whole job, from the first tap to the number it returns, and ends on the print it made.
 
 **The bench as a pile of prints.** Craft is shown the way a printer keeps evidence: seven supplied photographs in a loose stack of instant prints, captioned as numbered frames ("No. 01 The first reading"). Clicking the top print lifts it, swings it aside, and sets it on the back of the pile; scrolling over the stack or stepping with the arrow buttons does the same, so the pile keeps turning without leaving the page. The physics are deliberate — a small rotation per depth step, layered shadows, and a flight path that clears the pile before settling — and the whole deck is a focusable group with arrow-key control, a live frame count, and an instant, non-animated path when reduced motion is requested. No carousel chrome, no dots: the prints are the interface.
 
@@ -29,3 +29,29 @@ Open `index.html` in a browser. Images live in `assets/` and are referenced rela
 **Discipline about facts.** Copy is anchored to the manual. Dimensions, weight, and battery runtime are explicitly not claimed. The page is a single self-contained HTML file with local images, responsive layouts, native `details` disclosures, keyboard focus styles, reduced-motion support, and accurate Product/FAQ structured data.
 
 **Type that travels with the file.** Headlines are set in Fraunces at the 72 pt optical size; the darkroom notes and instant-print captions are Caveat. Both are embedded as base64 data URIs in the stylesheet, because browsers refuse to load local font files over `file://` and a linked `@font-face` silently falls back to Georgia. Numbers stay monospace. The handwritten line is used only where a printer would actually scrawl — a lens note, a pulled test strip, a paper reminder — never for body copy, and the manual itself is the only place a claim can come from.
+
+## Video files
+
+The page plays `assets/video/*.mp4`: H.264 High profile, 720 × 1280, 30 fps, 4:2:0, AAC 48 kHz, `+faststart`, 1.7–6.6 MB each. The supplied exports were HEVC Main 10, which Safari decodes but Chrome, Firefox and most Android browsers do not, so each was re-encoded once; the poster frames are JPEG stills from the same clips. The source exports stay out of the repository — only `assets/video/` is served.
+
+| Slot | Page file | Source export | Poster at |
+|---|---|---|---|
+| 01 Connect | `assets/video/connect-android` | `SafelightIO_Omni_Connect_Android.mp4` | 6.0 s |
+| 02 Sensor calibration | `assets/video/sensor-calibration` | `SafelightIO_Omni_Calibration.mp4` | 34.0 s |
+| 03 Paper calibration | `assets/video/calibrate-paper` | `SafelightIO_Omni_Calibrate_Paper.mp4` | 40.0 s |
+| 04 Exposure | `assets/video/exposure` | `SafelightIO_Exposure_Analyser.mp4` | 31.3 s |
+| 05 Contrast | `assets/video/contrast` | `SafelightIO_Contrast_Analyser.mp4` | 45.6 s |
+| 06 Split Grade | `assets/video/split-grade` | `SafelightIO_SplitGrade_Analyser.mp4` | 58.8 s |
+| 07 Virtual Proof | `assets/video/virtual-proof` | `SafelightIO_Virtual_Proof.mp4` | 45.6 s |
+| 08 Enlarger mode | `assets/video/enlarger-mode` | `SafelightIO_Virtual_Proof_Enlarger.mp4` | 28.8 s |
+
+To add a clip, export H.264 (not HEVC, not 10-bit) and run:
+
+```
+ffmpeg -i export.mp4 -map 0:v:0 -map 0:a:0 \
+  -c:v libx264 -preset slow -crf 23 -profile:v high -level 4.0 -pix_fmt yuv420p \
+  -c:a aac -b:a 128k -ac 2 -movflags +faststart assets/video/name.mp4
+ffmpeg -i export.mp4 -ss <seconds> -frames:v 1 -vf scale=720:1280 -q:v 4 assets/video/name.jpg
+```
+
+Then add one `<figure class="reel">` to `#reel-track` in `index.html` with the new title, subtitle, duration badge and poster. The counter picks up the new total by itself.
