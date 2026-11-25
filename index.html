@@ -1976,8 +1976,10 @@ html.safelight .tools { --plate-base: var(--deep); }
     scale(calc(1 - var(--d, 0) * 0.0045));
   transform-origin: 50% 42%;
   transition: transform 0.55s var(--ease-standard), box-shadow 0.3s var(--ease-standard);
-  will-change: transform;
 }
+/* Fourteen full-bleed images would otherwise stay promoted for the life of
+ * the page; only the stack the reader can see keeps its own layer. */
+.polaroid-deck.is-live .polaroid { will-change: transform; }
 .polaroid img {
   width: 100%;
   height: auto;
@@ -3321,6 +3323,19 @@ html.safelight .zb-range-text { background: var(--deep); }
   font-size: 14px;
 }
 
+.pair-fit {
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+.pair-fit a {
+  color: var(--accent-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.pair-fit a:hover { color: var(--fg); }
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -3796,6 +3811,7 @@ html.safelight .zb-range-text { background: var(--deep); }
       </div>
 
       <p class="pair-shared"><span>Both</span> Exposure · Contrast · Split Grade · Virtual Proof · Filter Editor · 22 papers · 6 filter systems · no account, no cloud.</p>
+      <p class="pair-fit">Not sure it fits your enlarger? <a href="#compatibility">Compatibility, papers and filters →</a></p>
     </div>
   </section>
 
@@ -3851,7 +3867,7 @@ html.safelight .zb-range-text { background: var(--deep); }
         </div>
 
         <div class="zb-readout">
-          <div class="zb-chip" aria-hidden="true"><span data-wedge-numeral>V</span></div>
+          <div class="zb-chip" aria-hidden="true" data-wedge-chip><span data-wedge-numeral>V</span></div>
           <div>
             <p class="zb-kicker">Zone <span data-wedge-numeral>V</span></p>
             <p class="zb-name" data-wedge-name>Middle grey</p>
@@ -4370,7 +4386,7 @@ html.safelight .zb-range-text { background: var(--deep); }
       <div class="sec-head">
         <p class="label">Before the print</p>
         <h2 id="strips-title">Test strips, and what the meter replaces.</h2>
-        <p class="lead">Test strips find an exposure by spending paper — three to five sheets each time the paper, grade or magnification changes. SafelightIO takes one easel reading instead.</p>
+        <p class="lead">Test strips find an exposure by spending paper: three to five sheets and a development cycle every time the paper, grade or magnification changes. Once a paper is calibrated, one easel reading replaces the bracket.</p>
       </div>
       <div class="strip-notes-grid">
         <div class="strip-note">
@@ -5518,6 +5534,14 @@ html.safelight .zb-range-text { background: var(--deep); }
   var prevBtn = document.querySelector('[data-deck-prev]');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   var fine = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) { deck.classList.toggle('is-live', entry.isIntersecting); });
+    }, { rootMargin: '240px 0px' }).observe(deck);
+  } else {
+    deck.classList.add('is-live');
+  }
   var total = cards.length;
   var busy = false;
   var wheelAcc = 0;
