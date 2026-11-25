@@ -266,14 +266,6 @@ html.nav-over-dark .nav-util:hover {
   background: color-mix(in oklab, var(--surface) 12%, transparent);
 }
 html.nav-over-dark .nav-util:active { background: color-mix(in oklab, var(--surface) 18%, transparent); }
-html.nav-over-dark .nav-buy {
-  color: var(--surface);
-  border-bottom-color: color-mix(in oklab, var(--surface) 58%, transparent);
-}
-html.nav-over-dark .nav-buy:hover {
-  color: color-mix(in oklab, var(--accent), white 18%);
-  border-bottom-color: color-mix(in oklab, var(--accent), white 18%);
-}
 html.nav-over-dark .menu-btn {
   color: var(--surface);
   border-color: color-mix(in oklab, var(--surface) 30%, transparent);
@@ -429,24 +421,6 @@ html.nav-over-dark .nav-manual[open] > summary {
   transition: color var(--motion-fast) var(--ease-standard);
 }
 .nav-links a:hover { color: var(--fg); }
-.nav-buy {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  flex: 0 0 auto;
-  white-space: nowrap;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding-block: 6px;
-  border-bottom: 1px solid var(--fg);
-  transition: color var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard);
-}
-.nav-buy:hover {
-  color: var(--accent-text);
-  border-color: var(--accent-text);
-}
 .menu-btn {
   display: none;
   align-items: center;
@@ -2688,7 +2662,6 @@ html.safelight .buy {
 }
 html.safelight .section-dark :focus-visible { outline-color: var(--fg); }
 html.safelight .skip { background: var(--accent); color: var(--accent-on); }
-html.safelight .nav-buy:hover { color: var(--accent); border-color: var(--accent); }
 html.safelight .btn-primary {
   background: var(--accent);
   border-color: var(--accent);
@@ -3338,6 +3311,16 @@ html.safelight .zb-range-text { background: var(--deep); }
 .buy-bar .btn { flex: 1 1 0; min-height: 48px; padding: 0 8px; font-size: 13px; }
 .buy-bar .btn-primary { flex: 1.1 1 0; }
 
+/* The rail's buy control is the same primary button as the hero and the
+ * closing block, at rail scale — one buying action, one treatment. */
+.nav-buy.btn {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  min-height: 38px;
+  padding: 0 15px;
+  font-size: 14px;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -3651,7 +3634,7 @@ html.safelight .zb-range-text { background: var(--deep); }
         <span class="util-label">Instagram</span>
       </a>
     </div>
-    <a class="nav-buy" href="https://ko-fi.com/safelightio/shop" data-od-id="nav-buy">Buy SafelightIO</a>
+    <a class="nav-buy btn btn-primary" href="https://ko-fi.com/safelightio/shop" data-od-id="nav-buy">Buy SafelightIO</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav" data-nav-toggle>Menu</button>
   </div>
   <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile" data-nav-panel hidden>
