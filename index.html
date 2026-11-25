@@ -88,7 +88,9 @@ try {
   --fg: #141413;             /* Anthropic Near Black — warmest "black" in any major tech brand */
   --fg-2: #3d3d3a;           /* Dark Warm — dark text links, emphasized secondary text */
   --muted: #5e5d59;          /* Olive Gray — secondary body text */
-  --meta: #87867f;           /* Stone Gray — tertiary text, footnotes, metadata */
+  --meta: #6f6e68;           /* Stone Gray — tertiary text, footnotes, metadata.
+                              * Darkened from #87867f so 9.5–10px labels clear AA
+                              * (4.85 on --surface, 4.64 on --bg). */
 
   /* ─── Border (2 levels) ──────────────────────────────────────────
    * Cream-tinted borders — the gentlest possible containment. */
@@ -100,6 +102,9 @@ try {
    * Used for primary CTA buttons and highest-signal brand moments only. */
   --accent: #E2760F;
   --accent-on: #faf9f5;      /* Ivory — fg when terracotta is the bg */
+  --accent-text: #9c5007;    /* Terracotta as TYPE. The fill colour above is
+                              * 2.92:1 at label sizes; this one is 5.36 on
+                              * --surface and 4.52 on --surface-warm. */
   --accent-hover: color-mix(in oklab, var(--accent), black 8%);
   --accent-active: color-mix(in oklab, var(--accent), black 14%);
 
@@ -112,18 +117,20 @@ try {
   --danger: #b53333;         /* Error Crimson — warm red, not standard danger red */
 
   /* ─── Typography ──────────────────────────────────────────────────
-   * Fraunces for all headlines — the single weight (500) gives every
-   * heading the gravitas of a published title. Anthropic Sans for all
-   * UI/body — quiet functional efficiency. Caveat is the hand that
-   * writes the darkroom notes, never used for interface copy. */
+   * Only two families ship inside this file: Fraunces (2 faces) for
+   * headlines and Caveat for the darkroom notes. Body copy and every
+   * numeral therefore use the host system's own sans and mono — naming
+   * a face that is not embedded only produces a silent Arial fallback. */
   --font-display: "Fraunces", Georgia, "Times New Roman", serif;
-  --font-body: "Anthropic Sans", "Arial", system-ui, -apple-system, sans-serif;
-  --font-mono: "Anthropic Mono", ui-monospace, "JetBrains Mono", Menlo, monospace;
+  --font-body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
   --font-hand: "Caveat", "Bradley Hand", "Segoe Print", cursive;
 
   /* Type scale — DESIGN.md §3 Typography Rules.
    * 64px hero → 52px section → 36px sub → 32px card → 25px small */
   --text-xs: 10px;           /* Overline — uppercase labels at smallest scale */
+  --text-micro: 10px;        /* Floor for diagram labels and fine print. Nothing
+                              * on the page is set below this. */
   --text-sm: 14px;           /* Caption — metadata, descriptions */
   --text-base: 16px;         /* Body Standard */
   --text-lg: 20px;           /* Body Large — intro paragraphs */
@@ -332,7 +339,7 @@ html.safelight .brand-logo-room { display: block; }
   border-radius: var(--radius-sm);
   color: var(--muted);
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   transition: color var(--motion-fast) var(--ease-standard), background var(--motion-fast) var(--ease-standard);
@@ -387,7 +394,7 @@ html.nav-over-dark .nav-manual[open] > summary {
 .manual-menu-title {
   margin: 5px 9px 7px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--meta);
@@ -414,7 +421,7 @@ html.nav-over-dark .nav-manual[open] > summary {
 .manual-link .ml-meta {
   margin-top: 3px;
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: var(--text-micro);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--meta);
@@ -428,12 +435,12 @@ html.nav-over-dark .nav-manual[open] > summary {
   padding: 11px 9px 6px;
   border-top: 1px solid var(--border);
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-text);
 }
-.manual-all:hover { color: var(--accent-hover); }
+.manual-all:hover { color: color-mix(in oklab, var(--accent-text), black 14%); }
 .nav-links { display: flex; align-items: center; gap: 26px; flex: 0 0 auto; }
 .nav-links a {
   padding-block: 11px;
@@ -458,8 +465,8 @@ html.nav-over-dark .nav-manual[open] > summary {
   transition: color var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard);
 }
 .nav-buy:hover {
-  color: color-mix(in oklab, var(--accent), black 30%);
-  border-color: color-mix(in oklab, var(--accent), black 30%);
+  color: var(--accent-text);
+  border-color: var(--accent-text);
 }
 .menu-btn {
   display: none;
@@ -473,7 +480,7 @@ html.nav-over-dark .nav-manual[open] > summary {
   border: 1px solid var(--border-soft);
   border-radius: var(--radius-sm);
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -488,7 +495,7 @@ html.nav-over-dark .nav-manual[open] > summary {
   border-bottom: 1px solid var(--border);
   font-size: 17px;
 }
-.mobile-nav li a span { font-family: var(--font-mono); font-size: 10px; color: var(--muted); }
+.mobile-nav li a span { font-family: var(--font-mono); font-size: var(--text-micro); color: var(--muted); }
 .mobile-nav .m-cta {
   display: flex;
   justify-content: center;
@@ -523,7 +530,7 @@ html.nav-over-dark .nav-manual[open] > summary {
 .mobile-util svg { width: 16px; height: 16px; flex: 0 0 auto; }
 .mobile-util em {
   margin-left: auto;
-  font-size: 10px;
+  font-size: var(--text-micro);
   font-style: normal;
   letter-spacing: 0.03em;
   text-transform: none;
@@ -553,7 +560,7 @@ html.nav-over-dark .nav-manual[open] > summary {
   flex: none;
 }
 .eyebrow .n { color: var(--fg); }
-.label.eyebrow { font-size: 10px; line-height: 1.4; letter-spacing: 0.16em; max-width: none; }
+.label.eyebrow { font-size: var(--text-micro); line-height: 1.4; letter-spacing: 0.16em; max-width: none; }
 .lead {
   max-width: 58ch;
   color: var(--muted);
@@ -577,7 +584,7 @@ html.nav-over-dark .nav-manual[open] > summary {
   align-items: center;
   gap: 14px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
@@ -655,7 +662,7 @@ html.nav-over-dark .nav-manual[open] > summary {
 }
 .hero h1 {
   font-size: clamp(42px, 5.3vw, 70px);
-  line-height: 1.03;
+  line-height: var(--leading-tight);
   letter-spacing: -0.025em;
   max-width: none;
 }
@@ -680,7 +687,7 @@ html.nav-over-dark .nav-manual[open] > summary {
   margin-top: 20px;
   max-width: 46ch;
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 12px;
   line-height: 1.7;
   letter-spacing: 0.02em;
   color: var(--muted);
@@ -699,7 +706,7 @@ html.nav-over-dark .nav-manual[open] > summary {
 .figcap {
   margin-top: 12px;
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 12px;
   line-height: 1.6;
   letter-spacing: 0.02em;
   color: var(--muted);
@@ -767,14 +774,14 @@ html.nav-over-dark .nav-manual[open] > summary {
 .pair-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .pair-kicker {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: color-mix(in oklab, var(--accent), black 16%);
+  color: var(--accent-text);
 }
 .pair-badge {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--text-micro);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
@@ -783,7 +790,7 @@ html.nav-over-dark .nav-manual[open] > summary {
   padding: 3px 8px;
   white-space: nowrap;
 }
-.pair-badge.is-now { color: color-mix(in oklab, var(--accent), black 16%); border-color: color-mix(in oklab, var(--accent) 38%, transparent); }
+.pair-badge.is-now { color: var(--accent-text); border-color: color-mix(in oklab, var(--accent) 38%, transparent); }
 .pair-card h3 { font-size: clamp(24px, 2.4vw, 30px); }
 .pair-copy { color: var(--muted); font-size: 15px; line-height: 1.55; }
 .pair-need {
@@ -810,7 +817,7 @@ html.nav-over-dark .nav-manual[open] > summary {
 .pair-facts dd { margin: 0; }
 .pair-facts dt {
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: var(--text-micro);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--muted);
@@ -826,13 +833,13 @@ html.nav-over-dark .nav-manual[open] > summary {
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
 }
-.pair-link:hover { color: var(--accent); }
+.pair-link:hover { color: var(--accent-text); }
 .pair-shared {
   margin-top: clamp(20px, 2.6vw, 30px);
   padding-top: 16px;
   border-top: 1px solid var(--border);
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 12px;
   line-height: 1.8;
   letter-spacing: 0.02em;
   color: var(--muted);
@@ -891,14 +898,14 @@ html.nav-over-dark .nav-manual[open] > summary {
 }
 .reading-head .k {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--fg);
 }
 .reading-head .src {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   letter-spacing: 0.04em;
   color: var(--muted);
 }
@@ -909,7 +916,7 @@ html.nav-over-dark .nav-manual[open] > summary {
   display: block;
   margin-bottom: 8px;
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: var(--text-micro);
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--muted);
@@ -940,7 +947,7 @@ html.nav-over-dark .nav-manual[open] > summary {
   padding: 12px 22px;
   border-top: 1px solid var(--border);
   font-family: var(--font-mono);
-  font-size: 10.5px;
+  font-size: 12px;
   line-height: 1.6;
   color: var(--muted);
 }
@@ -965,7 +972,7 @@ html.nav-over-dark .nav-manual[open] > summary {
   align-items: center;
   gap: 14px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink-muted);
@@ -1024,7 +1031,7 @@ html.nav-over-dark .nav-manual[open] > summary {
   border: 1px solid var(--line);
   border-radius: var(--radius-pill);
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   letter-spacing: 0.03em;
   color: var(--ink-muted);
 }
@@ -1050,7 +1057,7 @@ html.nav-over-dark .nav-manual[open] > summary {
   gap: 6px 22px;
   margin-bottom: 14px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   line-height: 1.5;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1112,7 +1119,7 @@ html.nav-over-dark .nav-manual[open] > summary {
   align-items: center;
   gap: 7px;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--text-micro);
   line-height: 1.4;
   letter-spacing: 0.2em;
 }
@@ -1131,7 +1138,7 @@ html.nav-over-dark .nav-manual[open] > summary {
 }
 .st-val {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--text-micro);
   line-height: 1.5;
   letter-spacing: 0.05em;
   white-space: nowrap;
@@ -1188,8 +1195,8 @@ html.safelight .tools { --plate-base: var(--deep); }
   --plate-line: color-mix(in oklab, var(--ink) 15%, var(--plate-base));
   --plate-line-2: color-mix(in oklab, var(--ink) 7%, var(--plate-base));
   --plate-ink: var(--ink);
-  --plate-dim: color-mix(in oklab, var(--ink) 72%, var(--plate-base));
-  --plate-faint: color-mix(in oklab, var(--ink) 52%, var(--plate-base));
+  --plate-dim: color-mix(in oklab, var(--ink) 82%, var(--plate-base));
+  --plate-faint: color-mix(in oklab, var(--ink) 66%, var(--plate-base));
   --plate-accent: color-mix(in oklab, var(--accent) 58%, var(--ink));
   --plate-accent-fill: color-mix(in oklab, var(--accent) 78%, var(--plate-base));
   --mark-next: oklch(0.82 0.13 78);
@@ -1220,7 +1227,7 @@ html.safelight .tools { --plate-base: var(--deep); }
 .flow-name,
 .flow-count {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   letter-spacing: 0.13em;
   text-transform: uppercase;
 }
@@ -1282,7 +1289,7 @@ html.safelight .tools { --plate-base: var(--deep); }
   display: block;
   margin-bottom: 3px;
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: var(--text-micro);
   line-height: 1.2;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -1305,7 +1312,7 @@ html.safelight .tools { --plate-base: var(--deep); }
   display: block;
   margin-top: 3px;
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: var(--text-micro);
   font-style: normal;
   line-height: 1.3;
   letter-spacing: 0.04em;
@@ -1343,7 +1350,7 @@ html.safelight .tools { --plate-base: var(--deep); }
   padding: 2px 0;
   background: var(--plate-well);
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: var(--text-micro);
   font-style: normal;
   letter-spacing: 0.02em;
   color: var(--plate-dim);
@@ -1352,7 +1359,7 @@ html.safelight .tools { --plate-base: var(--deep); }
 .zone-track { display: grid; grid-template-columns: 12px minmax(0, 1fr) 12px; align-items: center; gap: 6px; }
 .zt-cap {
   font-family: var(--font-mono);
-  font-size: 7.5px;
+  font-size: var(--text-micro);
   color: var(--plate-faint);
   text-align: center;
 }
@@ -1392,7 +1399,7 @@ html.safelight .tools { --plate-base: var(--deep); }
   justify-content: space-between;
   gap: 4px 14px;
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: var(--text-micro);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--plate-faint);
@@ -1409,7 +1416,7 @@ html.safelight .tools { --plate-base: var(--deep); }
 }
 .range-cap {
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: var(--text-micro);
   line-height: 1.3;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -1425,7 +1432,7 @@ html.safelight .tools { --plate-base: var(--deep); }
   font-variant-numeric: tabular-nums;
   color: var(--plate-ink);
 }
-.range-cap b i { font-size: 8px; font-style: normal; letter-spacing: 0.04em; color: var(--plate-faint); }
+.range-cap b i { font-size: var(--text-micro); font-style: normal; letter-spacing: 0.04em; color: var(--plate-faint); }
 .range-cap.is-right { text-align: right; }
 .range-delta { text-align: center; color: var(--plate-accent); }
 .range-delta b {
@@ -1441,7 +1448,7 @@ html.safelight .tools { --plate-base: var(--deep); }
   display: block;
   margin-top: 1px;
   font-family: var(--font-mono);
-  font-size: 7px;
+  font-size: var(--text-micro);
   font-style: normal;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -1483,7 +1490,7 @@ html.safelight .tools { --plate-base: var(--deep); }
 .grade-cap,
 .grade-match {
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: var(--text-micro);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -1501,7 +1508,7 @@ html.safelight .tools { --plate-base: var(--deep); }
   padding: 3px 0;
   background: var(--plate);
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: var(--text-micro);
   font-style: normal;
   text-align: center;
   color: var(--plate-faint);
@@ -1526,7 +1533,7 @@ html.safelight .tools { --plate-base: var(--deep); }
   padding-top: 5px;
   border-top: 1px dashed var(--plate-line-2);
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: var(--text-micro);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--plate-faint);
@@ -1538,7 +1545,7 @@ html.safelight .tools { --plate-base: var(--deep); }
   font-variant-numeric: tabular-nums;
   color: var(--plate-ink);
 }
-.range-foot b i { font-size: 8px; font-style: normal; color: var(--plate-faint); }
+.range-foot b i { font-size: var(--text-micro); font-style: normal; color: var(--plate-faint); }
 
 /* split grade */
 .viz-split { flex-direction: column; align-items: stretch; justify-content: center; gap: 7px; }
@@ -1559,7 +1566,7 @@ html.safelight .tools { --plate-base: var(--deep); }
   overflow: hidden;
   border-radius: 1px;
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: var(--text-micro);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   white-space: nowrap;
@@ -1573,7 +1580,7 @@ html.safelight .tools { --plate-base: var(--deep); }
   flex: 11 1 0;
   background: var(--ink);
   color: var(--plate-base);
-  font-size: 8px;
+  font-size: var(--text-micro);
 }
 .split-legs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
 .split-leg {
@@ -1591,7 +1598,7 @@ html.safelight .tools { --plate-base: var(--deep); }
 .split-leg i.is-hard { background: var(--ink); }
 .split-leg span {
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: var(--text-micro);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--plate-dim);
@@ -1614,7 +1621,7 @@ html.safelight .tools { --plate-base: var(--deep); }
   padding-top: 5px;
   border-top: 1px dashed var(--plate-line-2);
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: var(--text-micro);
   letter-spacing: 0.07em;
   text-transform: uppercase;
   color: var(--plate-faint);
@@ -1659,7 +1666,7 @@ html.safelight .tools { --plate-base: var(--deep); }
   justify-content: space-between;
   padding-inline: 5px;
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: var(--text-micro);
   letter-spacing: 0.08em;
   color: var(--plate-faint);
 }
@@ -1670,7 +1677,7 @@ html.safelight .tools { --plate-base: var(--deep); }
   justify-content: space-between;
   gap: 8px;
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: var(--text-micro);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--plate-faint);
@@ -1700,7 +1707,7 @@ html.safelight .tools { --plate-base: var(--deep); }
   padding-top: 6px;
   border-top: 1px dashed var(--plate-line-2);
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: var(--text-micro);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--plate-faint);
@@ -1720,7 +1727,7 @@ html.safelight .tools { --plate-base: var(--deep); }
   padding-top: 6px;
   border-top: 1px solid var(--plate-line-2);
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: var(--text-micro);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--plate-faint);
@@ -1757,7 +1764,7 @@ html.safelight .tools { --plate-base: var(--deep); }
   position: absolute;
   top: 14px;
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: var(--text-micro);
   letter-spacing: 0.04em;
   color: var(--plate-faint);
 }
@@ -1783,7 +1790,7 @@ html.safelight .tools { --plate-base: var(--deep); }
 .factor-pin.is-ds { top: 26px; }
 .factor-pin em {
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: var(--text-micro);
   font-style: normal;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -1817,7 +1824,7 @@ html.safelight .tools { --plate-base: var(--deep); }
 }
 .factor-meta i {
   font-family: var(--font-mono);
-  font-size: 8px;
+  font-size: var(--text-micro);
   font-style: normal;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -1847,7 +1854,7 @@ html.safelight .tools { --plate-base: var(--deep); }
 .flow-step:last-child { border-bottom: 0; }
 .flow-n {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--text-micro);
   letter-spacing: 0.08em;
   color: var(--plate-faint);
 }
@@ -1889,7 +1896,7 @@ html.safelight .tools { --plate-base: var(--deep); }
   border-top: 1px solid var(--plate-line);
   background: color-mix(in oklab, var(--ink) 4%, var(--plate));
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--text-micro);
   letter-spacing: 0.07em;
   text-transform: uppercase;
   color: var(--plate-dim);
@@ -1939,7 +1946,7 @@ html.safelight .tools { --plate-base: var(--deep); }
 }
 .craft-points .k {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--fg-2);
@@ -1963,7 +1970,7 @@ html.safelight .tools { --plate-base: var(--deep); }
 }
 .polaroid-kicker {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--fg-2);
@@ -2123,7 +2130,7 @@ html.safelight .pd-btn:hover {
 }
 .ledger-key {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--muted);
@@ -2169,7 +2176,7 @@ html.safelight .pd-btn:hover {
 .paper-group h3 {
   margin: 12px 0 4px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -2186,7 +2193,7 @@ html.safelight .pd-btn:hover {
 }
 .paper-cols p span:last-child {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   color: var(--muted);
   white-space: nowrap;
 }
@@ -2200,7 +2207,7 @@ html.safelight .pd-btn:hover {
   display: block;
   margin-bottom: 6px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--muted);
@@ -2223,7 +2230,7 @@ html.safelight .pd-btn:hover {
   border: 1px solid var(--border-soft);
   border-radius: var(--radius-pill);
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   letter-spacing: 0.05em;
   color: var(--fg-2);
   background: var(--surface);
@@ -2262,7 +2269,7 @@ html.safelight .pd-btn:hover {
   display: block;
   margin-bottom: 8px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
@@ -2285,7 +2292,7 @@ html.safelight .pd-btn:hover {
   text-align: left;
   padding-bottom: 12px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
@@ -2302,7 +2309,7 @@ html.safelight .pd-btn:hover {
   width: 31%;
   padding-right: 20px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   font-weight: 400;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -2484,7 +2491,7 @@ html.safelight .pd-btn:hover {
 }
 .reel-play-text {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
@@ -2499,7 +2506,7 @@ html.safelight .pd-btn:hover {
   background: color-mix(in oklab, var(--fg) 66%, transparent);
   color: var(--surface);
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   letter-spacing: 0.08em;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
@@ -2516,7 +2523,7 @@ html.safelight .pd-btn:hover {
 .reel-no {
   padding-top: 3px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   letter-spacing: 0.12em;
   color: color-mix(in oklab, var(--accent) 72%, var(--ink));
 }
@@ -2564,9 +2571,20 @@ html.safelight .reels { background: var(--deep); }
 .buy-logo { width: min(300px, 64vw); height: auto; margin: 0 auto 30px; }
 .buy h2 { color: var(--ink); font-size: clamp(34px, 4.4vw, 58px); max-width: 19ch; margin-inline: auto; letter-spacing: -0.025em; }
 .buy .lead { color: var(--ink-muted); margin: 18px auto 0; max-width: 44ch; }
-.buy-price { margin-top: 22px; font-family: var(--font-mono); font-size: 13px; color: var(--ink); }
+.buy-price { margin-top: 22px; font-family: var(--font-mono); font-size: 22px; color: var(--ink); }
 .buy-price span { color: var(--ink-muted); }
-.buy-cta { display: flex; justify-content: center; margin-top: 26px; }
+.buy-cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: center; margin-top: 26px; }
+.buy-all {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.buy-all:hover { color: var(--ink); }
+@media (max-width: 560px) { .buy-cta .btn { flex: 1 1 100%; } }
 .buy .trust {
   margin: 20px auto 0;
   color: var(--ink-muted);
@@ -2601,7 +2619,7 @@ html.safelight .reels { background: var(--deep); }
 }
 .foot-brand .brand .maker {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--text-micro);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-muted);
@@ -2617,7 +2635,7 @@ html.safelight .reels { background: var(--deep); }
 .foot-title {
   margin-bottom: 12px;
   font-family: var(--font-mono);
-  font-size: 9.5px;
+  font-size: var(--text-micro);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-muted);
@@ -2638,7 +2656,7 @@ html.safelight .reels { background: var(--deep); }
   gap: 12px 24px;
   flex-wrap: wrap;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   line-height: 1.7;
   letter-spacing: 0.02em;
   color: var(--ink-muted);
@@ -2660,6 +2678,7 @@ html.safelight {
   --border: #452b25;
   --border-soft: #5a3c34;
   --accent: #f18154;
+  --accent-text: #f18154;
   --accent-on: #1a0a06;
   --deep: #110402;
 }
@@ -2821,7 +2840,7 @@ html.safelight img { filter: sepia(0.5) saturate(1.12) brightness(0.86); }
   background: oklch(0.95 0.012 80);
   color: oklch(0.28 0.02 50);
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--text-micro);
   line-height: 1.2;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -2839,7 +2858,7 @@ html.safelight img { filter: sepia(0.5) saturate(1.12) brightness(0.86); }
   background: var(--fg);
   color: var(--bg);
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--text-micro);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;
@@ -2911,7 +2930,7 @@ html.safelight .zone-bench { background: var(--deep); }
   background: var(--fg);
   color: var(--ink-muted);
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--text-micro);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   white-space: nowrap;
@@ -2927,7 +2946,7 @@ html.safelight .zb-range-text { background: var(--deep); }
 .zb-scale span {
   text-align: center;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   letter-spacing: 0.04em;
   color: var(--ink-muted);
   transition: color var(--motion-fast) var(--ease-standard);
@@ -2981,7 +3000,7 @@ html.safelight .zb-range-text { background: var(--deep); }
   justify-content: space-between;
   margin-top: 9px;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--text-micro);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-muted);
@@ -3016,7 +3035,7 @@ html.safelight .zb-range-text { background: var(--deep); }
 }
 .zb-kicker {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink-muted);
@@ -3037,7 +3056,7 @@ html.safelight .zb-range-text { background: var(--deep); }
 .zb-stats { display: flex; gap: clamp(20px, 2.6vw, 40px); margin: 0; }
 .zb-stats dt {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--text-micro);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-muted);
@@ -3051,7 +3070,7 @@ html.safelight .zb-range-text { background: var(--deep); }
 .zb-hint {
   margin-top: 18px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--text-micro);
   letter-spacing: 0.04em;
   color: var(--ink-muted);
 }
@@ -3064,14 +3083,14 @@ html.safelight .zb-range-text { background: var(--deep); }
 }
 
 @media (max-width: 620px) {
-  .zb-range-text { padding-inline: 8px; font-size: 8px; letter-spacing: 0.1em; }
-  .zb-scale span { font-size: 8px; letter-spacing: 0; }
-  .zb-ends { font-size: 8px; letter-spacing: 0.1em; }
+  .zb-range-text { padding-inline: 8px; font-size: var(--text-micro); letter-spacing: 0.1em; }
+  .zb-scale span { font-size: var(--text-micro); letter-spacing: 0; }
+  .zb-ends { font-size: var(--text-micro); letter-spacing: 0.1em; }
   .zb-readout { grid-template-columns: 76px minmax(0, 1fr); gap: 16px 18px; }
   .zb-chip { width: 76px; height: 76px; }
   .zb-chip span { font-size: 30px; }
   .zb-desc { font-size: 14.5px; }
-  .zb-hint { font-size: 9px; line-height: 1.6; }
+  .zb-hint { font-size: var(--text-micro); line-height: 1.6; }
 }
 
 @media (max-width: 620px) {
@@ -3081,28 +3100,28 @@ html.safelight .zb-range-text { background: var(--deep); }
   .flow-step { grid-template-columns: 18px minmax(0, 1fr) auto; gap: 8px; padding-block: 10px; }
   .flow-step.is-out { margin-inline: -13px; padding-inline: 13px; }
   .flow-do { font-size: 13px; }
-  .flow-val { font-size: 10px; }
+  .flow-val { font-size: var(--text-micro); }
   .chain { gap: 2px; }
   .chain-node { padding: 7px 3px 6px; }
   .chain-node b { font-size: 13.5px; }
-  .chain-node i { font-size: 7px; letter-spacing: 0.02em; }
-  .chain-k { font-size: 6.5px; letter-spacing: 0.05em; }
+  .chain-node i { font-size: var(--text-micro); letter-spacing: 0.02em; }
+  .chain-k { font-size: var(--text-micro); letter-spacing: 0.05em; }
   .chain-op { width: 18px; }
-  .chain-op em { font-size: 7px; }
+  .chain-op em { font-size: var(--text-micro); }
   .viz-grid { grid-template-columns: 1fr; gap: 12px; }
   .proof-wrap { max-width: 210px; }
   .proof-mini { width: 100%; }
   .proof-side { width: 100%; max-width: 320px; }
   .proof-hist { height: 40px; }
   .grade-row { gap: 6px; }
-  .grade-steps i { font-size: 7.5px; padding-block: 2.5px; }
+  .grade-steps i { font-size: var(--text-micro); padding-block: 2.5px; }
   .split-leg { padding: 5px 6px; grid-template-columns: 7px minmax(0, 1fr) auto; gap: 5px; }
   .split-leg i { width: 7px; height: 7px; }
-  .split-leg b { font-size: 10px; }
-  .split-leg span { font-size: 7.5px; letter-spacing: 0.02em; }
-  .factor-meta i { font-size: 6.5px; letter-spacing: 0.03em; }
-  .factor-meta b { font-size: 9.5px; }
-  .factor-pin em { font-size: 6.5px; letter-spacing: 0.02em; }
+  .split-leg b { font-size: var(--text-micro); }
+  .split-leg span { font-size: var(--text-micro); letter-spacing: 0.02em; }
+  .factor-meta i { font-size: var(--text-micro); letter-spacing: 0.03em; }
+  .factor-meta b { font-size: var(--text-micro); }
+  .factor-pin em { font-size: var(--text-micro); letter-spacing: 0.02em; }
 }
 
 /* ── motion ──────────────────────────────────────────────────────── */
@@ -3151,7 +3170,7 @@ html.safelight .zb-range-text { background: var(--deep); }
   .zb-note { grid-column: auto; max-width: 34ch; margin-top: 2px; }
   .hero-grid { grid-template-columns: 1fr; gap: 40px; }
   .hero-media { max-width: 640px; margin-inline: auto; }
-  .strip-panel { grid-template-columns: 1fr; gap: 28px; }
+  .strip-panel { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .strip-panel p { max-width: 60ch; }
   .craft-grid, .setup-grid { grid-template-columns: 1fr; }
   .craft-points li { grid-template-columns: 130px minmax(0, 1fr); }
@@ -3179,7 +3198,7 @@ html.safelight .zb-range-text { background: var(--deep); }
   .hero .lead { font-size: 16px; }
   .hero-cta .btn { flex: 1 1 100%; }
   .hero-cta .btn-secondary { flex: 1 1 auto; }
-  .reading { display: none; }
+  .reading-grid { grid-template-columns: 1fr 1fr; }
   .tool-list { display: none; }
   .reel-grid {
     grid-auto-columns: min(76vw, 320px);
@@ -3201,7 +3220,7 @@ html.safelight .zb-range-text { background: var(--deep); }
   .faq-answer { padding-right: 0; }
   .ds-table th { width: 36%; padding-right: 12px; }
   .ds-table th, .ds-table td { font-size: 13.5px; }
-  .strip-head { font-size: 9px; gap: 4px 14px; }
+  .strip-head { font-size: var(--text-micro); gap: 4px 14px; }
   .strip-keys { display: none; }
   .strip {
     display: flex;
@@ -3281,6 +3300,67 @@ html.safelight .zb-range-text { background: var(--deep); }
   .strip-note { padding: 26px 0 0; }
   .strip-note + .strip-note { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); margin-top: 26px; }
   .strip-note p { max-width: 62ch; }
+}
+
+/* ── persistent purchase action (phones and small tablets) ────────────
+ * Under 1000px the header hides .nav-buy, which left a page that is
+ * ~20 screens tall on a phone with no purchase action outside the
+ * collapsed sheet. This bar keeps the two products, with prices, one
+ * tap away. Hidden while the menu sheet is open; the safelight lamp is
+ * lifted clear of it. */
+.buy-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 60;
+  display: none;
+  gap: 8px;
+  padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px));
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -10px 30px -24px rgb(0 0 0 / 0.55);
+}
+.buy-bar .btn { flex: 1 1 0; min-height: 48px; padding: 0 8px; font-size: 13px; }
+.buy-bar .btn-primary { flex: 1.1 1 0; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* On phones a dense instrument drawing keeps its 10px labels and pans
+ * horizontally instead of being shrunk back into illegibility. Same
+ * scroll-rail idiom as the test strip above it. */
+@media (max-width: 620px) {
+  .viz {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  .viz::-webkit-scrollbar { display: none; }
+  .viz > * { min-width: max-content; }
+  /* wide enough for "lux · zone VI" without an ellipsis */
+  .chain-node { min-width: 96px; }
+}
+
+@media (max-width: 1000px) {
+  .buy-bar { display: flex; }
+  body { padding-bottom: 76px; }
+  .sl-lamp { bottom: 88px; right: 16px; }
+  body:has(.mobile-nav:not([hidden])) .buy-bar,
+  body:has(.mobile-nav:not([hidden])) .sl-lamp { display: none; }
+  body:has(.mobile-nav:not([hidden])) { padding-bottom: 0; }
 }
 </style>
 <script type="application/ld+json">
@@ -3611,14 +3691,14 @@ html.safelight .zb-range-text { background: var(--deep); }
       <div class="hero-grid">
         <div class="hero-copy reveal">
           <p class="eyebrow">SafelightIO · digital darkroom exposure meter</p>
-          <h1>Darkroom printing,<br />one reading.</h1>
+          <h1>Darkroom printing, one reading.</h1>
           <p class="lead">SafelightIO replaces the test-strip ladder: one easel reading becomes exposure time, contrast grade, split-grade timing and a preview of the tones — before you cut paper. It comes in two forms: a 7″ touchscreen, or an Android wired dongle for your phone.</p>
           <p class="hero-price"><span>From</span> <span class="amount num">€120,00</span> <span aria-hidden="true">·</span> <span>Shipping at checkout</span></p>
           <div class="hero-cta">
             <a class="btn btn-primary" href="https://ko-fi.com/safelightio/shop" data-od-id="hero-buy">Buy SafelightIO</a>
             <a class="btn btn-secondary btn-arrow" href="#how-it-works">See how it works</a>
           </div>
-          <p class="trust">Handbuilt to order · 14-day returns · Ships Europe · South America · Canada · Asia · <a href="mailto:support@cyanowood.com">support@cyanowood.com</a></p>
+          <p class="trust">Handbuilt in Greece — ships in 3–5 working days · 14-day returns · Ships Europe · South America · Canada · Asia · <a href="mailto:support@cyanowood.com">support@cyanowood.com</a></p>
         </div>
 
         <figure class="hero-media reveal" data-od-id="hero-device">
@@ -3657,7 +3737,7 @@ html.safelight .zb-range-text { background: var(--deep); }
             <span class="reading-sub">Includes reciprocity correction</span>
           </div>
         </div>
-        <p class="reading-note">The meter keeps the paper's calibration constant, not a guess. Change the grade, the zone, or the paper and the time follows.</p>
+        <p class="reading-note">Lux is how much light the probe sees; one stop is half or double that light, so a tone one zone below V needs one stop more time. The filter factor and the reciprocity correction are already folded in — the last number is the number you dial in. Change the grade, the zone or the paper and the time follows.</p>
       </div>
     </div>
   </section>
@@ -3703,7 +3783,7 @@ html.safelight .zb-range-text { background: var(--deep); }
             </div>
             <h3>SafelightIO Android Wired Dongle</h3>
             <p class="pair-copy">The same meter in a USB-C dongle. Your Android phone runs the app and becomes the screen — and powers the meter.</p>
-            <p class="pair-need"><span>Needs</span> Android phone · USB-C host · data cable</p>
+            <p class="pair-need"><span>Needs</span> Android phone with USB-C and OTG · our free app, installed from the APK · a USB-C data cable</p>
             <dl class="pair-facts">
               <div><dt>Screen</dt><dd>Your Android phone</dd></div>
               <div><dt>Power</dt><dd>From the phone</dd></div>
@@ -3773,7 +3853,7 @@ html.safelight .zb-range-text { background: var(--deep); }
           <div class="zb-chip" aria-hidden="true"><span data-wedge-numeral>V</span></div>
           <div>
             <p class="zb-kicker">Zone <span data-wedge-numeral>V</span></p>
-            <h3 class="zb-name" data-wedge-name>Middle grey</h3>
+            <p class="zb-name" data-wedge-name>Middle grey</p>
             <p class="zb-desc" data-wedge-desc>18% reflectance — the tone every other reading is scaled back to.</p>
           </div>
           <dl class="zb-stats">
@@ -3789,6 +3869,7 @@ html.safelight .zb-range-text { background: var(--deep); }
         </div>
 
         <p class="zb-hint">Drag across the wedge, or step one zone with the arrow keys.</p>
+        <p class="sr-only" role="status" data-wedge-status></p>
       </div>
     </div>
   </section>
@@ -4878,13 +4959,15 @@ html.safelight .zb-range-text { background: var(--deep); }
     <div class="container">
       <img class="buy-logo" src="assets/HeaderLogo.webp" width="2481" height="468" alt="SafelightIO" loading="lazy" decoding="async" />
       <h2>One reading.<br />Then make the print.</h2>
-      <p class="lead">The 7″ Touchscreen and the Android Wired Dongle are handbuilt to order in Greece. Shipping to Europe, South America, Canada and Asia is calculated at checkout.</p>
+      <p class="lead">The 7″ Touchscreen and the Android Wired Dongle are handbuilt in Greece and ship in 3–5 working days. Shipping to Europe, South America, Canada and Asia is calculated at checkout.</p>
       <p class="buy-price num">From €120,00</p>
       <p class="hand-note buy-note">no account. no cloud. just light.</p>
       <div class="buy-cta">
-        <a class="btn btn-primary" href="https://ko-fi.com/safelightio/shop" data-od-id="buy-cta">Buy SafelightIO</a>
+        <a class="btn btn-primary" href="https://ko-fi.com/s/84316fa3dc" data-od-id="buy-cta">7″ Touchscreen · €260,00</a>
+        <a class="btn btn-secondary" href="https://ko-fi.com/s/636cfb67aa" data-od-id="buy-cta-dongle">Android Wired Dongle · €120,00</a>
+        <a class="buy-all" href="https://ko-fi.com/safelightio/shop" data-od-id="buy-all">Both models in the shop →</a>
       </div>
-      <p class="trust">Handbuilt to order · 14-day returns · Ships Europe · South America · Canada · Asia · <a href="mailto:support@cyanowood.com">support@cyanowood.com</a></p>
+      <p class="trust">Handbuilt in Greece — ships in 3–5 working days · 14-day returns · Ships Europe · South America · Canada · Asia · <a href="mailto:support@cyanowood.com">support@cyanowood.com</a></p>
     </div>
   </section>
 </main>
@@ -4928,11 +5011,16 @@ html.safelight .zb-range-text { background: var(--deep); }
       </div>
     </div>
     <div class="foot-bottom">
-      <p>© 2026 Cyanowood · SafelightIO. No analytics, cookies, or tracking pixels on this page. The shop and checkout are hosted by Ko-fi.</p>
+      <p>© 2026 Cyanowood · SafelightIO. Visits to this page are counted with Google Analytics (G-GDYVRYCJWP). The shop and checkout are hosted by Ko-fi.</p>
       <p><a href="#top">Back to top ↑</a> <span class="foot-hint"><span aria-hidden="true">·</span> The safelight in the corner works.</span></p>
     </div>
   </div>
 </footer>
+
+<div class="buy-bar" data-buy-bar>
+  <a class="btn btn-primary" href="https://ko-fi.com/s/84316fa3dc" aria-label="Buy the SafelightIO 7-inch Touchscreen, 260 euro">7″ meter · €260,00</a>
+  <a class="btn btn-secondary" href="https://ko-fi.com/s/636cfb67aa" aria-label="Buy the SafelightIO Android Wired Dongle, 120 euro">Dongle · €120,00</a>
+</div>
 
 <button class="sl-lamp" type="button" data-safelight-toggle aria-pressed="false" aria-label="Turn the safelight on and dim the room" data-od-id="safelight-toggle">
   <span class="sl-head" aria-hidden="true">
@@ -5153,6 +5241,7 @@ html.safelight .zb-range-text { background: var(--deep); }
   var descEl = bench.querySelector('[data-wedge-desc]');
   var stopsEl = bench.querySelector('[data-wedge-stops]');
   var multEl = bench.querySelector('[data-wedge-mult]');
+  var statusEl = bench.querySelector('[data-wedge-status]');
   if (!group || !steps.length) return;
 
   var STOPS = ['−5', '−4', '−3', '−2', '−1', '0', '+1', '+2', '+3', '+4', '+5'];
@@ -5166,6 +5255,7 @@ html.safelight .zb-range-text { background: var(--deep); }
 
   function select(index, moveFocus) {
     index = Math.max(0, Math.min(steps.length - 1, index));
+    var moved = index !== current;
     current = index;
 
     steps.forEach(function (step, i) {
@@ -5195,6 +5285,13 @@ html.safelight .zb-range-text { background: var(--deep); }
       stopsEl.textContent = STOPS[index] + (diff === 1 ? ' stop' : ' stops');
     }
     if (multEl) multEl.textContent = MULT[index];
+
+    if (statusEl && moved) {
+      statusEl.textContent = 'Zone ' + step.getAttribute('data-roman') + ', ' +
+        step.getAttribute('data-name') + '. ' +
+        (stopsEl ? stopsEl.textContent : '') + ' from Zone V, exposure ' +
+        MULT[index] + '.';
+    }
 
     place();
     if (moveFocus) step.focus();
@@ -5312,10 +5409,20 @@ html.safelight .zb-range-text { background: var(--deep); }
       try { video.focus({ preventScroll: true }); } catch (err) { video.focus(); }
     });
 
-    video.addEventListener('ended', function () {
+    function stop() {
       reel.classList.remove('is-playing');
       video.controls = false;
+    }
+
+    /* Pausing (native bar, or another clip starting) must restore the
+       designed play overlay, otherwise the tile latches a native control
+       bar over a hidden badge and looks broken. */
+    video.addEventListener('pause', stop);
+
+    video.addEventListener('ended', function () {
+      stop();
       video.currentTime = 0;
+      if (play) { try { play.focus({ preventScroll: true }); } catch (err) { play.focus(); } }
     });
   });
 })();
@@ -5525,11 +5632,15 @@ html.safelight .zb-range-text { background: var(--deep); }
 
   deck.addEventListener('wheel', function (event) {
     if (!fine.matches) return;
+    /* Vertical wheel belongs to the page. Only a deliberate horizontal
+       swipe turns the pile — without this guard the whole Craft column
+       trapped the scroll. */
+    if (Math.abs(event.deltaX) <= Math.abs(event.deltaY)) return;
     event.preventDefault();
     if (busy) return;
     var now = Date.now();
     if (now < wheelGate) return;
-    wheelAcc += event.deltaY;
+    wheelAcc += event.deltaX;
     if (Math.abs(wheelAcc) < 24) return;
     if (wheelAcc > 0) forward();
     else back();
