@@ -6,6 +6,8 @@ Open `index.html` in a browser. Images live in `assets/` and are referenced rela
 
 **Sell the reading, not the software.** The page opens with the instrument at the easel, then immediately works a real manual example: 2.84 lux at Zone VI → 1.42 lux at Zone V → grade 3 at 2.5× → 23.3 s. That plate is the argument in miniature, and it gives the headline ("Measure the print before you make it") something concrete to stand on.
 
+**The dongle is the instrument.** The Android Wired Dongle leads wherever the page has to choose: the hero copy and its call to action, the first card in the pair band, the phone buy bar, the closing block, the specs caption and the manual and firmware menus. The 7″ touchscreen is the standalone alternative — same five tools, its own screen and battery, €260 against the dongle's €120. Keep that order when editing; it is the reason the page opens on €120.
+
 **A darkroom document, not a SaaS landing page.** Warm paper surfaces, near-black ink, a single terracotta accent, an editorial serif for headlines, and monospace for every number. The tools chapter flips to dark, the way the room does when printing starts. No gradients-as-decoration, no stock photography, no testimonial theatre.
 
 **Evidence in the order a printer asks for it.** Five tools → craft and trust → "will it fit my darkroom?" → calibration → specifications → objections. Compatibility is a ledger, not a logo wall, and the paper list opens on demand. Fixed-grade behaviour and derived filter data are stated plainly, including the `~` convention.

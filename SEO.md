@@ -59,21 +59,18 @@ If the new home is `cyanowood.com`, the cleanest version is a Shopify page or a
 subdomain that serves this file, with the product page canonicalising to itself
 and linking here.
 
-## The dongle (described, not yet sold)
+## Two products, dongle first
 
-The page now covers two forms of the same meter: the 7-inch instrument and the
-USB-C dongle that uses an Android phone as its screen. The dongle is **not for
-sale**: there is no price, no CTA and no second `Offer` in the schema, and the
-buy block says so. The title still carries `darkroom printing`; the meta
-description now names both forms, which is the only SEO change this needed.
+The page sells two forms of the same meter and the USB-C dongle is the lead
+product: it opens the hero copy and the hero CTA, it is the first card in the
+pair band, the primary button in the phone buy bar and in the closing block, and
+it comes first in the specs caption, the manual menu, the firmware menu and the
+`@graph` order. The 7-inch touchscreen is the standalone alternative.
 
-When the dongle goes on sale:
-
-1. Add its Shopify product or variant link to the buy block (the 7-inch cart
-   link stays where it is).
-2. Either extend `Product` with a second `Offer`, or make the dongle its own
-   page if it gets a different price — one Offer with two prices is not valid.
-3. Update the buy lead: replace “the dongle is coming”.
+Each form has its own Ko-fi link and its own `Product` node with its own price
+(€120 dongle, €260 touchscreen) — one Offer carrying two prices would not be
+valid. The title stays device-neutral (`darkroom printing`); the meta and social
+descriptions name the dongle first, then the 7-inch.
 
 Downloads are live: the header **Firmware** menu now lists both UF2s and links
 the update guide, the footer lists both firmware files and the APK, and the FAQ
@@ -86,12 +83,12 @@ download is labelled without a version until the two agree.
 - **Search Console.** Verify `https://atriantas.github.io/SafelightIO/` with the
   HTML-file method (the prefix works), submit `sitemap.xml`, and check coverage
   after a week. Without it there is no way to see which queries the page earns.
-- **No analytics.** The page deliberately ships none; GSC impressions are enough
-  to start, and a privacy-friendly counter can come later.
-- **No backlinks.** One link from the Shopify product page to this page (and the
+- **Analytics.** The page now loads Google Analytics (`G-GDYVRYCJWP`); the footer
+  says so. Search Console still carries the query data that matters.
+- **No backlinks.** One link from each Ko-fi product page to this page (and the
   one added here in the footer) is the cheapest first citation.
 - **Host limits.** `github.io` is a shared host: no host-root robots.txt, no
   server redirects, and no domain authority of its own. Acceptable until the
   move, not a long-term home.
-- **Thin product page.** The Shopify page's description is ~300 characters; if
-  that page is meant to rank too, it needs the manual's detail, not a summary.
+- **Thin product pages.** The Ko-fi listings carry a short description; if they
+  are meant to rank too, they need the manual's detail, not a summary.
