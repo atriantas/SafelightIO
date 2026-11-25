@@ -6,8 +6,8 @@
 <!-- SEO: the page is canonical on GitHub Pages until it moves to its own server.
      When it moves, change the four absolute URLs below (canonical, og:url,
      og:image, twitter:image) and sitemap.xml together — they must agree. -->
-<title>SafelightIO — darkroom printing without test strips</title>
-<meta name="description" content="Darkroom printing without test strips: an Android wired dongle that turns your phone into the meter, or a standalone 7″ touchscreen. One easel reading gives exposure time, grade and split timing." />
+<title>SafelightIO — darkroom printing without the strip ladder</title>
+<meta name="description" content="Darkroom printing without the strip ladder: an Android wired dongle that turns your phone into the meter, or a standalone 7″ touchscreen. One easel reading gives exposure time, grade and split timing." />
 <meta name="color-scheme" content="light" />
 <meta name="theme-color" content="#f5f4ed" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -17,8 +17,8 @@
 <link rel="preload" as="image" href="assets/Hero.webp" type="image/webp" fetchpriority="high" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Cyanowood" />
-<meta property="og:title" content="SafelightIO — darkroom printing without test strips" />
-<meta property="og:description" content="Darkroom printing without test strips: an Android wired dongle that turns your phone into the meter, or a standalone 7″ touchscreen. One easel reading gives exposure time, grade and split timing." />
+<meta property="og:title" content="SafelightIO — darkroom printing without the strip ladder" />
+<meta property="og:description" content="Darkroom printing without the strip ladder: an Android wired dongle that turns your phone into the meter, or a standalone 7″ touchscreen. One easel reading gives exposure time, grade and split timing." />
 <meta property="og:url" content="https://atriantas.github.io/SafelightIO/" />
 <meta property="og:image" content="https://atriantas.github.io/SafelightIO/assets/og-safelightio.jpg" />
 <meta property="og:image:type" content="image/jpeg" />
@@ -26,7 +26,7 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="SafelightIO, a darkroom exposure meter on the easel of an enlarger, beside the line: measure the print before you make it." />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="SafelightIO — darkroom printing without test strips" />
+<meta name="twitter:title" content="SafelightIO — darkroom printing without the strip ladder" />
 <meta name="twitter:description" content="An Android wired dongle for darkroom printing, or a standalone 7″ meter. One easel reading gives exposure, grade and split-grade timing." />
 <meta name="twitter:image" content="https://atriantas.github.io/SafelightIO/assets/og-safelightio.jpg" />
 <!-- Google tag (gtag.js) -->
@@ -77,15 +77,14 @@ try {
 :root {
   /* ─── Surface (3 levels) ─────────────────────────────────────────
    * Parchment (bg) → Ivory (surface) → Warm Sand (surface-warm).
-   * Never use pure white as a page background — the warm cream IS
-   * the Claude personality. */
+   * Never pure white as the page background: the warm cream is the brand. */
   --bg: #f5f4ed;
   --surface: #faf9f5;
   --surface-warm: #e8e6dc;   /* Warm Sand — button bg, prominent interactive surfaces */
 
   /* ─── Foreground ramp (4 levels) ────────────────────────────────
    * Every gray carries a yellow-brown undertone. No cool blue-grays. */
-  --fg: #141413;             /* Anthropic Near Black — warmest "black" in any major tech brand */
+  --fg: #141413;             /* Near-black with a warm brown cast, never a neutral #000 */
   --fg-2: #3d3d3a;           /* Dark Warm — dark text links, emphasized secondary text */
   --muted: #5e5d59;          /* Olive Gray — secondary body text */
   --meta: #6f6e68;           /* Stone Gray — tertiary text, footnotes, metadata.
@@ -105,16 +104,9 @@ try {
   --accent-text: #9c5007;    /* Terracotta as TYPE. The fill colour above is
                               * 2.92:1 at label sizes; this one is 5.36 on
                               * --surface and 4.52 on --surface-warm. */
-  --accent-hover: color-mix(in oklab, var(--accent), black 8%);
-  --accent-active: color-mix(in oklab, var(--accent), black 14%);
-
-  /* ─── Semantic ────────────────────────────────────────────────────
-   * Error Crimson is a warm, deep red — serious without alarming.
-   * Focus Blue (#3898ec) is the sole cool color in the system,
-   * reserved for accessibility (input focus rings). */
-  --success: #17a34a;
-  --warn: #eab308;
-  --danger: #b53333;         /* Error Crimson — warm red, not standard danger red */
+  /* No status palette: this page has no forms, no async states and no
+   * errors to report. Anything added later has to be derived per theme
+   * and checked against the surface it lands on. */
 
   /* ─── Typography ──────────────────────────────────────────────────
    * Only two families ship inside this file: Fraunces (2 faces) for
@@ -159,26 +151,13 @@ try {
   --section-y-phone: 48px;
 
   /* ─── Radius ──────────────────────────────────────────────────────
-   * Claude's softness: comfortably rounded (8px) for standard,
-   * generously rounded (12px) for primary, very rounded (16px) for
-   * featured containers. No sharp corners — softness is core identity. */
+   * Comfortably rounded (8px) for standard, generously rounded (12px)
+   * for primary, very rounded (16px) for featured containers. No sharp
+   * corners: the softness is part of the identity. */
   --radius-sm: 8px;          /* Comfortably rounded — standard buttons, cards */
   --radius-md: 12px;         /* Generously rounded — primary buttons, inputs, nav */
   --radius-lg: 16px;         /* Very rounded — featured containers, video players */
   --radius-pill: 9999px;     /* Chip-like elements (use sparingly) */
-
-  /* ─── Elevation ───────────────────────────────────────────────────
-   * Ring shadows (0px 0px 0px 1px) instead of drop shadows.
-   * The signature is a border-like halo — shadow pretending to be
-   * a border. Drop shadows only at 0.05 opacity when truly needed. */
-  --elev-flat: none;
-  --elev-ring: 0 0 0 1px var(--border);          /* Border-like halo */
-  --elev-raised: rgba(0, 0, 0, 0.05) 0px 4px 24px; /* Whisper soft — barely visible lift */
-
-  /* ─── Focus ring ──────────────────────────────────────────────────
-   * Focus Blue (#3898ec) is the ONLY cool color in the Claude system.
-   * Reserved exclusively for accessibility / keyboard focus. */
-  --focus-ring: 0 0 0 3px rgba(56, 152, 236, 0.3);
 
   /* ─── Motion ──────────────────────────────────────────────────────
    * Short, purposeful transitions. The editorial warmth doesn't need
@@ -304,7 +283,7 @@ html.nav-over-dark .menu-btn:hover { border-color: var(--surface); }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 26px;
+  gap: 16px;
   min-height: 70px;
 }
 .brand {
@@ -335,7 +314,7 @@ html.safelight .brand-logo-room { display: block; }
   gap: 7px;
   white-space: nowrap;
   min-height: 44px;
-  padding: 0 9px;
+  padding: 0 7px;
   border-radius: var(--radius-sm);
   color: var(--muted);
   font-family: var(--font-mono);
@@ -441,7 +420,7 @@ html.nav-over-dark .nav-manual[open] > summary {
   color: var(--accent-text);
 }
 .manual-all:hover { color: color-mix(in oklab, var(--accent-text), black 14%); }
-.nav-links { display: flex; align-items: center; gap: 26px; flex: 0 0 auto; }
+.nav-links { display: flex; align-items: center; gap: 14px; flex: 0 0 auto; }
 .nav-links a {
   padding-block: 11px;
   font-size: 14px;
@@ -993,7 +972,7 @@ html.nav-over-dark .nav-manual[open] > summary {
 }
 .strip-panel[hidden] { display: none !important; }
 @media screen and (prefers-reduced-motion: no-preference) {
-  .strip-panel:not([hidden]) { animation: develop 620ms var(--ease-standard) both; }
+  .strip-panels:not(.is-switched) .strip-panel:not([hidden]) { animation: develop 620ms var(--ease-standard) both; }
 }
 @keyframes develop {
   0% { opacity: 0; filter: blur(7px) brightness(1.22); transform: translateY(12px); }
@@ -1103,7 +1082,9 @@ html.nav-over-dark .nav-manual[open] > summary {
   transition: background-color 220ms var(--ease-standard), box-shadow 220ms var(--ease-standard);
 }
 .strip-tab:first-child { border-left: 0; }
-.strip-tab:hover { background-color: color-mix(in oklab, var(--tone) 88%, var(--strip-ink)); }
+@media (hover: hover) {
+  .strip-tab:hover { background-color: color-mix(in oklab, var(--tone) 88%, var(--strip-ink)); }
+}
 .strip-tab:active { background-color: color-mix(in oklab, var(--tone) 80%, var(--strip-ink)); }
 .strip-tab.is-active {
   box-shadow: inset 0 0 0 2px var(--tone-ink);
@@ -1170,7 +1151,7 @@ html.nav-over-dark .nav-manual[open] > summary {
 html.safelight .strip { box-shadow: 0 34px 64px -40px oklch(0 0 0 / 0.9), 0 0 0 1px var(--line); }
 
 /* developing sweep across the plate when a step is chosen */
-.strip-panel:not([hidden]) .flow::after {
+.strip-panels:not(.is-switched) .strip-panel:not([hidden]) .flow::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -2095,10 +2076,12 @@ html.safelight .tools { --plate-base: var(--deep); }
     border-color 0.2s var(--ease-standard),
     color 0.2s var(--ease-standard);
 }
-.pd-btn:hover {
-  background: var(--surface);
-  border-color: var(--meta);
-  color: var(--fg);
+@media (hover: hover) {
+  .pd-btn:hover {
+    background: var(--surface);
+    border-color: var(--meta);
+    color: var(--fg);
+  }
 }
 .pd-btn:active { background: var(--surface-warm); }
 .pd-btn:focus-visible {
@@ -2112,10 +2095,12 @@ html.safelight .polaroid {
   --paper-ink: oklch(0.28 0.02 45);
   --paper-meta: oklch(0.48 0.03 45);
 }
-html.safelight .pd-btn:hover {
-  background: var(--surface);
-  border-color: var(--muted);
-  color: var(--fg);
+@media (hover: hover) {
+  html.safelight .pd-btn:hover {
+    background: var(--surface);
+    border-color: var(--muted);
+    color: var(--fg);
+  }
 }
 
 /* ── compatibility ───────────────────────────────────────────────── */
@@ -2438,8 +2423,10 @@ html.safelight .pd-btn:hover {
   background: color-mix(in oklab, var(--fg) 82%, black);
   transition: border-color var(--motion-base) var(--ease-standard);
 }
-.reel:hover .reel-frame,
 .reel:focus-within .reel-frame { border-color: color-mix(in oklab, var(--accent) 52%, var(--line)); }
+@media (hover: hover) {
+  .reel:hover .reel-frame { border-color: color-mix(in oklab, var(--accent) 52%, var(--line)); }
+}
 .reel video {
   display: block;
   width: 100%;
@@ -2877,6 +2864,19 @@ html.safelight img { filter: sepia(0.5) saturate(1.12) brightness(0.86); }
 }
 .sl-lamp:hover .sl-label,
 .sl-lamp:focus-visible .sl-label { opacity: 1; transform: translate(-50%, 0); }
+/* touch has neither hover nor :focus-visible, so the fixture's only
+ * instruction would never appear */
+@media (hover: none) {
+  /* anchored to the lamp's right edge so the pill cannot leave the
+   * viewport on a 320px-wide phone */
+  .sl-label {
+    opacity: 1;
+    left: auto;
+    right: 0;
+    transform: translate(0, 0);
+  }
+  .sl-label::after { left: auto; right: 20px; transform: none; }
+}
 .sl-lamp:hover .sl-head { transform: translateY(-1px); }
 .sl-lamp:hover .sl-chain { transform: rotate(1.2deg); }
 html.safelight .sl-lens {
@@ -2976,7 +2976,10 @@ html.safelight .zb-range-text { background: var(--deep); }
   cursor: ew-resize;
   transition: filter var(--motion-fast) var(--ease-standard);
 }
-.zb-step:hover { filter: brightness(1.07); }
+@media (hover: hover) {
+  .zb-step:hover { filter: brightness(1.07); }
+}
+.zb-step:active { filter: brightness(0.94); }
 .zb-step:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: -3px;
@@ -3147,14 +3150,14 @@ html.safelight .zb-range-text { background: var(--deep); }
   .nav-links { gap: 18px; }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1330px) {
   .nav-util { padding-inline: 8px; }
   .nav-util .util-label { display: none; }
 }
 
 @media (max-width: 1090px) {
-  .nav-inner { gap: 20px; }
-  .nav-links { gap: 18px; }
+  .nav-inner { gap: 14px; }
+  .nav-links { gap: 14px; }
   .reading-cell { padding-inline: 18px; }
 }
 
@@ -3301,6 +3304,17 @@ html.safelight .zb-range-text { background: var(--deep); }
   .strip-note + .strip-note { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); margin-top: 26px; }
   .strip-note p { max-width: 62ch; }
 }
+
+/* ── one section-heading scale ────────────────────────────────────────
+ * Same-level titles had drifted to 42/44/52/54/56/58px, none of them the
+ * 52px section token. Grouped here so the level cannot drift again. */
+.sec-head h2,
+.pair-head h2,
+.tools-head h2,
+.craft-copy h2,
+.specs-side h2,
+.faq-side h2,
+.buy h2 { font-size: clamp(32px, 4vw, 52px); }
 
 /* ── persistent purchase action (phones and small tablets) ────────────
  * Under 1000px the header hides .nav-buy, which left a page that is
@@ -3573,6 +3587,7 @@ html.safelight .zb-range-text { background: var(--deep); }
       <img class="brand-logo brand-logo-room" src="assets/HeaderLogo.webp" width="2481" height="468" alt="" />
     </a>
     <nav class="nav-links" aria-label="Primary">
+      <a href="#two-instruments">Two forms</a>
       <a href="#how-it-works">How it works</a>
       <a href="#reels">Reels</a>
       <a href="#craft">Craft</a>
@@ -3642,13 +3657,14 @@ html.safelight .zb-range-text { background: var(--deep); }
   <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile" data-nav-panel hidden>
     <div class="container">
       <ul>
-        <li><a href="#how-it-works">How it works <span>01</span></a></li>
-        <li><a href="#reels">From the darkroom <span>02</span></a></li>
-        <li><a href="#craft">Craft <span>03</span></a></li>
-        <li><a href="#compatibility">Compatibility <span>04</span></a></li>
-        <li><a href="#setup">Setup <span>05</span></a></li>
-        <li><a href="#specs">Specifications <span>06</span></a></li>
-        <li><a href="#faq">FAQ <span>07</span></a></li>
+        <li><a href="#two-instruments">Two forms <span>01</span></a></li>
+        <li><a href="#how-it-works">How it works <span>02</span></a></li>
+        <li><a href="#reels">From the darkroom <span>03</span></a></li>
+        <li><a href="#craft">Craft <span>04</span></a></li>
+        <li><a href="#compatibility">Compatibility <span>05</span></a></li>
+        <li><a href="#setup">Setup <span>06</span></a></li>
+        <li><a href="#specs">Specifications <span>07</span></a></li>
+        <li><a href="#faq">FAQ <span>08</span></a></li>
       </ul>
       <a class="btn btn-primary m-cta" href="https://ko-fi.com/safelightio/shop">Buy SafelightIO</a>
       <div class="mobile-utils">
@@ -3764,6 +3780,7 @@ html.safelight .zb-range-text { background: var(--deep); }
             <p class="pair-copy">The same meter in a USB-C dongle. Your Android phone runs the app and becomes the screen — and powers the meter.</p>
             <p class="pair-need"><span>Needs</span> Android phone with USB-C and OTG · our free app, installed from the APK · a USB-C data cable</p>
             <dl class="pair-facts">
+              <div><dt>Price</dt><dd class="num">€120,00</dd></div>
               <div><dt>Screen</dt><dd>Your Android phone</dd></div>
               <div><dt>Power</dt><dd>From the phone</dd></div>
               <div><dt>Probe</dt><dd>At the dongle's far end</dd></div>
@@ -3785,6 +3802,7 @@ html.safelight .zb-range-text { background: var(--deep); }
             <p class="pair-copy">Screen, battery and tethered probe — one instrument to carry. Nothing else to bring, pair or charge at the easel.</p>
             <p class="pair-need"><span>Needs</span> nothing else to run it</p>
             <dl class="pair-facts">
+              <div><dt>Price</dt><dd class="num">€260,00</dd></div>
               <div><dt>Screen</dt><dd>7″ touchscreen</dd></div>
               <div><dt>Power</dt><dd>Its own battery</dd></div>
               <div><dt>Probe</dt><dd>Tethered to the meter</dd></div>
@@ -4601,7 +4619,7 @@ html.safelight .zb-range-text { background: var(--deep); }
         <div class="polaroid-module reveal" data-od-id="craft-stack">
           <div class="polaroid-head">
             <span class="polaroid-kicker">From the bench</span>
-            <span class="polaroid-count" aria-live="polite" aria-atomic="true"><span data-deck-count>01</span><span class="sep">/</span>14</span>
+            <span class="polaroid-count" aria-live="polite" aria-atomic="true"><span data-deck-count>01</span><span class="sr-only" data-deck-status></span><span class="sep">/</span>14</span>
           </div>
           <div class="polaroid-deck" data-deck tabindex="0" role="group" aria-roledescription="photo stack" aria-label="Fourteen polaroids from the SafelightIO bench. Click, scroll, or use the arrow keys to move the top print to the back.">
             <figure class="polaroid" data-no="01" style="--d:0;--rot:0.8deg;z-index:40">
@@ -5022,7 +5040,7 @@ html.safelight .zb-range-text { background: var(--deep); }
   <a class="btn btn-secondary" href="https://ko-fi.com/s/84316fa3dc" aria-label="Buy the SafelightIO 7-inch Touchscreen, 260 euro">7″ meter · €260,00</a>
 </div>
 
-<button class="sl-lamp" type="button" data-safelight-toggle aria-pressed="false" aria-label="Turn the safelight on and dim the room" data-od-id="safelight-toggle">
+<button class="sl-lamp" type="button" data-safelight-toggle aria-pressed="false" aria-label="Pull the cord — darkroom safelight mode" data-od-id="safelight-toggle">
   <span class="sl-head" aria-hidden="true">
     <span class="sl-lens"></span>
     <span class="sl-cage"></span>
@@ -5144,6 +5162,7 @@ html.safelight .zb-range-text { background: var(--deep); }
 (function () {
   var wrap = document.querySelector('[data-strip]');
   if (!wrap) return;
+  var panelsWrap = document.querySelector('.strip-panels');
   var track = wrap.querySelector('[data-strip-track]');
   var rail = wrap.querySelector('[role="tablist"]');
   var tabs = Array.prototype.slice.call(wrap.querySelectorAll('[data-strip-tab]'));
@@ -5181,11 +5200,12 @@ html.safelight .zb-range-text { background: var(--deep); }
   }
 
   tabs.forEach(function (tab, i) {
-    tab.addEventListener('click', function () { expose(i, false); });
+    tab.addEventListener('click', function () { if (panelsWrap) panelsWrap.classList.add('is-switched'); expose(i, false); });
   });
 
   rail.addEventListener('keydown', function (event) {
     var key = event.key;
+    if (panelsWrap) panelsWrap.classList.add('is-switched');
     if (key === 'ArrowRight' || key === 'ArrowDown') { event.preventDefault(); expose(index + 1, true); }
     else if (key === 'ArrowLeft' || key === 'ArrowUp') { event.preventDefault(); expose(index - 1, true); }
     else if (key === 'Home') { event.preventDefault(); expose(0, true); }
@@ -5203,9 +5223,6 @@ html.safelight .zb-range-text { background: var(--deep); }
   function apply(on) {
     root.classList.toggle('safelight', on);
     lamp.setAttribute('aria-pressed', on ? 'true' : 'false');
-    lamp.setAttribute('aria-label', on
-      ? 'Turn the safelight off and bring the room lights up'
-      : 'Turn the safelight on and dim the room');
     var meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute('content', on ? '#220d07' : '#f5f4ed');
     window.dispatchEvent(new Event('nav:repaint'));
@@ -5513,6 +5530,7 @@ html.safelight .zb-range-text { background: var(--deep); }
   if (cards.length < 2) return;
 
   var out = document.querySelector('[data-deck-count]');
+  var statusOut = document.querySelector('[data-deck-status]');
   var nextBtn = document.querySelector('[data-deck-next]');
   var prevBtn = document.querySelector('[data-deck-prev]');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -5542,10 +5560,15 @@ html.safelight .zb-range-text { background: var(--deep); }
   function syncTop() {
     cards.forEach(function (el, i) {
       el.classList.toggle('is-top', i === 0);
-      if (i === 0) el.removeAttribute('aria-hidden');
-      else el.setAttribute('aria-hidden', 'true');
     });
     if (out) out.textContent = cards[0].getAttribute('data-no');
+    /* The live region used to announce a bare number while marking the
+       other thirteen prints aria-hidden, so the caption was unreachable.
+       Name the print instead. */
+    if (statusOut) {
+      var title = cards[0].querySelector('.ptitle');
+      statusOut.textContent = title ? ', ' + title.textContent.replace(/\.$/, '') : '';
+    }
   }
 
   function forward(instant) {
