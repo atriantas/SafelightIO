@@ -4,7 +4,7 @@ Open `index.html` in a browser. Images live in `assets/` and are referenced rela
 
 ## Design rationale
 
-**Sell the reading, not the software.** The page opens with the instrument at the easel, then immediately works a real manual example: 2.84 lux at Zone VI → 1.42 lux at Zone V → grade 3 at 2.5× → 23.3 s. That plate is the argument in miniature, and it gives the headline ("Measure the print before you make it") something concrete to stand on.
+**Sell the reading, not the software.** The page opens with the instrument at the easel, then immediately works a real manual example: 2.84 lux at Zone VI → 1.42 lux at Zone V → grade 3 at 2.5× → 23.3 s. That plate is the argument in miniature, and it gives the headline ("Darkroom meter that ends the test strips") something concrete to stand on. The headline explains the device and the keyword lives where search actually reads it: "digital darkroom exposure meter" in the eyebrow directly above, and "darkroom exposure meter" in the title tag, the meta description and the Product category.
 
 **The dongle is the instrument.** The Android Wired Dongle leads wherever the page has to choose: the hero copy and its call to action, the first card in the pair band, the phone buy bar, the closing block, the specs caption and the manual and firmware menus. The 7″ touchscreen is the standalone alternative — same five tools, its own screen and battery, €260 against the dongle's €120. Keep that order when editing; it is the reason the page opens on €120.
 
