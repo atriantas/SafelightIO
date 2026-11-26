@@ -3146,10 +3146,19 @@ html.safelight .zb-range-text { background: var(--deep); }
   .sec-head, .tools-head { grid-template-columns: 1fr; gap: 14px; }
   .sec-head .lead, .tools-head .lead { grid-column: auto; }
   .zb-note { grid-column: auto; max-width: 34ch; margin-top: 2px; }
-  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-  /* On phones the instrument opens the page: the photograph moves above the
-   * headline while the DOM keeps heading-first order for assistive tech. */
-  .hero-media { order: -1; max-width: 640px; margin-inline: auto; }
+  /* On phones the page opens as a cover: eyebrow, then the photograph, then
+   * the headline. The copy wrapper is dissolved with display: contents so the
+   * eyebrow can sit above the figure without moving the DOM — desktop keeps
+   * its two columns and assistive tech still meets the h1 before the figure. */
+  .hero-grid { grid-template-columns: 1fr; row-gap: 0; }
+  .hero-copy { display: contents; }
+  .hero-copy .eyebrow { order: 1; }
+  .hero-media { order: 2; max-width: 640px; margin: 0 auto 26px; }
+  .hero-copy h1 { order: 3; }
+  .hero .lead { order: 4; }
+  .hero-price { order: 5; }
+  .hero-cta { order: 6; }
+  .hero .trust { order: 7; }
   .strip-panel { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .strip-panel p { max-width: 60ch; }
   .craft-grid, .setup-grid { grid-template-columns: 1fr; }
