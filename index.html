@@ -3147,7 +3147,9 @@ html.safelight .zb-range-text { background: var(--deep); }
   .sec-head .lead, .tools-head .lead { grid-column: auto; }
   .zb-note { grid-column: auto; max-width: 34ch; margin-top: 2px; }
   .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-  .hero-media { max-width: 640px; margin-inline: auto; }
+  /* On phones the instrument opens the page: the photograph moves above the
+   * headline while the DOM keeps heading-first order for assistive tech. */
+  .hero-media { order: -1; max-width: 640px; margin-inline: auto; }
   .strip-panel { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .strip-panel p { max-width: 60ch; }
   .craft-grid, .setup-grid { grid-template-columns: 1fr; }
