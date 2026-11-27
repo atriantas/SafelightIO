@@ -3468,6 +3468,14 @@ html.safelight .zb-range-text { background: var(--deep); }
       "mainEntity": [
         {
           "@type": "Question",
+          "name": "Which one should I get?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both run the same five tools, the same paper list and the same filter data. The Android Wired Dongle is the smaller, cheaper kit — your phone runs the app and becomes the screen, so it needs USB-C host support, a data cable and the free APK installed. Choose the 7″ Touchscreen instead if you want a standalone instrument with its own screen and battery and nothing to plug in."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "I'm fine with test strips. Why change?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -3528,14 +3536,6 @@ html.safelight .zb-range-text { background: var(--deep); }
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "About five minutes once per device for the sensor: a dark-offset sweep takes roughly 30 seconds at 100 ms integration and up to about three minutes at 600 ms, then a two-phase light calibration under your enlarger's own lamp. Then about fifteen minutes per paper: one reading, one test strip, two numbers."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How long does the 7-inch battery last, and how do I charge it?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The manual does not publish a runtime, so we do not either. It runs from a LiPo cell charged over USB-C at the left side. The battery bar shows a load-compensated percentage and changes to Charging, Fully charged, or Battery absent. At 10% a red charge-now warning replaces the bar, and there is deliberately no auto-sleep."
           }
         },
         {
@@ -4916,7 +4916,7 @@ html.safelight .zb-range-text { background: var(--deep); }
           <details class="faq-item">
             <summary>Do I need a phone or a computer?</summary>
             <div class="faq-answer">
-              <p>Not for the 7-inch: it is standalone; the microSD card is optional — settings backup, session export, custom papers. Without one, everything lives in internal flash. The dongle has no screen: it needs an Android phone with USB-C and OTG, a data cable, and the <a href="assets/SafelightIO_Dongle.apk" download="SafelightIO_Dongle.apk" type="application/vnd.android.package-archive">SafelightIO app (APK, 12.9&nbsp;MB)</a>. Neither needs a computer except for firmware.</p>
+              <p>Not for the 7-inch: it is standalone; the microSD card stores the settings backup, session export, custom papers. Without one, everything lives in internal flash. The dongle has no screen: it needs an Android phone with USB-C and OTG, a data cable, and the <a href="assets/SafelightIO_Dongle.apk" download="SafelightIO_Dongle.apk" type="application/vnd.android.package-archive">SafelightIO app (APK, 12.9&nbsp;MB)</a>. Neither needs a computer except for firmware.</p>
             </div>
           </details>
           <details class="faq-item">
@@ -4937,13 +4937,6 @@ html.safelight .zb-range-text { background: var(--deep); }
             <div class="faq-answer">
               <p>About five minutes once per device for the sensor: a dark-offset sweep takes roughly 30 seconds at 100 ms integration and up to about three minutes at 600 ms, then a two-phase light calibration under your enlarger’s own lamp.</p>
               <p>Then about fifteen minutes per paper: one reading, one test strip, two numbers. After that the paper is done — redo it only if the developer, lens, or your confidence in the old calibration changes.</p>
-            </div>
-          </details>
-          <details class="faq-item">
-            <summary>How long does the 7-inch battery last, and how do I charge it?</summary>
-            <div class="faq-answer">
-              <p>The manual does not publish a runtime, so we do not either. It runs from a LiPo cell charged over USB-C at the left side. The battery bar shows a load-compensated percentage and changes to Charging, Fully charged, or Battery absent.</p>
-              <p>At 10% a red charge-now warning replaces the bar. There is deliberately no auto-sleep, so the meter keeps running until you plug it in — charge it before that warning if you can.</p>
             </div>
           </details>
           <details class="faq-item">
